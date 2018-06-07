@@ -18,6 +18,9 @@ Learning Objectives:
 
 -   Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps.
 
+## Target Audience
+Application Deveoper
+
 ## Whiteboard Design Session
 TBD
 
