@@ -219,6 +219,7 @@ In addition to the email alert notifications, Litware would like to have a centr
 
 "Our directors want to see where we can take the notion of a serverless architecture, and see if there truly are long-term performance and cost benefits," says Burris. "With the unexpected windfall of the toll booths contract, they want to make sure we have a tested strategy we can fall back on in the future when our IT and development teams are called upon once again to achieve the impossible."
 
+As a stretch goal, Litware would like to know that the license processing pipeline they have implemented is extensible to any number of future scenarios that are made possible once the license plate has been successfully processed. The one scenario they currently have in mind is how the pipeline would support more advanced analytics, providing the capability to process the licenses plates in a streaming fashion as well as to process historical license plate capture events in a batch fashion (e.g., that could scale to analyze the historical data in the 10's of terabytes). They are curious if these analytic scenarios could also be implemented using a serverless architecture. 
 
 ### Customer needs 
 
@@ -236,7 +237,7 @@ In addition to the email alert notifications, Litware would like to have a centr
 
 7.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts.
 
-
+8.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future.
 
 ### Customer objections 
 
@@ -300,6 +301,13 @@ Directions: With all participants at your table, respond to the following questi
 1.  What Azure service would you recommend to create an automated workflow that runs on a regular interval to export processed license plate data and send alerts as needed?
 
 2.  Which other services would you integrate into your workflow?
+
+*Extensible serverless analytics*
+
+
+1.  Assuming they would like to be able to plug-in more solutions that respond to the event when a license plate has been successfully extracted from an image, how would you extend your solution using Event Grid? Be specific on the system topics, custom topics and subscriptions at play.
+
+2.  What pipeline would you plug-into an Event Grid subscription listening for license plate events that could be used to provide real-time and batch analytics as a serverless solution?
 
 *Monitoring and DevOps*
 
@@ -474,6 +482,21 @@ The primary audience is the business decision makers and technology decision mak
 2.  *Which other services would you integrate into your workflow?*
 
     Litware has stated that they use Office 365 services for their email. Logic Apps can use the Office 365 Outlook connector to send emails to any number of recipients. Start by adding a condition after the call to the Azure function. This condition needs to evaluate the response code sent by the function to determine whether the email step is fired. If the code is not equal to 200 (OK status), then the email should be sent with information in the body crafted based on the response code. For instance, the function should return a 204 (NoContent) status code if no license plate data was found that needs to be exported. This would indicate that no photos were processed in the period since the previous trigger interval, possibly indicating a situation out of the norm that should be investigated more closely.
+
+*Extensible serverless analytics*
+
+
+1.  Assuming they would like to be able to plug-in more solutions that respond to the event when a license plate has been successfully extracted from an image, how would you extend your solution using Event Grid? Be specific on the system topics, custom topics and subscriptions at play.
+    As the following diagram illustrates, Litware could design their solution to be extensible by using an Event Grid Custom Topic. Whenever the license plate image is successfully processed, the Azure Function that saves the license plate data to Cosmos DB, could instead be extended to enqueue an event into a Custom Topic with an event type of "LicensePlate.Processed", and a data payload of the image path (in Blob storage), the extracted license plate text, and the timestamp the image was captured. Other Event Grid subscriptions could later be created against this topic, listening for events of the aforementioned type. 
+
+    ![The Solution diagram is described in the text preceding and following this diagram.](images/Whiteboarddesignsessiontrainerguide-Serverlessarchitectureimages/media/image4.png "Solution diagram")
+
+2.  What pipeline would you plug-into an Event Grid subscription listening for license plate events that could be used to provide real-time and batch analytics as a serverless solution?
+    The previous diagram illustrates this solution. With the aforementioned custom topic in place, you could achieve the both near real-time and batch analytics by configuring a new subscription that use an Event Hubs instance as the handler. 
+    
+    You would configure Event Hubs Capture to write the ingested messages on a periodic basis (defined in terms of the volume of messages in MB or the length of a sliding window) to Azure Storage. From Azure Storage you could use Azure Data Lake Analytics to batch process the data, join it with other lookup data or perform other transformations. Azure Data Lake Analytics allocates resources to your jobs automatically, and is completely serverless. 
+
+    Similarly, from the same Event Hubs instance you could connect Azure Stream Analytics to apply standing SQL queries to analyze the time-series data (such as by computing aggregates over windows of time) in near-realtime and output the result to a number of Azure services like SQL Database or Power BI. 
 
 *Monitoring and DevOps*
 
