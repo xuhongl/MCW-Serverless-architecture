@@ -1,7 +1,7 @@
 # Serverless architecture
 
 ## Target audience
--Application developer
+- Application developer
 
 ## Abstract
 
