@@ -24,7 +24,7 @@ TBD
 ### Hand-on Lab
 TBD
 
-### Azure services and related products
+## Azure services and related products
 TBD
 
 ## Azure services and related products
