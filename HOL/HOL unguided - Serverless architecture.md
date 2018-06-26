@@ -1,4 +1,5 @@
-![](images/HeaderPic.png "Microsoft Cloud Workshops")
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+
 
 <div class="MCWHeader1"
 Serverless architecture
@@ -11,7 +12,7 @@ Hands-on lab unguided
 </div>
 
 <div class="MCWHeader3">
-January 2018
+June 2018
 </div>
 
 
@@ -768,11 +769,15 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 In this exercise, attendees will deprovision any Azure resources that were created in support of the lab.
 
-### Task 1: Delete the Resource Group in which you placed your Azure resources.
+### Task 1: Delete the Resource group in which you placed your Azure resources.
 
--   From the Portal, navigate to the blade of your Resource Group and select Delete in the command bar at the top.
+1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top.
 
--   Confirm the deletion by re-typing the resource group name and selecting Delete.
+2.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**.
+
+3. If you created a different resource group for your virtual machined, be sure to delete that as well.
+
+4. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
 
 You should follow all steps provided *after* attending the hands-on lab.
 

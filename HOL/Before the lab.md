@@ -64,7 +64,16 @@ Note: Sometimes this image has IE ESC disabled. Sometimes it does not.
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, under Administrators, the Off button is selected.](images/Setup/image7.png "Internet Explorer Enhanced Security Configuration dialog box")
 
-### Task 3: Validate connectivity to Azure
+### Task 3: Install Google Chrome
+
+Note: Some aspects of this lab require the use of Google Chrome. You may find yourself blocked if using Internet Explorer later in the lab.
+
+1. Launch Internet Explorer and download [Google Chrome](https://www.google.com/chrome/).
+
+2. Follow the setup instructions and make sure you can run Chrome to navigate to any webpage. 
+
+
+### Task 4: Validate connectivity to Azure
 
 1.  From within the virtual machine, launch Visual Studio and validate that you can log in with your Microsoft Account when prompted.
 
@@ -72,11 +81,11 @@ Note: Sometimes this image has IE ESC disabled. Sometimes it does not.
 
     ![In Server Explorer, Azure is selected, and its right-click menu displays with options to Refresh, Connect to Microsoft Azure Subscription, Manage and Filter Subscriptions, or Open the Getting Started Page.](images/Setup/image8.png "Server Explorer")
 
-### Task 4: Download and explore the TollBooth starter solution
+### Task 5: Download and explore the TollBooth starter solution
 
 1.  Create a new folder on your C: drive named **Hackathon**.
 
-2.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder. You will need to copy and paste the URL into your browser, as Ctrl+Click does not honor casing in the URL.
+2.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder. 
 
 Note: The link above is case sensitive.
 
@@ -90,7 +99,7 @@ Note: The link above is case sensitive.
 
 4.  Go back to the Hackathon folder and open the **license plates** subfolder. It contains sample license plate photos used for testing out the solution. One of the photos is guaranteed to fail OCR processing, which is meant to show how the workload is designed to handle such failures. The **copyfrom** folder is used by the UploadImages project as a basis for the 1,000 photo upload for testing scalability.
 
-### Task 5: Create a new Azure Resource group
+### Task 6: Create a new Azure Resource group
 
 1.  Within the Azure Management Portal, open the **Resource groups** tile and\
     select **Add**.

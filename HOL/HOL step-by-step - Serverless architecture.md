@@ -1,4 +1,5 @@
-![](images/HeaderPic.png "Microsoft Cloud Workshops")
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+
 
 <div class="MCWHeader1"
 Serverless architecture
@@ -11,7 +12,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-January 2018
+June 2018
 </div>
 
 
@@ -176,7 +177,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     e.  Ensure the **Location** is the same region as the resource group.
 
-        ![Fields in the Create strorage account blade are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image12.png "Create strorage account blade")
+    ![Fields in the Create storage account blade are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image12.png "Create strorage account blade")
 
 4.  Select **Create**.
 
@@ -192,7 +193,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 7.  Paste the value into a text editor, such as Notepad, for later reference.
 
-8.  Select **Containers** under **Settings** in the left-hand menu. Then on the **Containers** blade, select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private** for the public access level, then select **OK** to save.\
+8.  Select **Containers** under **Blob Service** in the left-hand menu. Then on the **Containers** blade, select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private** for the public access level, then select **OK** to save.\
     ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access). ](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image16.png "Storage and Containers blades")
 
 9.  Repeat these steps to create a container named **export**.
@@ -221,7 +222,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     f.  Ensure **Off** is selected for **Application Insights** (we'll add this later).
 
-        ![Fields in the Function App blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image18.png "Function App blade")
+    ![Fields in the Function App blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image18.png "Function App blade")
 
 5.  Select **Create**.
 
@@ -318,7 +319,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     c.  Storage capacity: **Fixed**.
 
-    d.  Throughput: **5000**.\
+    d.  Throughput: **5000**.
     
     ![In the Add Collection blade, fields are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image27.png "Add Collection blade")
 
@@ -479,7 +480,7 @@ In this task, you will publish the Function App from the starter project in Visu
 2.  Right-click the **TollBooth** project and select **Publish...** from the context menu.\
     ![In Solution Explorer, TollBooth is selected, and in its right-click menu, Publish is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image39.png "Solution Explorer ")
 
-3.  In the Publish window that appears, make sure **Azure Function App** is selected, choose the **Select Existing** radio button, then select **Publish**.\
+3.  In the Pick a Publish Target window that appears, make sure **Azure Function App** is selected, choose the **Select Existing** radio button, then select **Publish**.\
     ![In the Publish window, the Azure Function App tile is selected. Under this, both the Select Existing radio button and the Publish button are selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image40.png "Publish window")
 
 4.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
@@ -748,7 +749,7 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
 3.  Select the **Create** button on the **Application Insights overview** blade.
 
-4.  On the **Create Function App** blade, specify the following configuration options:
+4.  On the **Application Insights** blade, specify the following configuration options:
 
     a.  **Name**: unique value for the App name (ensure the green check mark appears).
 
@@ -1129,7 +1130,7 @@ With the latest code changes in place, run your Logic App and verify that the fi
 3.  Now select **Run Trigger**, then select **Recurrence** to immediately execute your workflow.\
     ![In the TollBoothLogic blade, Run Trigger / Recurrence is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image114.png "TollBoothLogic blade")
 
-4.  Select the **Refresh** button next to the Run Trigger button to refresh your run history. Select the latest run history item. If the expression result for the condition is **true**, then that means the CSV file should've been exported to Blob storage. Be sure to disable the Logic App so it doesn't keep sending you emails every 15 minutes. Please note that it may take longer than expected to start running, in some cases.\
+4.  Select the **Refresh** button next to the Run Trigger button to refresh your run history. Select the latest run history item. If the expression result for the condition is **true**, then that means the CSV file should've been exported to Blob storage. Be sure to disable the Logic App so it doesn't keep sending you emails every 15 minutes. Please note that it may take longer than expected to start running, in some cases.
 
 ![In Logic App Designer, in the Condition section, under Inputs, true is circled.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image115.png "Logic App Designer ")
 
@@ -1165,6 +1166,10 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top.
 
 2.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**.
+
+3. If you created a different resource group for your virtual machined, be sure to delete that as well.
+
+4. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
 
 You should follow all steps provided *after* attending the hands-on lab.
 
