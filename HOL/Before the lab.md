@@ -52,15 +52,15 @@ Note: Sometimes this image has IE ESC disabled. Sometimes it does not.
 
     ![Screenshot of the Server Manager icon.](images/Setup/image4.png "Server Manager icon")
 
-1.  Select **Local Server**
+2.  Select **Local Server**
 
     ![Local Server is selected from the Server Manager menu.](images/Setup/image5.png "Server Manager menu")
 
-1.  On the side of the pane, select **On** by **IE Enhanced Security Configuration**
+3.  On the side of the pane, select **On** by **IE Enhanced Security Configuration**
 
     ![Screenshot of IE Enhanced Security Configuration, which is set to On.](images/Setup/image6.png "IE Enhanced Security Configuration")
 
-1.  Change to **Off** for Administrators and select **OK**
+4.  Change to **Off** for Administrators and select **OK**
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, under Administrators, the Off button is selected.](images/Setup/image7.png "Internet Explorer Enhanced Security Configuration dialog box")
 
@@ -70,14 +70,14 @@ Note: Some aspects of this lab require the use of Google Chrome. You may find yo
 
 1. Launch Internet Explorer and download [Google Chrome](https://www.google.com/chrome/)
 
-1. Follow the setup instructions and make sure you can run Chrome to navigate to any webpage
+2. Follow the setup instructions and make sure you can run Chrome to navigate to any webpage
 
 
 ### Task 4: Validate connectivity to Azure
 
 1.  From within the virtual machine, launch Visual Studio and validate that you can log in with your Microsoft Account when prompted
 
-1.  To validate connectivity to your Azure subscription, launch Visual Studio, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription
+2.  To validate connectivity to your Azure subscription, launch Visual Studio, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription
 
     ![In Server Explorer, Azure is selected, and its right-click menu displays with options to Refresh, Connect to Microsoft Azure Subscription, Manage and Filter Subscriptions, or Open the Getting Started Page.](images/Setup/image8.png "Server Explorer")
 
@@ -85,11 +85,11 @@ Note: Some aspects of this lab require the use of Google Chrome. You may find yo
 
 1.  Create a new folder on your C: drive named **Hackathon**
 
-1.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder
+2.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder
 
 Note: The link above is case sensitive.
 
-1.  From the **TollBooth** folder under **Hackathon**, open the Visual Studio Solution file: **TollBooth.sln**
+3.  From the **TollBooth** folder under **Hackathon**, open the Visual Studio Solution file: **TollBooth.sln**
 
     The solution contains the following projects:
 
