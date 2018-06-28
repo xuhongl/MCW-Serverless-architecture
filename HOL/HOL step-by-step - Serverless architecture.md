@@ -136,7 +136,7 @@ The solution begins with vehicle photos being uploaded to an Azure Storage blobs
 
     d.  <https://portal.office.com/Signup/MainSignup15.aspx?Dap=False&QuoteId=79a957e9-ad59-4d82-b787-a46955934171&ali=1>
 
-1.  GitHub account. You can create a free account at <https://github.com>
+4.  GitHub account. You can create a free account at <https://github.com>
 
 
 ## Exercise 1: Azure data, storage, and serverless environment setup
@@ -161,7 +161,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 1.  Using a new tab or instance of your browser, navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Select **+New, Storage, Storage account -- blob, file, table, queue**
+2.  Select **+New, Storage, Storage account -- blob, file, table, queue**
 
     ![In the menu pane of Azure Portal, New is selected. Under Azure Marketplace, Storage is selected, and under Featured, Storage account - blob, file, table, queue is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image11.png "Azure Portal")
 
@@ -179,24 +179,25 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![Fields in the Create storage account blade are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image12.png "Create strorage account blade")
 
-1.  Select **Create**
+4.  Select **Create**
 
     ![Screenshot of the Create button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image13.png "Create button")
 
-1.  After the storage account has completed provisioning, open the storage account by opening the **ServerlessArchitecture** resource group, and then selecting the **storage account** name
+5.  After the storage account has completed provisioning, open the storage account by opening the **ServerlessArchitecture** resource group, and then selecting the **storage account** name
 
     ![In the ServerlessArchitecture blade, Overview is selected. Under Name, the tollbooth storage account is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image14.png "ServerlessArchitecture blade")
 
-1.  On the **Storage account** blade, select **Access Keys**, under Settings in the menu. Then on the **Access keys** blade, select the **Click to copy** button for **key1 connection string.**
+6.  On the **Storage account** blade, select **Access Keys**, under Settings in the menu. Then on the **Access keys** blade, select the **Click to copy** button for **key1 connection string.**
 
     ![In the Storage account blade, under Settings, Access keys is selected. Under Default keys, the copy button next to the key1 connection string is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image15.png "Storage account blade")
 
-1.  Paste the value into a text editor, such as Notepad, for later reference
+7.  Paste the value into a text editor, such as Notepad, for later reference
 
-1.  Select **Containers** under **Blob Service** in the menu. Then on the **Containers** blade, select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private** for the public access level, then select **OK** to save.\
+8.  Select **Containers** under **Blob Service** in the menu. Then on the **Containers** blade, select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private** for the public access level, then select **OK** to save.
+
     ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access). ](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image16.png "Storage and Containers blades")
 
-1.  Repeat these steps to create a container named **export**
+9.  Repeat these steps to create a container named **export**
 
 ### Task 2: Provision the Function Apps
 
@@ -206,7 +207,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the menu pane of the Azure Portal, the New button is selected. Function is typed in the search field, and Function App is selected from the search results.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image17.png "Azure Portal")
 
-1.  Select the **Create** button on the **Function App overview** blade
+3.  Select the **Create** button on the **Function App overview** blade
 
 4.  On the **Create Function App** blade, specify the following configuration options:
 
@@ -224,11 +225,11 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![Fields in the Function App blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image18.png "Function App blade")
 
-1.  Select **Create**
+5.  Select **Create**
 
     ![Screenshot of the Create button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image13.png "Create button")
 
-1.  **Repeat steps 1-5** to create a second Function App, named TollBooth**FunctionApp** or similar
+6.  **Repeat steps 1-5** to create a second Function App, named TollBooth**FunctionApp** or similar
 
 ### Task 3: Provision the Event Grid topic
 
@@ -238,7 +239,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the menu pane of the Azure Portal, the New button is selected. Event grid is typed in the search field, and Event Grid Topic is selected from the search results.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image19.png "Azure Portal")
 
-1.  Select the **Create** button on the **Event Grid Topic overview** blade
+3.  Select the **Create** button on the **Event Grid Topic overview** blade
 
 4.  On the **Create Topic** blade, specify the following configuration options:
 
@@ -250,19 +251,19 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the Create Topic blade, the Name field is TollBoothTopic, Resource Group is using existing ServerlessArchitecture, and the location is West US 2.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image20.png "Create Topic blade")
 
-1.  Select **Create**
+5.  Select **Create**
 
     ![Screenshot of the Create button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image13.png "Create button")
 
-1.  After the Event Grid topic has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Event Grid** topic name
+6.  After the Event Grid topic has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Event Grid** topic name
 
-1.  Select **Overview** in the menu, and then copy the **Topic Endpoint** value
+7.  Select **Overview** in the menu, and then copy the **Topic Endpoint** value
 
     ![In the TollBoothTopic blade, Overview is selected, and the copy button next to the Topic Endpoint is called out.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image21.png "TollBoothTopic blade")
 
-1.  Select **Access Keys** under Settings in the menu
+8.  Select **Access Keys** under Settings in the menu
 
-1.  Within the **Access Keys** blade, copy the **Key 1** value
+9.  Within the **Access Keys** blade, copy the **Key 1** value
 
     ![In the TollBoothTopic - Access keys, under Settings, Access keys is selected. The copy button next to the Key 1 access key is also selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image22.png "TollBoothTopic - Access keys blade")
 
@@ -272,7 +273,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 1.  Navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Select **+ New, Databases, Azure Cosmos DB**
+2.  Select **+ New, Databases, Azure Cosmos DB**
 
     ![In Azure Portal, in the menu, New is selected. Under Azure marketplace, Databases is selected, and under Featured, Azure Cosmos DB is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image23.png "Azure Portal")
 
@@ -290,13 +291,13 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![Fields in the Azure Cosmos DB blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image24.png "Azure Cosmos DB blade")
 
-1.  Select **Create**
+4.  Select **Create**
 
     ![Screenshot of the Create button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image13.png "Create button")
 
-1.  After the Azure Cosmos DB account has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Azure Cosmos DB** account name
+5.  After the Azure Cosmos DB account has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Azure Cosmos DB** account name
 
-1.  On the **Cosmos DB overview** blade, select **+ Add Collection**
+6.  On the **Cosmos DB overview** blade, select **+ Add Collection**
 
     ![In the Tollbooths blade, Overview is selected, and the Add Collection button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image25.png "Tollbooths blade")
 
@@ -313,9 +314,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
     ![In the Add Collection blade, fields are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image26.png "Add Collection blade")
 
 
-1.  Select **OK**
+8.  Select **OK**
 
-1.  Select **New Collection** to add another collection
+9.  Select **New Collection** to add another collection
 
 10. On the **Add Collection** blade, specify the following configuration options:
 
@@ -329,25 +330,25 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
     
     ![In the Add Collection blade, fields are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image27.png "Add Collection blade")
 
-1. Select **OK**
+11. Select **OK**
 
-1. Select **Keys** under Settings in the menu
+12. Select **Keys** under Settings in the menu
 
-1. Underneath the **Read-write Keys tab within the Keys** blade, copy the **URI** and **Primary Key** values
+13. Underneath the **Read-write Keys tab within the Keys** blade, copy the **URI** and **Primary Key** values
 
     ![In the tollbooth - Keys blade, under Settings, Keys is selected. On the Read-write Keys tab, the copy buttons for the URL and Primary Key fields are selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image28.png "tollbooth - Keys blade")
 
-1. Paste the values into a text editor, such as Notepad, for later reference
+14. Paste the values into a text editor, such as Notepad, for later reference
 
 ### Task 5: Provision the Computer Vision API service
 
 1.  Navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Select **+ New**, then enter **computer vision** into the search box on top. Select **Computer Vision API** from the results
+2.  Select **+ New**, then enter **computer vision** into the search box on top. Select **Computer Vision API** from the results
 
     ![In the Azure Portal, Computer version is typed in the search box.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image29.png "Azure Portal")
 
-1.  Select the **Create** button on the **Computer Vision API** **overview** blade
+3.  Select the **Create** button on the **Computer Vision API** **overview** blade
 
 4.  On the **Create Computer Vision API** blade, specify the following configuration options:
 
@@ -361,23 +362,23 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the Create blade, fields are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image30.png "Create blade")
 
-1.  Select **Create**
+5.  Select **Create**
 
     ![Screenshot of the Create button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image13.png "Create button")
 
-1.  After the Computer Vision API has completed provisioning, open the service by opening the **ServerlessArchitecture** resource group, and then selecting the **Computer Vision** **API** service name
+6.  After the Computer Vision API has completed provisioning, open the service by opening the **ServerlessArchitecture** resource group, and then selecting the **Computer Vision** **API** service name
 
-1.  Select **Overview** in the menu, and then copy the **Endpoint** value
+7.  Select **Overview** in the menu, and then copy the **Endpoint** value
 
     ![In the TollboothOCR blade, in the pane, Overview is selected. In the  pane, the copy button next to the Endpoint URL is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image31.png "TollboothOCR blade")
 
-1.  Select **Keys** under **Resource Management** in the menu
+8.  Select **Keys** under **Resource Management** in the menu
 
-1.  Within the **Keys** blade, copy the **Key 1** value
+9.  Within the **Keys** blade, copy the **Key 1** value
 
     ![In the TollboothOCR - Keys blade, under Resource Management, Keys is selected. The Copy button next to the Key 1 value is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image32.png "TollboothOCR - Keys blade")
 
-1. Paste the values into a text editor, such as Notepad, for later reference
+10. Paste the values into a text editor, such as Notepad, for later reference
 
 ## Exercise 2: Develop and publish the photo processing and data export functions
 
@@ -399,15 +400,15 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
+2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
 
     ![In the ServerlessArchtecture resource group, TollBoothFunctionApp is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image33.png "ServerlessArchtecture resource group")
 
-1.  Select on **Application settings** on the Overview pane
+3.  Select on **Application settings** on the Overview pane
 
     ![In the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image34.png "TollBoothFunctionApp blade")
 
-1.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key or Value pairs (the key names must exactly match those found in the table below):
+4.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key or Value pairs (the key names must exactly match those found in the table below):
 
 |    |            |
 |----------|:-------------:|
@@ -426,7 +427,7 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 ![In the Application Settings section, the previously mentioned key / value pairs are called out with a purple line.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image35.png "ApplicationSettings section")
 
-1.  Select **Save**
+5.  Select **Save**
 
     ![Screenshot of the Save icon.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image36.png "Save icon")
 
@@ -444,11 +445,11 @@ There are a few components within the starter project that must be completed, ma
 
 1.  Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio
 
-1.  From the Visual Studio **View** menu, select **Task List**
+2.  From the Visual Studio **View** menu, select **Task List**
 
     ![The Visual Studio Menu displays, with View and Task List selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image37.png "Visual Studio Menu")
 
-1.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed
+3.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed
 
 > ![A list of TODO tasks, including their description, project, file, and line number display.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image38.png "TODO tasks")
 
@@ -490,29 +491,29 @@ In this task, you will publish the Function App from the starter project in Visu
 
 1.  Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio
 
-1.  Right-click the **TollBooth** project and select **Publish...** from the context menu
+2.  Right-click the **TollBooth** project and select **Publish...** from the context menu
 
     ![In Solution Explorer, TollBooth is selected, and in its right-click menu, Publish is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image39.png "Solution Explorer ")
 
-1.  In the Pick a Publish Target window that appears, make sure **Azure Function App** is selected, choose the **Select Existing** radio button, then select **Publish**
+3.  In the Pick a Publish Target window that appears, make sure **Azure Function App** is selected, choose the **Select Existing** radio button, then select **Publish**
 
     ![In the Publish window, the Azure Function App tile is selected. Under this, both the Select Existing radio button and the Publish button are selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image40.png "Publish window")
 
-1.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**
+4.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**
 
-1.  Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise
+5.  Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise
 
     ![In the App Service form, Resource Group displays in the View field, and in the tree-view below, the ServerlessArchitecture folder is expanded, and TollBoothFunctionApp is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image41.png "App Service form")
 
-1.  After you select the Function App, select **OK**
+6.  After you select the Function App, select **OK**
 
 7.  Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, "Publish Succeeded."
 
-1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>
+8.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published
+9.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published
 
-1. Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed
+10. Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed
 
     ![In the TollBoothFunctionApp blade, in the pane, both TollBoothFunctionApp, and Functions (Read Only) are expanded. Below Functions, two functions (ExportLicensePlates and ProcessImage) are called out.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image42.png "TollBoothFunctionApp blade")
 
@@ -539,11 +540,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 2.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you [did not]{.underline} deploy to in the previous exercise.
 
-1.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**
+3.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image43.png "TollBoothEvents2 blade")
 
-1.  Event **event grid** into the template search form, then select the **Event Grid trigger** template
+4.  Event **event grid** into the template search form, then select the **Event Grid trigger** template
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image44.png "Template search form")
 
@@ -556,7 +557,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
     ![In the New Function form, JavaScript is selected from the Language drop-down menu, and SavePlateData is typed in the Name field.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image45.png "Event Grid trigger, New Function form")
 
 
-1.  Select **Create**
+6.  Select **Create**
 
 7.  Replace the code in the new SavePlateData function with the following:
 
@@ -576,7 +577,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
     };
 ```
 
-1.  Select **Save**
+8.  Select **Save**
 
 ### Task 2: Add an Event Grid subscription to the SavePlateData function
 
@@ -598,7 +599,7 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
     e.  Check **Subscribe to all event types**. You will enter a custom event type later.
 
-1.  Leave the remaining fields at their default values and select **Create**
+3.  Leave the remaining fields at their default values and select **Create**
 
     ![In the Create Event Subscription blade, fields are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image47.png)
 
@@ -608,15 +609,15 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
 1.  Expand the SavePlateData function in the menu, the select **Integrate**
 
-1.  Select **+ New Output** under Outputs, select **Azure Cosmos DB** from the list of outputs, then select **Select**
+2.  Select **+ New Output** under Outputs, select **Azure Cosmos DB** from the list of outputs, then select **Select**
 
     ![In the SavePlateData blade, in the pane under Function Apps, TollBoothEvents2, Functions, and SavePlateData are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image48.png "SavePlateData blade")
 
-1.  In the Azure Cosmos DB output form, select **new** next to the Azure Cosmos DB account connection field
+3.  In the Azure Cosmos DB output form, select **new** next to the Azure Cosmos DB account connection field
 
     ![The New button is selected next to the Azure Cosmos DB account connection field.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image49.png "New button")
 
-1.  Select your Cosmos DB account from the list that appears
+4.  Select your Cosmos DB account from the list that appears
 
 5.  Specify the following configuration options in the Azure Cosmos DB output form:
 
@@ -626,7 +627,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
     ![Under Azure Cosmos DB output the following field values display: Document parameter name, outputDocument; Collection name, Processed; Database name, LicensePlates; Azure Cosmos DB account conection, tollbooths\_DOCUMENTDB.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image50.png "Azure Cosmos DB output section")
 
-1.  Select **Save**
+6.  Select **Save**
 
 ### Task 4: Create function to save manual verification info to Azure Cosmos DB
 
@@ -636,11 +637,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 2.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you [did not]{.underline} deploy to in the previous exercise.
 
-1.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**
+3.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**
 
     ![In the pane of the TollBoothEvents2 blade under Functions Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, + New function is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image43.png "TollBoothEvents2 blade")
 
-1.  Enter **event grid** into the template search form, then select the **Event Grid trigger** template
+4.  Enter **event grid** into the template search form, then select the **Event Grid trigger** template
 
     ![Event grid displays in the choose a template search field, and in the results, Event Grid trigger displays.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image44.png "Event grid trigger")
 
@@ -652,7 +653,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
      ![In the New Function form, JavaScript is selected from the Language drop-down menu, and QueuePlateForManualCheckup is typed in the Name field.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image51.png "Event Grid trigger, New Function form")
 
-1.  Select **Create**
+6.  Select **Create**
 
 7.  Replace the code in the new QueuePlateForManualCheckup function with the following:
 
@@ -672,7 +673,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
     };
 ```
 
-1.  Select **Save**
+8.  Select **Save**
 
 ### Task 5: Add an Event Grid subscription to the QueuePlateForManualCheckup function
 
@@ -694,7 +695,7 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
     e.  Check **Subscribe to all event types**. You will enter a custom event type later.
 
-1.  Leave the remaining fields at their default values and select **Create**
+3.  Leave the remaining fields at their default values and select **Create**
 
     ![In the Create Event Subscription blade, fields are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image53.png)
 
@@ -704,7 +705,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
 1.  Expand the QueuePlateForManualCheckup function in the menu, the select **Integrate**
 
-1.  Select **+ New Output** under Outputs, select **Azure Cosmos DB** from the list of outputs, then select **Select**
+2.  Select **+ New Output** under Outputs, select **Azure Cosmos DB** from the list of outputs, then select **Select**
 
     ![In the blade, in the pane under Function Apps, TollBoothEvents2\\ Functions\\QueuePlateForManualCheckup are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image54.png)
 
@@ -718,7 +719,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
     ![In the Azure Cosmos DB output form, the following field values display: Document parameter name, outputDocument; Collection name, NeedsManualReview; Database name, LicensePlates; Azure Cosmos DB account conection, tollbooths\_DOCUMENTDB.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image55.png "Azure Cosmos DB output form")
 
-1.  Select **Save**
+4.  Select **Save**
 
 ### Task 7: Configure custom event types for the new Event Grid subscriptions
 
@@ -726,29 +727,29 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Open the **ServerlessArchitecture** resource group, then select the Event Grid Topic
+2.  Open the **ServerlessArchitecture** resource group, then select the Event Grid Topic
 
 3.  At the bottom of the **Overview** blade, you will see both Event Grid subscriptions created from the functions. Select **saveplatedatasub**.
 
     ![On the Event Grid Topic overview blade, select the saveplatedatasub Event Grid subscription.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image56.png)
 
-1.  Uncheck **Subscribe to all event types**
+4.  Uncheck **Subscribe to all event types**
 
 5.  Enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
-1.  Select **Save Changes**
+6.  Select **Save Changes**
 
     ![In the Edit Event Subscription blade, uncheck Subscribe to all event types. Enter savePlateData into the Event Types field, then save your changes.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image57.png)
 
-1.  Select the **queueplateformanualcheckupsub** Event Grid subscription at the bottom of the **Overview** blade
+7.  Select the **queueplateformanualcheckupsub** Event Grid subscription at the bottom of the **Overview** blade
 
     ![On the Event Grid Topic overview blade, select the queueplateformanualcheckupsub Event Grid subscription.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image58.png)
 
-1.  Uncheck **Subscribe to all event types**
+8.  Uncheck **Subscribe to all event types**
 
 9.  Enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
-1. Select **Save Changes**
+10. Select **Save Changes**
 
     ![In the Edit Event Subscription blade, uncheck Subscribe to all event types. Enter queuePlateForManualCheckup into the Event Types field, then save your changes.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image59.png)
 
@@ -772,11 +773,11 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
 1.  Navigate to the Azure Management portal, <http://portal.azure.com>
 
-1.  Select **+ New**, then type **application insights** into the search box on top. Select **Application Insights** from the results.
+2.  Select **+ New**, then type **application insights** into the search box on top. Select **Application Insights** from the results.
 
     ![In the Azure Portal menu pane, New is selected. In the New blade, application inisght is typed in the search box, and Application insights is selected from the search results.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image60.png "Azure Portal")
 
-1.  Select the **Create** button on the **Application Insights overview** blade
+3.  Select the **Create** button on the **Application Insights overview** blade
 
 4.  On the **Application Insights** blade, specify the following configuration options:
 
@@ -790,7 +791,7 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
     ![Fields in the Application Insights blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image61.png "Application Insights blade")
 
-1.  Select **Create**
+5.  Select **Create**
 
 ### Task 2: Enable Application Insights integration in your Function Apps
 
@@ -798,25 +799,25 @@ Both of the Function Apps need to be updated with the Application Insights instr
 
 1.  After the Application Insights account has completed provisioning, open the instance by opening the **ServerlessArchitecture** resource group, and then selecting the **Application Insights** instance name
 
-1.  Copy the **instrumentation key** from the Essentials section of the **Overview** blade
+2.  Copy the **instrumentation key** from the Essentials section of the **Overview** blade
 
     ![In the pane of the TollBoothMonitor blade, Overview is selected. In the pane, the copy button next to the Instrumentation key is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image62.png "TollBoothMonitor blade")
 
-1.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function
+3.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function
 
-1.  Select on **Application settings** on the **Overview** pane
+4.  Select on **Application settings** on the **Overview** pane
 
     ![In the pane of the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image34.png "TollBoothFunctionApp blade")
 
-1.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link and name the new setting APPINSIGHTS\_INSTRUMENTATIONKEY. Paste the copied instrumentation key into its value field.
+5.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link and name the new setting APPINSIGHTS\_INSTRUMENTATIONKEY. Paste the copied instrumentation key into its value field.
 
     ![In the TollBoothFunctionApp blade, the + Add new setting link is selected. In the list of application settings, APPINSIGHTS\_INSTRUMENTATIONKEY is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image63.png "TollBoothFunctionApp blade")
 
-1.  Select **Save**
+6.  Select **Save**
 
     ![Screenshot of the Save icon.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image36.png "Save icon")
 
-1.  Follow the steps above to add the APPINSIGHTS\_INSTRUMENTATIONKEY setting to the **other Function App**
+7.  Follow the steps above to add the APPINSIGHTS\_INSTRUMENTATIONKEY setting to the **other Function App**
 
 ### Task 3: Use the Live Metrics Stream to monitor functions in real time
 
@@ -824,32 +825,32 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
 1.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function
 
-1.  Select Application Insights on the Overview pane
+2.  Select Application Insights on the Overview pane
     ![In the TollBoothFunctionApp blade, under Configured features, the Application Insights link is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image64.png "TollBoothFunctionApp blade")
 
-1.  In Application Insights, select **Live Metrics Stream** underneath Investigate in the menu
+3.  In Application Insights, select **Live Metrics Stream** underneath Investigate in the menu
 
     ![In the TollBoothMonitor blade, in the pane under Investigate, Live Metrics Stream is selected. ](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image65.png "TollBoothMonitor blade")
 
-1.  Leave the Live Metrics Stream open and go back to the starter app solution in Visual Studio
+4.  Leave the Live Metrics Stream open and go back to the starter app solution in Visual Studio
 
-1.  Navigate to the **UploadImages** project using the Solution Explorer of Visual Studio
+5.  Navigate to the **UploadImages** project using the Solution Explorer of Visual Studio
 
     ![In Solution Explorer, UploadImages is expanded, and App.config is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image66.png "Solution Explorer")
 
-1.  Open **App.config**
+6.  Open **App.config**
 
-1.  In App.config, update the **blobStorageConnection** appSetting value to the connection string for your Blob storage account
+7.  In App.config, update the **blobStorageConnection** appSetting value to the connection string for your Blob storage account
 
     ![On the App.config tab, a connection string is circled. To the side of the string is a green bar, and a hammer icon.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image67.png "App.config tab")
 
-1.  Save your changes to the file
+8.  Save your changes to the file
 
-1.  Right-click the UploadImages project in the Solution Explorer, then select **Start new instance** under the **Debug** menu
+9.  Right-click the UploadImages project in the Solution Explorer, then select **Start new instance** under the **Debug** menu
 
     ![In Solution Explorer, UploadImages is selected. From the Debug menu, Start new instance is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image68.png "Solution Explorer")
 
-1. When the console window appears, enter **1** and press **ENTER**. This uploads a handful of car photos to the images container of your Blob storage account
+10. When the console window appears, enter **1** and press **ENTER**. This uploads a handful of car photos to the images container of your Blob storage account
 
     ![A Command prompt window displays, showing images being uploaded.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image69.png "Command prompt window")
 
@@ -859,7 +860,7 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
     ![The Live Metrics Stream window displays information for the two online servers. Displaying line and point graphs include incoming requests, outgoing requests, and overvall health. To the side is a list of Sample Telemetry information. ](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image70.png "Live Metrics Stream window")
 
-1. Leave the Live Metrics Stream window open once again, and close the console window for the image upload. Debug the UploadImages project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos
+12. Leave the Live Metrics Stream window open once again, and close the console window for the image upload. Debug the UploadImages project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos
 
     ![the Command prompt window displays with image uploading information.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image71.png "Command prompt window")
 
@@ -867,7 +868,7 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
     ![In the Live Metrics Stream window, two servers are online. Under Incoming Requests. the Request Rate heartbeat line graph is selected, as is the Request Duration dot graph. Under Overall Health, the Process CPU heartbeat line graph is also selected, and a bi-directional dotted line points out the similarities between this graph and the Request Rate graph under Incoming Requests.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image72.png "Live Metrics Stream window ")
 
-1. After this has run for a while, close the image uploader console window once again, but leave the Live Metrics Stream window open
+14. After this has run for a while, close the image uploader console window once again, but leave the Live Metrics Stream window open
 
 ### Task 4: Observe your functions dynamically scaling when resource-constrained
 
@@ -875,24 +876,24 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 1.  Open your Computer Vision API service by opening the **ServerlessArchitecture** resource group, and then selecting the **Computer Vision API** service name
 
-1.  Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**
+2.  Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**
 
     ![In the TollboothOCR blade, under Resource Manaement, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image73.png "TollboothOCR and Choose your pricing tier blades")
 
-1.  Debug the UploadImages project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos.
+3.  Debug the UploadImages project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos.
 
     ![the Command prompt window displays image uploading information.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image71.png "Command Prompt window")
 
-1.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resiliency policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
+4.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resiliency policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
     
 
     **Please note:** if you do not see data flow after a short period, consider restarting the Function App.
 
     ![In the Live Metrics Stream window, 11 servers are now online.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image74.png "Live Metrics Stream window ")
 
-1.  After this has run for some time, close the UploadImages console to stop uploading photos
+5.  After this has run for some time, close the UploadImages console to stop uploading photos
 
-1.  Navigate back to the **Computer Vision** API and set the pricing tier back to **S1 Standard**
+6.  Navigate back to the **Computer Vision** API and set the pricing tier back to **S1 Standard**
 
 ## Exercise 5: Explore your data in Azure Cosmos DB
 
@@ -912,23 +913,23 @@ In this exercise, you will use the Azure Cosmos DB Data Explorer in the portal t
 
 1.  Open your Azure Cosmos DB account by opening the **ServerlessArchitecture** resource group, and then selecting the **Azure Cosmos DB account** name
 
-1.  Select **Data Explorer** from the menu
+2.  Select **Data Explorer** from the menu
 
     ![In the Tollbooth - Data Explorer blade, Data Explorer is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image75.png "Tollbooth - Data Explorer blade")
 
-1.  Expand the **Processed** collection, then select **Documents**. This will list each of the JSON documents added to the collection.
+3.  Expand the **Processed** collection, then select **Documents**. This will list each of the JSON documents added to the collection.
 
-1.  Select one of the documents to view its contents. The first four properties are ones that were added by your functions. The remaining properties are standard and are assigned by Cosmos DB.
+4.  Select one of the documents to view its contents. The first four properties are ones that were added by your functions. The remaining properties are standard and are assigned by Cosmos DB.
 
     ![Under Collections, Processed is expanded, and Documents is selected. On the Documents tab, a document is selected, and to the side, the first four properties of the document (fileName, licencePlateText, timeStamp, and exported) are circled.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image76.png "Tollbooth - Data Explorer blade")
 
-1.  Expand the **NeedsManualReview** collection, then select **Documents**
+5.  Expand the **NeedsManualReview** collection, then select **Documents**
 
-1.  Select one of the documents to view its contents. Notice that the filename is provided, as well as a property named "resolved". While this is out of scope for this lab, those properties can be used together to provide a manual process for viewing the photo and entering the license plate.
+6.  Select one of the documents to view its contents. Notice that the filename is provided, as well as a property named "resolved". While this is out of scope for this lab, those properties can be used together to provide a manual process for viewing the photo and entering the license plate.
 
     ![Under Collections, NeedsManualReview is expanded, and Documents is selected. On the Documents tab, a document is selected, and to the side, the first four properties of the document (fileName, licencePlateText, timeStamp, and resolved) are circled.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image77.png "Tollbooth - Data Explorer blade")
 
-1.  Right-click on the **Processed** collection and select **New SQL Query**
+7.  Right-click on the **Processed** collection and select **New SQL Query**
 
     ![Under Collections, LicencePlates is expanded, and Processed is selected. From its right-click menu, New SQL Query is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image78.png "Tollbooth - Data Explorer blade")
 
@@ -938,7 +939,7 @@ In this exercise, you will use the Azure Cosmos DB Data Explorer in the portal t
 SELECT COUNT(c.id) FROM c WHERE c.exported = false
 ```
 
-1.  Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
+9.  Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
 
     ![On the Query 1 tab, under Execute Query, the previously defined SQL query displays. Under Results, the number 1369 is circled.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image79.png "Query 1 tab")
 
@@ -964,7 +965,7 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![In the Azure Portal, in the menu, New is selected. In the New blade, logic ap is typed in the search field, and Logic App is selected in the search results.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image80.png "Azure Portal")
 
-1.  Select the **Create** button on the Logic App overview blade
+3.  Select the **Create** button on the Logic App overview blade
 
 4.  On the **Create Logic App** blade, specify the following configuration options:
 
@@ -976,55 +977,55 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![In the Create logic app blade, fields are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image81.png "Create logic app blade")
 
-1.  Open the Logic App once it has been provisioned
+5.  Open the Logic App once it has been provisioned
 
-1.  In the Logic App Designer, scroll through the page until you located the *Start with a common trigger* section. Select the **Recurrence** trigger
+6.  In the Logic App Designer, scroll through the page until you located the *Start with a common trigger* section. Select the **Recurrence** trigger
 
     ![The Recurrence tile is selected in the Logic App Designer.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image82.png "Logic App Designer")
 
 7.  Enter **15** into the **Interval** box, and make sure Frequency is set to Minute. This can be set to an hour or some other interval, depending on business requirements.
 
-1.  Select **+ New step**
+8.  Select **+ New step**
 
     ![Under Recurrence, the Interval field is set to 15, and the + New step button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image83.png "Logic App Designer Recurrence section")
 
-1.  Select **Add an action**
+9.  Select **Add an action**
 
     ![Screenshot of the Add an action button.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image84.png "Add an action button")
 
-1. Enter **Functions** in the filter box, then select the **Azure Functions** connector
+10. Enter **Functions** in the filter box, then select the **Azure Functions** connector
 
     ![Under Choose an action, Functions is typed in the search box. Under Connectors, Azure Functions is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image85.png "Logic App Designer Choose an action section")
 
-1. Select your Function App whose name ends in **FunctionApp**, or contains the ExportLicensePlates function
+11. Select your Function App whose name ends in **FunctionApp**, or contains the ExportLicensePlates function
 
     ![Under Azure Functions, in the search results list, Azure Functions (TollBoothFunctionApp) is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image86.png "Logic App Designer Azure Functions section")
 
-1. Select the **ExportLicensePlates** function from the list
+12. Select the **ExportLicensePlates** function from the list
 
     ![Under Azure Functions, under Actions (2), Azure Functions (ExportLicensePlates) is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image87.png "Logic App Designer Azure Functions section")
 
-1. This function does not require any parameters that need to be sent when it gets called. Select **+ New step**, then **Add a condition**
+13. This function does not require any parameters that need to be sent when it gets called. Select **+ New step**, then **Add a condition**
 
     ![Under ExportLicensePlates, the field is blank. Under the + New step button, Add a condition is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image88.png "Logic App Designer ExportLicensePlates section")
 
-1. Select the **Status code** parameter in the first field. Make sure **is equal to** is selected in the second field, then enter **200** in the third field. This evaluates the status code returned from the ExportLicensePlates function, which will return a 200 code when license plates are found and exported. Otherwise, it sends a 204 (NoContent) status code when no license plates were discovered that need to be exported. We will conditionally send an email if any response other than 200 is returned.
+14. Select the **Status code** parameter in the first field. Make sure **is equal to** is selected in the second field, then enter **200** in the third field. This evaluates the status code returned from the ExportLicensePlates function, which will return a 200 code when license plates are found and exported. Otherwise, it sends a 204 (NoContent) status code when no license plates were discovered that need to be exported. We will conditionally send an email if any response other than 200 is returned.
 
     ![The first Condition field displays Status code. The second, drop-down menu field displays is equal to, and the third field is set to 200.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image89.png "Condition fields")
 
-1. We will ignore the If true condition because we don't want to perform an action if the license plates are successfully exported. Select **Add an action** within the **If false** condition block.
+15. We will ignore the If true condition because we don't want to perform an action if the license plates are successfully exported. Select **Add an action** within the **If false** condition block.
 
     ![Under the Conditions field is an If true (green checkmark) section, and an if false (red x) section. In the If false section, Add an action is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image90.png "Logic App Designer Condition fields if true/false ")
 
-1. Enter **Office 365 Outlook** in the filter box, then select the **Office 365 Outlook** connector from the results
+16. Enter **Office 365 Outlook** in the filter box, then select the **Office 365 Outlook** connector from the results
 
     ![In the If false, Choose an action section, Office 365 Outlook is typed in the search field, and in the results below, Office 365 Outlook is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image91.png "Condition fields If false section")
 
-1. Select the **Send an email** action
+17. Select the **Send an email** action
 
     ![From the Actions list, Office 365 Outlook (Send an email) is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image92.png "Office 365 Outlook Actions list")
 
-1. When prompted **Sign in** to your Office 365 Outlook account
+18. When prompted **Sign in** to your Office 365 Outlook account
 
     ![In the Office 365 Outlook - Send an email prompt, the Sign in button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image93.png "Office 365 Outlook Sign in prompt")
 
@@ -1038,17 +1039,17 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![Under Send an email, fields are set to the previously defined settings. ](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image94.png "Logic App Designer , Send an email fields")
 
-1. Select **Save** in the tool bar to save your Logic App
+20. Select **Save** in the tool bar to save your Logic App
 
-1. Select **Run** to execute the Logic App. You should start receiving email alerts because the license plate data is not being exported. This is because we need to finish making changes to the ExportLicensePlates function so that it can extract the license plate data from Azure Cosmos DB, generate the CSV file, and upload it to Blob storage.
+21. Select **Run** to execute the Logic App. You should start receiving email alerts because the license plate data is not being exported. This is because we need to finish making changes to the ExportLicensePlates function so that it can extract the license plate data from Azure Cosmos DB, generate the CSV file, and upload it to Blob storage.
 
     ![The Run button is selected on the Logic Apps Designer blade toolbar.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image95.png "Logic Apps Designer blade")
 
-1. While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
+22. While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
 
     ![In the Logic App Designer, green check marks display next to Recurrence, ExportLicensePlates, Condition, and Send an email.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image96.png "Logic App Designer ")
 
-1. The Logic App will continue to run in the background, executing every 15 minutes (or whichever interval you set) until you disable it. To disable the app, go to the **Overview** blade for the Logic App and select the **Disable** button on the taskbar.
+23. The Logic App will continue to run in the background, executing every 15 minutes (or whichever interval you set) until you disable it. To disable the app, go to the **Overview** blade for the Logic App and select the **Disable** button on the taskbar.
 
     ![The Disable button is selected on the TollBoothLogic blade top menu.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image97.png "TollBoothLogic blade")
 
@@ -1071,15 +1072,15 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Navigate to <https://github.com> and sign in
 
-1.  From the top corner of any page (once signed in), select the **+** menu item, then select **New repository**
+2.  From the top corner of any page (once signed in), select the **+** menu item, then select **New repository**
 
     ![From the Plus icon drop-down menu, New repository is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image98.png "Plus icon drop-down menu")
 
-1.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**
+3.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**
 
     ![In the New Repository section, the Repository name field is set to serverless-architecture-lab, and the Public radio button is selected. At the bottom, the Create repository button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image99.png "New Repository section")
 
-1.  On your new repository page, copy the **HTTPS git path** to your clipboard, using the **button** provided
+4.  On your new repository page, copy the **HTTPS git path** to your clipboard, using the **button** provided
 
     ![On the Repository page, the HTTPS git path copy to clipboard button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image100.png "Repository page")
 
@@ -1087,23 +1088,23 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Open the **TollBooth** project in Visual Studio
 
-1.  Right-click the **TollBooth** project in Solution Explorer, then select **Commit...** under the **Source Control** menu item
+2.  Right-click the **TollBooth** project in Solution Explorer, then select **Commit...** under the **Source Control** menu item
 
     ![In Solution Explorer, TollBooth is selected. From its right-click menu, Source Control and then Commit are selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image101.png "Solution Explorer")
 
-1.  Enter a commit message, then select **Commit All**
+3.  Enter a commit message, then select **Commit All**
 
     ![In Team Explorer - Changes, under Changes, the commit message reads \"Finishing function code.\" Below that, the Commit All button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image102.png "Team Explorer - Changes")
 
-1.  After committing, select the **Sync** link. This will allow us to add the remote GitHub repository.
+4.  After committing, select the **Sync** link. This will allow us to add the remote GitHub repository.
 
     ![Under Team Explorer - Changes, in the informational message Commit 02886e85 created locally. Sync to share, the Sync link is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image103.png "Team Explorer - Changes")
 
-1.  Select the **Publish Git Repo** button, then paste the git URL for your new repository you copied from GitHub. Finally, select **Publish**.
+5.  Select the **Publish Git Repo** button, then paste the git URL for your new repository you copied from GitHub. Finally, select **Publish**.
 
     ![In the Team Explorer - Synchronization window, the Publish Git Repo button is selected, and in the field below, the copied URL displays.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image104.png "Team Explorer - Synchronization")
 
-1.  Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the **TollBooth** folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.
+6.  Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the **TollBooth** folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.
 
     ![On the GitHub Repository page for serverless-architecture-lab, on the Code tab, project files display.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image105.png "GitHub Repository page")
 
@@ -1111,27 +1112,27 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function
 
-1.  Select **Deployment options** underneath the **Platform features** tab
+2.  Select **Deployment options** underneath the **Platform features** tab
 
     ![In the TollBoothFunctionApp blade, on the Platform features tab, under Code Deployment, Deployment options is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image106.png "TollBoothFunctionApp blade")
 
-1.  Select **Setup** in the **Deployments** blade
+3.  Select **Setup** in the **Deployments** blade
 
     ![In the Deployments blade, the Setup icon is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image107.png "Deployments blade")
 
-1.  Select **Choose Source**, then **GitHub** in the list of sources
+4.  Select **Choose Source**, then **GitHub** in the list of sources
 
     ![In the Deployment option blade, Choose source is selected. In the Choose source blade, GitHub is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image108.png "Deployment option and Choose source blades")
 
-1.  Select **Authorization**, then enter your GitHub credentials when prompted
+5.  Select **Authorization**, then enter your GitHub credentials when prompted
 
-1.  **Choose your organization**
+6.  **Choose your organization**
 
 7.  Choose your new repository under **Choose project**. Make sure the **master branch** is selected.
 
     ![Fields in the Deployment option blade set to the following settings: Choose Source, GitHub; Authorization, hidden; Choose your organization, Personal; Choose project, serverless-architecture-lab; Choose branch, master. Performance Test, not configured.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image109.png "Deployment option blade")
 
-1.  Select **OK**
+8.  Select **OK**
 
 9.  After continuous deployment is configured, all file changes in your deployment source are copied to the function app and a full site deployment is triggered. The site is redeployed when files in the source are updated.
 
@@ -1139,13 +1140,13 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio
 
-1.  From the Visual Studio **View** menu, select **Task List**
+2.  From the Visual Studio **View** menu, select **Task List**
 
     ![Task List is selected from the Visual Studio View menu.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image37.png "Visual Studio View menu")
 
-1.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed
+3.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed
 
-1.  Open **DatabaseMethods.cs**
+4.  Open **DatabaseMethods.cs**
 
 5.  The following code represents the completed task in DatabaseMethods.cs:
 
@@ -1160,7 +1161,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 6.  Make sure that you deleted the following line under TODO 6: licensePlates = new List\<LicensePlateDataDocument\>();
 
-1.  Save your changes then open **FileMethods.cs**
+7.  Save your changes then open **FileMethods.cs**
 
 8.  The following code represents the completed task in DatabaseMethods.cs:
 
@@ -1169,27 +1170,27 @@ In this exercise, configure your Function App that contains the ProcessImage fun
     await blob.UploadFromStreamAsync(stream);
 ```
 
-1.  Save your changes
+9.  Save your changes
 
-1. Right-click the **TollBooth** project in Solution Explorer, then select **Commit...** under the **Source Control** menu item
+10. Right-click the **TollBooth** project in Solution Explorer, then select **Commit...** under the **Source Control** menu item
 
     ![In Solution Explorer, TollBooth is selected. From its right-click menu, Source Control and Commit are both selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image101.png "Solution Explorer")
 
-1. Enter a commit message, then select **Commit All**
+11. Enter a commit message, then select **Commit All**
 
     ![In the Team Explorer - Changes window, \"Finished the ExportLicensePlates function\" displays in the message box, and the Commit All button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image110.png "Team Explorer - Changes window")
 
-1. After committing, select the **Sync** link. This will allow us to add the remote GitHub repository
+12. After committing, select the **Sync** link. This will allow us to add the remote GitHub repository
 
     ![Under Team Explorer - Changes, in the informational message Commit 02886e85 created locally. Sync to share, the Sync link is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image103.png "Team Explorer - Changes window")
 
-1. Select the **Sync** button on the **Synchronization** step
+13. Select the **Sync** button on the **Synchronization** step
 
     ![Under Synchronization in the Team Explorer - Synchronization window, the Sync link is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image111.png "Team Explorer - Synchronization window")
 
     Afterward, you should see a message stating that the incoming and outgoing commits were successfully synchronized.
 
-1. Go back to Deployments for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one
+14. Go back to Deployments for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one
 
     ![On the Deployments blade, a partially-completed full-circle graph displays next to the message, Finished the ExportLicensePlates function, GitHub, building, 8:49 PM.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image112.png "Deployments blade")
 
@@ -1203,11 +1204,11 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 1.  Open your ServerlessArchitecture resource group in the Azure portal, then select your Logic App
 
-1.  From the **Overview** blade, select **Enable**
+2.  From the **Overview** blade, select **Enable**
 
     ![In the TollBoothLogic, the Enable enable button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image113.png "TollBoothLogic blade")
 
-1.  Now select **Run Trigger**, then select **Recurrence** to immediately execute your workflow
+3.  Now select **Run Trigger**, then select **Recurrence** to immediately execute your workflow
 
     ![In the TollBoothLogic blade, Run Trigger / Recurrence is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image114.png "TollBoothLogic blade")
 
@@ -1219,19 +1220,19 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 1.  Open your ServerlessArchitecture resource group in the Azure portal, then select your **Storage account** you had provisioned to store uploaded photos and exported CSV files
 
-1.  In the Overview pane of your storage account, select **Blobs**
+2.  In the Overview pane of your storage account, select **Blobs**
 
     ![Under Services, Blobs is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image116.png "Services section")
 
-1.  Select the **export** container
+3.  Select the **export** container
 
     ![Export is selected under Name.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image117.png "Export option")
 
-1.  You should see at least one recently uploaded CSV file. Select the filename to view its properties.
+4.  You should see at least one recently uploaded CSV file. Select the filename to view its properties.
 
     ![In the Export blade, under name, a .csv file is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image118.png "Export blade")
 
-1.  Select **Download** in the blob properties window
+5.  Select **Download** in the blob properties window
 
     ![In the Blob properties blade, the Download butotn is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image119.png "Blob properties blade")
 
@@ -1251,11 +1252,11 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top
 
-1.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**
+2.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**
 
-1. If you created a different resource group for your virtual machined, be sure to delete that as well
+3. If you created a different resource group for your virtual machined, be sure to delete that as well
 
-1. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website
+4. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website
 
 You should follow all steps provided *after* attending the hands-on lab.
 
