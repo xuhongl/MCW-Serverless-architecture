@@ -106,19 +106,19 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 
 1.  Replace manual process with a reliable, automated solution using serverless components
 
-1.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
+2.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
 
-1.  Mechanism for manually entering license plate images that could not be processed
+3.  Mechanism for manually entering license plate images that could not be processed
 
-1.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
+4.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
 
-1.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
+5.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
 
-1.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
+6.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
 
-1.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
+7.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
 
-1.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
+8.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
 
 ### Customer objections 
 
