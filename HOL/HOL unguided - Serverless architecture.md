@@ -159,7 +159,7 @@ Learning Objectives:
 
 The Serverless architecture hands-on lab is an exercise that will challenge you to implement an end-to-end scenario using a supplied sample that is based on Microsoft Azure Functions, Azure Cosmos DB, Event Grid, and related services. The scenario will include implementing compute, storage, workflows, and monitoring, using various components of Microsoft Azure. The hands-on lab can be implemented on your own, but it is highly recommended to pair up with other members at the lab to model a real-world experience and to allow each member to share their expertise for the overall solution.
 
-## Solution Architecture
+## Solution architecture
 
 Below is a diagram of the solution architecture you will build in this lab. Please study this carefully so you understand the whole of the solution as you are working on the various components.
 
@@ -777,11 +777,11 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top
 
-1.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**
+2.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**
 
-1. If you created a different resource group for your virtual machined, be sure to delete that as well
+3. If you created a different resource group for your virtual machined, be sure to delete that as well
 
-1. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website
+4. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website
 
 You should follow all steps provided *after* attending the hands-on lab.
 
