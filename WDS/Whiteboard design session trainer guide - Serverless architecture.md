@@ -227,19 +227,19 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 
 1.  Replace manual process with a reliable, automated solution using serverless components
 
-1.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
+2.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
 
-1.  Mechanism for manually entering license plate images that could not be processed
+3.  Mechanism for manually entering license plate images that could not be processed
 
-1.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
+4.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
 
-1.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
+5.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
 
-1.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
+6.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
 
-1.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
+7.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
 
-1.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
+8.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
 
 ### Customer objections 
 
@@ -447,11 +447,11 @@ The primary audience is the business decision makers and technology decision mak
     Use Event Grid, which is an eventing backplane that enables reliable event-driven, reactive programming. It uses a publish-subscribe model where publishers, like a blob storage container and Azure Functions, emit events and have no expectation about which events are handled. Subscribers decide which events they want to handle, by using filters to intelligently select only the incoming events they want to process. For example, use Event Grid to instantly trigger the serverless function to run image analysis each time a new photo is added to the blob storage container. Event Grid also works with custom topics, allowing us to pass data into the topic from the photo processing function, and have another function that handles saving successful license plate processing data to the database, and a different function that handles saving information about photos that need to be manually reviewed when no license plate number is found. This is done by setting the event type to a custom value which the downstream functions filter on to process the correct event data.\
     Event Grid will support Contoso's future expansion efforts through its ability to fan-out events. This means that you can subscribe multiple endpoints to the same event to send copies of the event to as many places as needed. This allows Contoso to add new event subscribers that perform different processing functions without needing to overhaul the eventing backplane. Event Grid costs \$0.60 per million operations (\$0.30 during preview) and the first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
-1.  What Azure service would you suggest Contoso use to execute custom business logic code when an event is triggered?
+2.  What Azure service would you suggest Contoso use to execute custom business logic code when an event is triggered?
     
     Azure Functions, which is Azure\'s de facto serverless compute service that enables you to run your custom business logic code-on-demand without the need to provision or manage infrastructure, dynamically scales to meet demand and enables you to pay only for the compute resources used. It is important to note that while every PaaS service also supports scalability, the scaling is typically completely dynamic and handled by the vendor when using serverless computing services. Instead of needing to define metrics (such as high memory utilization or CPU percentage) that initiate scaling in a PaaS service, as well as the scaling procedure, these details are handled for you behind the scenes with serverless. The vendor will simply allocate additional computing resources to your function to meet demand, and deallocate those resources when they are no longer needed.
 
-1.  Which pricing tier for the service would you recommend that would automatically scale to handle demand while charging only for work that was performed?
+3.  Which pricing tier for the service would you recommend that would automatically scale to handle demand while charging only for work that was performed?
     
     The Azure Functions Consumption plan. Under this plan, your Function App will automatically be scaled by the platform to meet demand, without any configuration needed on your part. No developer action is required. CPU and memory resource allocation is automatically handled by adding new processing instances. The other plan option for Function Apps is the App Service hosting plan. Automatic scaling is also available under this plan, though it\'s not as dynamic. You supply the metrics or schedule that kick off the scaling procedures, though, with this plan, you have the option of both scaling up to a higher tier with more powerful VMs, as well as out to a higher number of instances. The App Service hosting plan is a good choice for long running functions, as there is no limit on the function execution time, as opposed to the maximum 10-minute execution time limit imposed by the Consumption plan. It is also good for functions that require fast start-up time after an inactive period since this plan reserves at least one dedicated instance that is always allocated to the Function App and supports using the Always On setting to prevent the instance from going idle. However, in this scenario, none of the functions are particularly long-running, and the Consumption plan meets the requirement that charges are only incurred when work is performed. This is because the Consumption plan does not hold any instances in reserve at all times.
 
@@ -459,7 +459,7 @@ The primary audience is the business decision makers and technology decision mak
   
     There are a few ways to address this issue. The first step is to review your downstream services to see if there are any published rate limits, controlling how often you are allowed to call the service. For instance, if you are using the free tier of a Cognitive Services API, you are limited to 10 requests per minute, at a maximum of 5k requests per month. If you anticipate exceeding these limits, consider upgrading to a higher tier that allows for more requests at a higher interval. The second step is to perform a load test on your architecture, using a service such as Visual Studio Team Services, and observe the collected telemetry during the load test for any failures in your downstream components. If the resource-constrained component is an HTTP-based service, look for HTTP response codes, such as 429 and 503, which could indicate throttling due to exceeding the number of requests allowed through policy or service limits. Once you have taken note of any such limitations, there are two methods by which you can reduce the stress on affected downstream services. The first approach is to configure the concurrency settings on your triggers by setting the maxConcurrentRequests value in the host.json file to the maximum number of HTTP functions that will be executed in parallel. This implements rate limiting on the function itself to help alleviate the stress on affected downstream components. The second approach is to implement a resiliency strategy in code, by using a retry pattern with exponential back-off, or a circuit breaker pattern that prevents your function from repeatedly trying to execute an operation that is likely to fail. Your best option might be to use a combination of these two patterns to handle different types of errors and status codes with varying fault handling strategies. Review the Azure Architecture center's article on transient fault handling for more information: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults>
 
-1.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
+5.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
     *Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
 
 *License plate OCR*
@@ -469,7 +469,7 @@ The primary audience is the business decision makers and technology decision mak
     
     Since Contoso has stated that they have no in-house expertise in machine learning or data science, the simplest approach would be to use the Cognitive Services Computer Vision API and its built-in OCR capabilities. Because the API is an HTTP REST-based service, all that is needed is a simple POST containing the photo with a license plate, and it will return any detected text characters. It is important to note that, at this time, the Computer Vision API is not optimized for license plate recognition (LPR), which may be added in the future. While license plate text will be recognized in some cases, additional processing of the returned data may need to be performed to strip out State/Province names, as well as invalid characters.
 
-1.  How would you integrate the OCR service to your license plate processing flow?
+2.  How would you integrate the OCR service to your license plate processing flow?
     
     The Computer Vision API can be integrated by having the image processing function make a REST request containing the photo to the registered service endpoint. It is highly recommended that a resiliency strategy is implemented for the call, in case the service is imposing rate limits on your requests during high traffic periods. The return data is in JSON format, containing the discovered text and bounding boxes indicating their position within the photo.
 
@@ -507,11 +507,11 @@ The primary audience is the business decision makers and technology decision mak
     
     The Azure Functions Core Tools is a local version of the Azure Functions runtime that can be run on your local computer for debugging during your development process or run in a local, isolated environment. This is the same runtime that powers Functions in Azure, and it can be installed using the NodeJS package manager (npm). Though the core tools can be used from the command line or with several code editors, the best integration is with Visual Studio 2017. Automated deployments of your function app can be facilitated through App Service continuous integration. Use one of the integrated services for your source code repository, such as BitBucket, DropBox, GitHub, and Visual Studio Team Services (VSTS), which enables a workflow whereby a deployment to Azure is triggered when your function code is pushed to your repository. This continuous delivery setup deploys the entire Function App, not a single function, so in cases where a function needs to often change independently, it is best if it is deployed as a separate Function App.
 
-1.  How would you monitor all the executing serverless components in real time from a single dashboard?
+2.  How would you monitor all the executing serverless components in real time from a single dashboard?
     
     Use Azure Application Insights. Azure Functions provides built-in integration with Application Insights that makes it easy to monitor your functions. Use the Live Metrics Stream feature of Application Insights to view the incoming requests, outgoing requests, overall health, allocated server information, and sample telemetry in near-real time. This will help you observe how your functions scale under load and allow you to spot any potential bottlenecks or problematic components, through a single interactive interface.
 
-1.  Does your monitoring solution support exploring historical telemetry and configuring alerts?
+3.  Does your monitoring solution support exploring historical telemetry and configuring alerts?
     
     Yes, Application Insights makes it easy to configure alerts that are triggered when certain metrics conditions are met, such as server response time, by activity log service, type, and status/level, or even when specific search text is found in the log files. Current and historical telemetry and log data are retained by Application Insights, depending on the retention policies set forth by your selected service plan.
 
