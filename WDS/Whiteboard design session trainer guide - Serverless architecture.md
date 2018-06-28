@@ -20,7 +20,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only, and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third-party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-2018 Microsoft Corporation. All rights reserved.
+© 2018 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are the property of their respective owners.
 
@@ -31,24 +31,24 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Trainer information](#trainer-information)
     - [Role of the trainer](#role-of-the-trainer)
     - [Whiteboard design session flow](#whiteboard-design-session-flow)
-    - [Before the whiteboard design session: how to prepare](#before-the-whiteboard-design-session-how-to-prepare)
-    - [During the whiteboard design session: tips for an effective whiteboard design session](#during-the-whiteboard-design-session-tips-for-an-effective-whiteboard-design-session)
+    - [Before the whiteboard design session: how to prepare](#before-the-whiteboard-design-session--how-to-prepare)
+    - [During the whiteboard design session: tips for an effective whiteboard design session](#during-the-whiteboard-design-session--tips-for-an-effective-whiteboard-design-session)
 - [Serverless architecture whiteboard design session student guide](#serverless-architecture-whiteboard-design-session-student-guide)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
         - [Customer situation](#customer-situation)
         - [Customer needs](#customer-needs)
         - [Customer objections](#customer-objections)
         - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3-present-the-solution)
+    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
+    - [Step 3: Present the solution](#step-3--present-the-solution)
     - [Wrap-up](#wrap-up)
     - [Additional references](#additional-references)
 - [Serverless architecture whiteboard design session trainer guide](#serverless-architecture-whiteboard-design-session-trainer-guide)
-    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study-1)
-    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution-1)
-    - [Step 3: Present the solution](#step-3-present-the-solution-1)
-    - [Wrap-up](#wrap-up-1)
+    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
+    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
+    - [Step 3: Present the solution](#step-3--present-the-solution)
+    - [Wrap-up](#wrap-up)
     - [Preferred target audience](#preferred-target-audience)
     - [Preferred solution](#preferred-solution)
     - [Checklist of preferred objection handling](#checklist-of-preferred-objection-handling)
@@ -64,25 +64,25 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place.
+-   Creates a safe environment in which learning can take place
 
--   Stimulates the participant's thinking.
+-   Stimulates the participant's thinking
 
--   Involves the participant in the learning process.
+-   Involves the participant in the learning process
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants).
+-   Manages the learning process (on time, on topic, and adjusting to benefit participants)
 
--   Ensures individual participant accountability.
+-   Ensures individual participant accountability
 
--   Ties it all together for the participant.
+-   Ties it all together for the participant
 
--   Provides insight and experience into the learning process.
+-   Provides insight and experience into the learning process
 
--   Effectively leads the whiteboard design session discussion.
+-   Effectively leads the whiteboard design session discussion
 
--   Monitors quality and appropriateness of participant deliverables.
+-   Monitors quality and appropriateness of participant deliverables
 
--   Effectively leads the feedback process.
+-   Effectively leads the feedback process
 
 ## Whiteboard design session flow 
 
@@ -92,7 +92,7 @@ Each whiteboard design session uses the following flow:
 
 Outcome: Analyze your customer's needs
 
--   Customer\'s background, situation, needs, and technical requirements
+-   Customer's background, situation, needs, and technical requirements
 
 -   Current customer infrastructure and architecture
 
@@ -102,43 +102,43 @@ Outcome: Analyze your customer's needs
 
 Outcome: Prepare to present a solution for your target customer audience
 
--   Determine your target customer audience.
+-   Determine your target customer audience
 
 <!-- -->
 
--   Determine customer's business needs to address your solution.
+-   Determine customer's business needs to address your solution
 
--   Design and diagram your solution.
+-   Design and diagram your solution
 
--   Prepare to present your solution.
+-   Prepare to present your solution
 
 **Step 3: Present the solution (30 minutes)**
 
 Outcome: Present solution to your customer
 
--   Present solution.
+-   Present solution
 
--   Respond to customer objections.
+-   Respond to customer objections
 
--   Receive feedback.
+-   Receive feedback
 
 **Wrap-up (15 minutes)**
 
--   Review preferred solution.
+-   Review preferred solution
 
 ## Before the whiteboard design session: how to prepare
 
 Before conducting your first whiteboard design session:
 
--   Read the Student Guide (including the case study) and Trainer Guide.
+-   Read the Student Guide (including the case study) and Trainer Guide
 
--   Become familiar with all key points and activities.
+-   Become familiar with all key points and activities
 
--   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions.
+-   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions
 
--   Before the whiteboard design session, discuss the case study to pick up more ideas.
+-   Before the whiteboard design session, discuss the case study to pick up more ideas
 
--   Make notes for later.
+-   Make notes for later
 
 ## During the whiteboard design session: tips for an effective whiteboard design session
 
@@ -148,11 +148,11 @@ Before conducting your first whiteboard design session:
 
 When participants are doing activities, you can **look ahead to refresh your memory**.
 
--   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing.
+-   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing
 
 -   **Add examples, points, and stories** from your own experience. Think about stories you can share that help you make your points clearly and effectively.
 
--   **Consider creating a "parking lot"** to record issues or questions raised that are outside the scope of the whiteboard design session or can be answered later. Decide how you will address these issues, so you can acknowledge them without being derailed by them.
+-   **Consider creating a "parking lot"** to record issues or questions raised that are outside the scope of the whiteboard design session or can be answered later. Decide how you will address these issues, so you can acknowledge them without being derailed by them
 
 ***Have fun**! Encourage participants to have fun and share!*
 
@@ -172,24 +172,26 @@ Setup and configure a serverless architecture within Azure using a combination o
 
 Learning Objectives:
 
--   Use a series of Azure Functions that independently scale and break down business logic into discrete components.
+-   Use a series of Azure Functions that independently scale and break down business logic into discrete components
 
--   Use computer vision algorithms within an Azure Function to accurately detect license plates in car images at scale.
+-   Use computer vision algorithms within an Azure Function to accurately detect license plates in car images at scale
 
--   Provision and use Cosmos DB as a highly available NoSQL data store for processed data.
+-   Provision and use Cosmos DB as a highly available NoSQL data store for processed data
 
--   Create a Logic App that contains a workflow to export processed license plates and conditionally send alerts based on successful or unsuccessful operation.
+-   Create a Logic App that contains a workflow to export processed license plates and conditionally send alerts based on successful or unsuccessful operation
 
--   Use App Insights to monitor the serverless topology, observing how well the solution scales when under load.
+-   Use App Insights to monitor the serverless topology, observing how well the solution scales when under load
 
--   Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps.
+-   Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps
 
 ## Step 1: Review the customer case study 
 
 **Outcome** 
 
 Analyze your customer’s needs.
-Time frame: 15 minutes 
+
+Timeframe: 15 minutes 
+
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
 1.  Meet your table participants and trainer 
 2.  Read all of the directions for steps 1–3 in the student guide 
@@ -223,25 +225,25 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 
 ### Customer needs 
 
-1.  Replace manual process with a reliable, automated solution using serverless components.
+1.  Replace manual process with a reliable, automated solution using serverless components
 
-2.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise.
+1.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
 
-3.  Mechanism for manually entering license plate images that could not be processed.
+1.  Mechanism for manually entering license plate images that could not be processed
 
-4.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images.
+1.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
 
-5.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported.
+1.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
 
-6.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control.
+1.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
 
-7.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts.
+1.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
 
-8.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future.
+1.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
 
 ### Customer objections 
 
-1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline.
+1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline
 
 2.  Will a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
@@ -257,7 +259,7 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 **Outcome** 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
-Time frame: 60 minutes
+Timeframe: 60 minutes
 
 **Business needs**
 
@@ -323,9 +325,9 @@ Directions: With all participants at your table, respond to the following questi
 
 Directions: With all participants at your table: 
 
-1.  Identify any customer needs that are not addressed with the proposed solution. 
-2.  Identify the benefits of your solution. 
-3.  Determine how you will respond to the customer’s objections. 
+1.  Identify any customer needs that are not addressed with the proposed solution
+2.  Identify the benefits of your solution
+3.  Determine how you will respond to the customer’s objections 
 
 Prepare a 15-minute chalk-talk style presentation to the customer. 
 
@@ -336,25 +338,25 @@ Prepare a 15-minute chalk-talk style presentation to the customer.
  
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
 **Presentation** 
 
 Directions:
-1.  Pair with another table.
-2.  One table is the Microsoft team and the other table is the customer.
-3.  The Microsoft team presents their proposed solution to the customer.
-4.  The customer makes one of the objections from the list of objections.
-5.  The Microsoft team responds to the objection.
-6.  The customer team gives feedback to the Microsoft team. 
-7.  Tables switch roles and repeat Steps 2–6.
+1.  Pair with another table
+2.  One table is the Microsoft team and the other table is the customer
+3.  The Microsoft team presents their proposed solution to the customer
+4.  The customer makes one of the objections from the list of objections
+5.  The Microsoft team responds to the objection
+6.  The customer team gives feedback to the Microsoft team
+7.  Tables switch roles and repeat Steps 2–6
 
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
--   Tables reconvene with the larger group to hear an SME share the preferred solution for the case study.
+-   Tables reconvene with the larger group to hear an SME share the preferred solution for the case study
 
 ##  Additional references
 
@@ -377,47 +379,47 @@ Time frame: 15 minutes
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer.
+-   Check in with your table participants to introduce yourself as the trainer
 
 -   Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and timeframes of the whiteboard design session.
+-   Briefly review the steps and timeframes of the whiteboard design session
 
--   Ready, set, go! Let the table participants begin.
+-   Ready, set, go! Let the table participants begin
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time.
+-   Check in with your tables to ensure that they are transitioning from step to step on time
 
--   Provide some feedback on their responses to the business needs and design.
+-   Provide some feedback on their responses to the business needs and design
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
+    -   Try asking questions first that will lead the participants to discover the answers on their own
 
--   Provide feedback for their responses to the customer's objections.
+-   Provide feedback for their responses to the customer's objections
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
+    -   Try asking questions first that will lead the participants to discover the answers on their own
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins.
+-   Determine which table will be paired with your table before Step 3 begins
 
--   For the first round, assign one table as the Microsoft team and the other table as the customer.
+-   For the first round, assign one table as the Microsoft team and the other table as the customer
 
--   Have the Microsoft team present their solution to the customer team.
+-   Have the Microsoft team present their solution to the customer team
 
-    -   Have the customer team provide one objection to which the Microsoft team should respond.
+    -   Have the customer team provide one objection to which the Microsoft team should respond
 
-    -   The presentation and objections should be no longer than 15 minutes.
+    -   The presentation and objections should be no longer than 15 minutes
 
--   Have participants on the customer team give feedback to the Microsoft team.
+-   Have participants on the customer team give feedback to the Microsoft team
 
-    -   The feedback should be no longer than 5 minutes.
+    -   The feedback should be no longer than 5 minutes
 
-    -   If needed, the trainer may also provide feedback.
+    -   If needed, the trainer may also provide feedback
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear an SME share the following preferred solution.
+-   Have the table participants reconvene with the larger session group to hear an SME share the following preferred solution
 
 ##  Preferred target audience
 
@@ -434,7 +436,7 @@ The primary audience is the business decision makers and technology decision mak
     ![The Solution diagram is described in the text following this diagram.](images/Whiteboarddesignsessiontrainerguide-Serverlessarchitectureimages/media/image3.png "Solution diagram")
 
     
-    The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. Each photo is stored in a subfolder named after the photo booth's Id so the Id can be added to the processed license plate data in the database. An Event Grid subscription is created against the Blob storage create event, calling the photo processing Azure Function endpoint (on the left-hand side of the diagram), which in turn sends the photo to the Cognitive Services Computer Vision API OCR service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData.\" However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called \"queuePlateForManualCheckup.\" Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate Cosmos DB collection for the outcome, using the Cosmos DB output binding. A Logic App that runs on an hourly interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. Application Insights is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows Contoso to observe dynamic scaling first-hand and configure alerts when certain events take place.
+    The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. Each photo is stored in a subfolder named after the photo booth's Id so the Id can be added to the processed license plate data in the database. An Event Grid subscription is created against the Blob storage create event, calling the photo processing Azure Function endpoint (on the side of the diagram), which in turn sends the photo to the Cognitive Services Computer Vision API OCR service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData.\" However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called \"queuePlateForManualCheckup.\" Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate Cosmos DB collection for the outcome, using the Cosmos DB output binding. A Logic App that runs on an hourly interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. Application Insights is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows Contoso to observe dynamic scaling first-hand and configure alerts when certain events take place.
 
     > NOTE: The preferred solution is only one of many possible, viable approaches.
 
@@ -445,11 +447,11 @@ The primary audience is the business decision makers and technology decision mak
     Use Event Grid, which is an eventing backplane that enables reliable event-driven, reactive programming. It uses a publish-subscribe model where publishers, like a blob storage container and Azure Functions, emit events and have no expectation about which events are handled. Subscribers decide which events they want to handle, by using filters to intelligently select only the incoming events they want to process. For example, use Event Grid to instantly trigger the serverless function to run image analysis each time a new photo is added to the blob storage container. Event Grid also works with custom topics, allowing us to pass data into the topic from the photo processing function, and have another function that handles saving successful license plate processing data to the database, and a different function that handles saving information about photos that need to be manually reviewed when no license plate number is found. This is done by setting the event type to a custom value which the downstream functions filter on to process the correct event data.\
     Event Grid will support Contoso's future expansion efforts through its ability to fan-out events. This means that you can subscribe multiple endpoints to the same event to send copies of the event to as many places as needed. This allows Contoso to add new event subscribers that perform different processing functions without needing to overhaul the eventing backplane. Event Grid costs \$0.60 per million operations (\$0.30 during preview) and the first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
-2.  What Azure service would you suggest Contoso use to execute custom business logic code when an event is triggered?\
+1.  What Azure service would you suggest Contoso use to execute custom business logic code when an event is triggered?
     
     Azure Functions, which is Azure\'s de facto serverless compute service that enables you to run your custom business logic code-on-demand without the need to provision or manage infrastructure, dynamically scales to meet demand and enables you to pay only for the compute resources used. It is important to note that while every PaaS service also supports scalability, the scaling is typically completely dynamic and handled by the vendor when using serverless computing services. Instead of needing to define metrics (such as high memory utilization or CPU percentage) that initiate scaling in a PaaS service, as well as the scaling procedure, these details are handled for you behind the scenes with serverless. The vendor will simply allocate additional computing resources to your function to meet demand, and deallocate those resources when they are no longer needed.
 
-3.  Which pricing tier for the service would you recommend that would automatically scale to handle demand while charging only for work that was performed?\
+1.  Which pricing tier for the service would you recommend that would automatically scale to handle demand while charging only for work that was performed?
     
     The Azure Functions Consumption plan. Under this plan, your Function App will automatically be scaled by the platform to meet demand, without any configuration needed on your part. No developer action is required. CPU and memory resource allocation is automatically handled by adding new processing instances. The other plan option for Function Apps is the App Service hosting plan. Automatic scaling is also available under this plan, though it\'s not as dynamic. You supply the metrics or schedule that kick off the scaling procedures, though, with this plan, you have the option of both scaling up to a higher tier with more powerful VMs, as well as out to a higher number of instances. The App Service hosting plan is a good choice for long running functions, as there is no limit on the function execution time, as opposed to the maximum 10-minute execution time limit imposed by the Consumption plan. It is also good for functions that require fast start-up time after an inactive period since this plan reserves at least one dedicated instance that is always allocated to the Function App and supports using the Always On setting to prevent the instance from going idle. However, in this scenario, none of the functions are particularly long-running, and the Consumption plan meets the requirement that charges are only incurred when work is performed. This is because the Consumption plan does not hold any instances in reserve at all times.
 
@@ -457,7 +459,7 @@ The primary audience is the business decision makers and technology decision mak
   
     There are a few ways to address this issue. The first step is to review your downstream services to see if there are any published rate limits, controlling how often you are allowed to call the service. For instance, if you are using the free tier of a Cognitive Services API, you are limited to 10 requests per minute, at a maximum of 5k requests per month. If you anticipate exceeding these limits, consider upgrading to a higher tier that allows for more requests at a higher interval. The second step is to perform a load test on your architecture, using a service such as Visual Studio Team Services, and observe the collected telemetry during the load test for any failures in your downstream components. If the resource-constrained component is an HTTP-based service, look for HTTP response codes, such as 429 and 503, which could indicate throttling due to exceeding the number of requests allowed through policy or service limits. Once you have taken note of any such limitations, there are two methods by which you can reduce the stress on affected downstream services. The first approach is to configure the concurrency settings on your triggers by setting the maxConcurrentRequests value in the host.json file to the maximum number of HTTP functions that will be executed in parallel. This implements rate limiting on the function itself to help alleviate the stress on affected downstream components. The second approach is to implement a resiliency strategy in code, by using a retry pattern with exponential back-off, or a circuit breaker pattern that prevents your function from repeatedly trying to execute an operation that is likely to fail. Your best option might be to use a combination of these two patterns to handle different types of errors and status codes with varying fault handling strategies. Review the Azure Architecture center's article on transient fault handling for more information: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults>
 
-5.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.\
+1.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
     *Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
 
 *License plate OCR*
@@ -476,7 +478,7 @@ The primary audience is the business decision makers and technology decision mak
 
 1.  What Azure service would you recommend Contoso use to create an automated workflow that runs on a regular interval to export processed license plate data and send alerts as needed?
     
-    Logic Apps would help integrate an automated workflow without worrying about building hosting, scalability, availability, and management. You would add a recurrence trigger to the logic app that fires on a defined schedule. The logic app would execute the Azure function that collects new processed license plate data and exports it to a CSV file in Azure Storage.*\
+    Logic Apps would help integrate an automated workflow without worrying about building hosting, scalability, availability, and management. You would add a recurrence trigger to the logic app that fires on a defined schedule. The logic app would execute the Azure function that collects new processed license plate data and exports it to a CSV file in Azure Storage.*
     
 
 2.  *Which other services would you integrate into your workflow?*
@@ -501,15 +503,15 @@ The primary audience is the business decision makers and technology decision mak
 *Monitoring and DevOps*
 
 
-1.  What tools and services would you recommend Contoso use to develop the serverless components locally, synchronize with a source code repository, and implement continuous deployment?\
+1.  What tools and services would you recommend Contoso use to develop the serverless components locally, synchronize with a source code repository, and implement continuous deployment?
     
     The Azure Functions Core Tools is a local version of the Azure Functions runtime that can be run on your local computer for debugging during your development process or run in a local, isolated environment. This is the same runtime that powers Functions in Azure, and it can be installed using the NodeJS package manager (npm). Though the core tools can be used from the command line or with several code editors, the best integration is with Visual Studio 2017. Automated deployments of your function app can be facilitated through App Service continuous integration. Use one of the integrated services for your source code repository, such as BitBucket, DropBox, GitHub, and Visual Studio Team Services (VSTS), which enables a workflow whereby a deployment to Azure is triggered when your function code is pushed to your repository. This continuous delivery setup deploys the entire Function App, not a single function, so in cases where a function needs to often change independently, it is best if it is deployed as a separate Function App.
 
-2.  How would you monitor all the executing serverless components in real time from a single dashboard?\
+1.  How would you monitor all the executing serverless components in real time from a single dashboard?
     
     Use Azure Application Insights. Azure Functions provides built-in integration with Application Insights that makes it easy to monitor your functions. Use the Live Metrics Stream feature of Application Insights to view the incoming requests, outgoing requests, overall health, allocated server information, and sample telemetry in near-real time. This will help you observe how your functions scale under load and allow you to spot any potential bottlenecks or problematic components, through a single interactive interface.
 
-1.  Does your monitoring solution support exploring historical telemetry and configuring alerts?\
+1.  Does your monitoring solution support exploring historical telemetry and configuring alerts?
     
     Yes, Application Insights makes it easy to configure alerts that are triggered when certain metrics conditions are met, such as server response time, by activity log service, type, and status/level, or even when specific search text is found in the log files. Current and historical telemetry and log data are retained by Application Insights, depending on the retention policies set forth by your selected service plan.
 

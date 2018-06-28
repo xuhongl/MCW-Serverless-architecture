@@ -34,104 +34,104 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Overview](#overview)
     - [Solution Architecture](#solution-architecture)
     - [Requirements](#requirements)
-    - [Exercise 1: Azure data, storage, and serverless environment setup](#exercise-1-azure-data-storage-and-serverless-environment-setup)
+    - [Exercise 1: Azure data, storage, and serverless environment setup](#exercise-1--azure-data--storage--and-serverless-environment-setup)
         - [Help references](#help-references)
-        - [Task 1: Provision the storage account](#task-1-provision-the-storage-account)
+        - [Task 1: Provision the storage account](#task-1--provision-the-storage-account)
             - [Tasks to complete](#tasks-to-complete)
             - [Exit criteria](#exit-criteria)
-        - [Task 2: Provision the Function Apps](#task-2-provision-the-function-apps)
-            - [Tasks to complete](#tasks-to-complete-1)
-            - [Exit criteria](#exit-criteria-1)
-        - [Task 3: Provision the Event Grid topic](#task-3-provision-the-event-grid-topic)
-            - [Tasks to complete](#tasks-to-complete-2)
-            - [Exit criteria](#exit-criteria-2)
-        - [Task 4: Provision the Azure Cosmos DB account](#task-4-provision-the-azure-cosmos-db-account)
-            - [Tasks to complete](#tasks-to-complete-3)
-            - [Exit criteria](#exit-criteria-3)
-        - [Task 5: Provision the Computer Vision API service](#task-5-provision-the-computer-vision-api-service)
-            - [Tasks to complete](#tasks-to-complete-4)
-            - [Exit criteria](#exit-criteria-4)
-    - [Exercise 2: Develop and publish the photo processing and data export functions](#exercise-2-develop-and-publish-the-photo-processing-and-data-export-functions)
-        - [Help references](#help-references-1)
-        - [Task 1: Configure application settings](#task-1-configure-application-settings)
-            - [Tasks to complete](#tasks-to-complete-5)
-            - [Exit criteria](#exit-criteria-5)
-        - [Task 2: Finish the ProcessImage function](#task-2-finish-the-processimage-function)
-            - [Tasks to complete](#tasks-to-complete-6)
-            - [Exit criteria](#exit-criteria-6)
-        - [Task 3: Publish the Function App from Visual Studio](#task-3-publish-the-function-app-from-visual-studio)
-            - [Tasks to complete](#tasks-to-complete-7)
-            - [Exit criteria](#exit-criteria-7)
+        - [Task 2: Provision the Function Apps](#task-2--provision-the-function-apps)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 3: Provision the Event Grid topic](#task-3--provision-the-event-grid-topic)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 4: Provision the Azure Cosmos DB account](#task-4--provision-the-azure-cosmos-db-account)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 5: Provision the Computer Vision API service](#task-5--provision-the-computer-vision-api-service)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 2: Develop and publish the photo processing and data export functions](#exercise-2--develop-and-publish-the-photo-processing-and-data-export-functions)
+        - [Help references](#help-references)
+        - [Task 1: Configure application settings](#task-1--configure-application-settings)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 2: Finish the ProcessImage function](#task-2--finish-the-processimage-function)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 3: Publish the Function App from Visual Studio](#task-3--publish-the-function-app-from-visual-studio)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
         - [](#)
-    - [Exercise 3: Create functions in the portal](#exercise-3-create-functions-in-the-portal)
-        - [Help references](#help-references-2)
-        - [Task 1: Create function to save license plate data to Azure Cosmos DB](#task-1-create-function-to-save-license-plate-data-to-azure-cosmos-db)
-            - [Tasks to complete](#tasks-to-complete-8)
-            - [Exit criteria](#exit-criteria-8)
-        - [Task 2: Add an Event Grid subscription to the SavePlateData function](#task-2-add-an-event-grid-subscription-to-the-saveplatedata-function)
-            - [Tasks to complete](#tasks-to-complete-9)
-            - [Exit criteria](#exit-criteria-9)
-        - [Task 3: Add an Azure Cosmos DB output to the SavePlateData function](#task-3-add-an-azure-cosmos-db-output-to-the-saveplatedata-function)
-            - [Tasks to complete](#tasks-to-complete-10)
-            - [Exit criteria](#exit-criteria-10)
-        - [Task 4: Create function to save manual verification info to Azure Cosmos DB](#task-4-create-function-to-save-manual-verification-info-to-azure-cosmos-db)
-            - [Tasks to complete](#tasks-to-complete-11)
-            - [Exit criteria](#exit-criteria-11)
-        - [Task 5: Add an Event Grid subscription to the QueuePlateForManualCheckup function](#task-5-add-an-event-grid-subscription-to-the-queueplateformanualcheckup-function)
-            - [Tasks to complete](#tasks-to-complete-12)
-            - [Exit criteria](#exit-criteria-12)
-        - [Task 6: Add an Azure Cosmos DB output to the QueuePlateForManualCheckup function](#task-6-add-an-azure-cosmos-db-output-to-the-queueplateformanualcheckup-function)
-            - [Tasks to complete](#tasks-to-complete-13)
-            - [Exit criteria](#exit-criteria-13)
-        - [Task 7: Configure custom event types for the new Event Grid subscriptions](#task-7-configure-custom-event-types-for-the-new-event-grid-subscriptions)
-            - [Tasks to complete](#tasks-to-complete-14)
-            - [Exit criteria](#exit-criteria-14)
-    - [Exercise 4: Monitor your functions with Application Insights](#exercise-4-monitor-your-functions-with-application-insights)
-        - [Help references](#help-references-3)
-        - [Task 1: Provision an Application Insights instance](#task-1-provision-an-application-insights-instance)
-            - [Tasks to complete](#tasks-to-complete-15)
-            - [Exit criteria](#exit-criteria-15)
-        - [Task 2: Enable Application Insights integration in your Function Apps](#task-2-enable-application-insights-integration-in-your-function-apps)
-            - [Tasks to complete](#tasks-to-complete-16)
-        - [Task 3: Use the Live Metrics Stream to monitor functions in real time](#task-3-use-the-live-metrics-stream-to-monitor-functions-in-real-time)
-            - [Tasks to complete](#tasks-to-complete-17)
-            - [Exit criteria](#exit-criteria-16)
-        - [Task 4: Observe your functions dynamically scaling when resource-constrained](#task-4-observe-your-functions-dynamically-scaling-when-resource-constrained)
-            - [Tasks to complete](#tasks-to-complete-18)
-            - [Exit criteria](#exit-criteria-17)
-    - [Exercise 5: Explore your data in Azure Cosmos DB](#exercise-5-explore-your-data-in-azure-cosmos-db)
-        - [Help references](#help-references-4)
-        - [Task 1: Use the Azure Cosmos DB Data Explorer](#task-1-use-the-azure-cosmos-db-data-explorer)
-            - [Tasks to complete](#tasks-to-complete-19)
-            - [Exit criteria](#exit-criteria-18)
-    - [Exercise 6: Create the data export workflow](#exercise-6-create-the-data-export-workflow)
-        - [Help references](#help-references-5)
-        - [Task 1: Create the Logic App](#task-1-create-the-logic-app)
-            - [Tasks to complete](#tasks-to-complete-20)
-            - [Exit criteria](#exit-criteria-19)
-    - [Exercise 7: Configure continuous deployment for your Function App](#exercise-7-configure-continuous-deployment-for-your-function-app)
-        - [Help references](#help-references-6)
-        - [Task 1: Create a GitHub repository](#task-1-create-a-github-repository)
-            - [Tasks to complete](#tasks-to-complete-21)
-            - [Exit criteria](#exit-criteria-20)
-        - [Task 2: Add GitHub repository to your Visual Studio solution](#task-2-add-github-repository-to-your-visual-studio-solution)
-            - [Tasks to complete](#tasks-to-complete-22)
-            - [Exit criteria](#exit-criteria-21)
-        - [Task 3: Configure your Function App to use your GitHub repository for continuous deployment](#task-3-configure-your-function-app-to-use-your-github-repository-for-continuous-deployment)
-            - [Tasks to complete](#tasks-to-complete-23)
-            - [Exit criteria](#exit-criteria-22)
-        - [Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment](#task-4-finish-your-exportlicenseplates-function-code-and-push-changes-to-github-to-trigger-deployment)
-            - [Tasks to complete](#tasks-to-complete-24)
-            - [Exit criteria](#exit-criteria-23)
-    - [Exercise 8: Rerun the workflow and verify data export](#exercise-8-rerun-the-workflow-and-verify-data-export)
-        - [Task 1: Run the Logic App](#task-1-run-the-logic-app)
-            - [Tasks to complete](#tasks-to-complete-25)
-            - [Exit criteria](#exit-criteria-24)
-        - [Task 2: View the exported CSV file](#task-2-view-the-exported-csv-file)
-            - [Tasks to complete](#tasks-to-complete-26)
-            - [Exit criteria](#exit-criteria-25)
+    - [Exercise 3: Create functions in the portal](#exercise-3--create-functions-in-the-portal)
+        - [Help references](#help-references)
+        - [Task 1: Create function to save license plate data to Azure Cosmos DB](#task-1--create-function-to-save-license-plate-data-to-azure-cosmos-db)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 2: Add an Event Grid subscription to the SavePlateData function](#task-2--add-an-event-grid-subscription-to-the-saveplatedata-function)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 3: Add an Azure Cosmos DB output to the SavePlateData function](#task-3--add-an-azure-cosmos-db-output-to-the-saveplatedata-function)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 4: Create function to save manual verification info to Azure Cosmos DB](#task-4--create-function-to-save-manual-verification-info-to-azure-cosmos-db)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 5: Add an Event Grid subscription to the QueuePlateForManualCheckup function](#task-5--add-an-event-grid-subscription-to-the-queueplateformanualcheckup-function)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 6: Add an Azure Cosmos DB output to the QueuePlateForManualCheckup function](#task-6--add-an-azure-cosmos-db-output-to-the-queueplateformanualcheckup-function)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 7: Configure custom event types for the new Event Grid subscriptions](#task-7--configure-custom-event-types-for-the-new-event-grid-subscriptions)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 4: Monitor your functions with Application Insights](#exercise-4--monitor-your-functions-with-application-insights)
+        - [Help references](#help-references)
+        - [Task 1: Provision an Application Insights instance](#task-1--provision-an-application-insights-instance)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 2: Enable Application Insights integration in your Function Apps](#task-2--enable-application-insights-integration-in-your-function-apps)
+            - [Tasks to complete](#tasks-to-complete)
+        - [Task 3: Use the Live Metrics Stream to monitor functions in real time](#task-3--use-the-live-metrics-stream-to-monitor-functions-in-real-time)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 4: Observe your functions dynamically scaling when resource-constrained](#task-4--observe-your-functions-dynamically-scaling-when-resource-constrained)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 5: Explore your data in Azure Cosmos DB](#exercise-5--explore-your-data-in-azure-cosmos-db)
+        - [Help references](#help-references)
+        - [Task 1: Use the Azure Cosmos DB Data Explorer](#task-1--use-the-azure-cosmos-db-data-explorer)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 6: Create the data export workflow](#exercise-6--create-the-data-export-workflow)
+        - [Help references](#help-references)
+        - [Task 1: Create the Logic App](#task-1--create-the-logic-app)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 7: Configure continuous deployment for your Function App](#exercise-7--configure-continuous-deployment-for-your-function-app)
+        - [Help references](#help-references)
+        - [Task 1: Create a GitHub repository](#task-1--create-a-github-repository)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 2: Add GitHub repository to your Visual Studio solution](#task-2--add-github-repository-to-your-visual-studio-solution)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 3: Configure your Function App to use your GitHub repository for continuous deployment](#task-3--configure-your-function-app-to-use-your-github-repository-for-continuous-deployment)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment](#task-4--finish-your-exportlicenseplates-function-code-and-push-changes-to-github-to-trigger-deployment)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+    - [Exercise 8: Rerun the workflow and verify data export](#exercise-8--rerun-the-workflow-and-verify-data-export)
+        - [Task 1: Run the Logic App](#task-1--run-the-logic-app)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
+        - [Task 2: View the exported CSV file](#task-2--view-the-exported-csv-file)
+            - [Tasks to complete](#tasks-to-complete)
+            - [Exit criteria](#exit-criteria)
     - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Delete the Resource Group in which you placed your Azure resources.](#task-1-delete-the-resource-group-in-which-you-placed-your-azure-resources)
+        - [Task 1: Delete the Resource group in which you placed your Azure resources.](#task-1--delete-the-resource-group-in-which-you-placed-your-azure-resources)
 
 <!-- /TOC -->
 
@@ -165,7 +165,7 @@ Below is a diagram of the solution architecture you will build in this lab. Plea
 
 ![](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image2.png)
 
-The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. A blob storage trigger fires on each image upload, executing the photo processing **Azure Function** endpoint (on the left-hand side of the diagram), which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData". However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called "queuePlateForManualCheckup." Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. A **Logic App** that runs on a 15-minute interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. **Application Insights** is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows you to observe dynamic scaling first-hand and configure alerts when certain events take place.
+The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. A blob storage trigger fires on each image upload, executing the photo processing **Azure Function** endpoint (on the side of the diagram), which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData". However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called "queuePlateForManualCheckup." Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. A **Logic App** that runs on a 15-minute interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. **Application Insights** is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows you to observe dynamic scaling first-hand and configure alerts when certain events take place.
 
 ## Requirements
 
@@ -216,13 +216,13 @@ In this exercise, you will provision a Blob storage account, using the Hot acces
 
 #### Tasks to complete
 
--   Create a blob storage instance from within Azure.
+-   Create a blob storage instance from within Azure
 
 #### Exit criteria 
 
--   Save the storage connection string for later.
+-   Save the storage connection string for later
 
--   There should be two private containers: images and export.
+-   There should be two private containers: images and export
 
 ### Task 2: Provision the Function Apps
 
@@ -236,21 +236,21 @@ Provision two separate Function Apps. One will be deployed to from Visual Studio
 
 #### Exit criteria 
 
--   Save the names for later, marking which one you will be deploying to from Visual Studio.
+-   Save the names for later, marking which one you will be deploying to from Visual Studio
 
 ### Task 3: Provision the Event Grid topic
 
-The Event Grid topic is the eventing backplane that allows the functions to trigger and send data to one another.
+The Event Grid topic is the eventing backplane that allows the functions to trigger and send data to one another
 
 #### Tasks to complete
 
--   Create an Event Grid topic from within Azure.
+-   Create an Event Grid topic from within Azure
 
 #### Exit criteria 
 
--   Save the topic endpoint for later.
+-   Save the topic endpoint for later
 
--   Save the access key for later.
+-   Save the access key for later
 
 ### Task 4: Provision the Azure Cosmos DB account
 
@@ -258,9 +258,9 @@ Azure Cosmos DB will serve as your unstructured data store for processed license
 
 #### Tasks to complete
 
--   Create an Azure Cosmos DB account from within Azure.
+-   Create an Azure Cosmos DB account from within Azure
 
--   Select the SQL API.
+-   Select the SQL API
 
 #### Exit criteria 
 
@@ -268,9 +268,9 @@ Azure Cosmos DB will serve as your unstructured data store for processed license
 
 -   Create a collection named NeedsManualReview with a Database Id of LicensePlates. It should have fixed storage capacity and have a throughput of 5000 RU/s.
 
--   Save the URI for later.
+-   Save the URI for later
 
--   Save the key for later.
+-   Save the key for later
 
 ### Task 5: Provision the Computer Vision API service
 
@@ -278,15 +278,15 @@ The Computer Vision API will provide OCR capability on-demand from your ProcessI
 
 #### Tasks to complete
 
--   Create a Computer Vision API service from within Azure.
+-   Create a Computer Vision API service from within Azure
 
--   Select the S1 pricing tier.
+-   Select the S1 pricing tier
 
 #### Exit criteria 
 
--   Save the Endpoint for later.
+-   Save the Endpoint for later
 
--   Save the key for later.
+-   Save the key for later
 
 ## Exercise 2: Develop and publish the photo processing and data export functions
 
@@ -307,13 +307,13 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 #### Tasks to complete
 
--   Open the TollBooth starter project in Visual Studio.
+-   Open the TollBooth starter project in Visual Studio
 
--   Open the local.settings.json file as a reference.
+-   Open the local.settings.json file as a reference
 
 -   Navigate to the Function App you created whose name ends with **FunctionApp**. If you did not use this naming convention, that's fine. Just be sure to make a note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
 
--   Open the Function App's application settings, then add new application keys and values, using the local.settings.json file as a reference.
+-   Open the Function App's application settings, then add new application keys and values, using the local.settings.json file as a reference
 
 #### Exit criteria 
 
@@ -333,7 +333,7 @@ In this task, you will apply application settings using the Microsoft Azure Port
 | exportCsvContainerName  |   Blob storage CSV export container name (export) |
 | blobStorageConnection  |  Blob storage connection string |
         
--   Populate the save values in your local.settings.json files if you plan on debugging your Function App locally.
+-   Populate the save values in your local.settings.json files if you plan on debugging your Function App locally
 
 ### Task 2: Finish the ProcessImage function
 
@@ -341,17 +341,17 @@ There are a few components within the starter project that must be completed, ma
 
 #### Tasks to complete
 
--   Complete TODO item found in ProcessImage.cs.
+-   Complete TODO item found in ProcessImage.cs
 
--   Complete TODO item found in FindLicensePlateText.cs.
+-   Complete TODO item found in FindLicensePlateText.cs
 
 -   Complete TODO items found in SendToEventGrid.cs. Make note of the event types you define here, as they will be used later on when creating new functions in the second Function App you provisioned earlier. Suggested event type names are savePlateData and queuePlateForManualCheckup.
 
 #### Exit criteria 
 
--   You completed TODO items 1-4.
+-   You completed TODO items 1-4
 
--   You copied the two event type names you defined under TODO 3 & 4, for future reference.
+-   You copied the two event type names you defined under TODO 3 & 4, for future reference
 
 ### Task 3: Publish the Function App from Visual Studio
 
@@ -359,11 +359,11 @@ In this task, you will publish the Function App from the starter project in Visu
 
 #### Tasks to complete
 
--   Publish the TollBooth project to the existing Function App you created whose name ends in FunctionApp.
+-   Publish the TollBooth project to the existing Function App you created whose name ends in FunctionApp
 
 #### Exit criteria 
 
--   Navigate to the Function App in Azure and verify that both functions appear within.
+-   Navigate to the Function App in Azure and verify that both functions appear within
 
 ###  
 
@@ -390,7 +390,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 -   Open the Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you [did not]{.underline} deploy in the previous exercise.
 
--   Create a new Event Grid trigger function named SavePlateData with the language set to JavaScript.
+-   Create a new Event Grid trigger function named SavePlateData with the language set to JavaScript
 
 -   Update the function code to set the context.bindings.outputDocument to a new JSON file with the following signature:
 
@@ -403,11 +403,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 }
 
 ```
--   The values should be set by the incoming Event Grid data properties.
+-   The values should be set by the incoming Event Grid data properties
 
 #### Exit criteria
 
--   You have a new function triggered by Event Grid, saving that Event Grid data to an Azure Cosmos DB output binding.
+-   You have a new function triggered by Event Grid, saving that Event Grid data to an Azure Cosmos DB output binding
 
 ### Task 2: Add an Event Grid subscription to the SavePlateData function
 
@@ -415,13 +415,13 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
 #### Tasks to complete
 
--   Add an Event Grid subscription to the new SavePlateData function.
+-   Add an Event Grid subscription to the new SavePlateData function
 
--   This subscription should subscribe to EventGrid Topics, and to all event types.
+-   This subscription should subscribe to EventGrid Topics, and to all event types
 
 #### Exit criteria
 
--   You have a new Event Grid Subscription URL configured for your function's Event Grid Trigger.
+-   You have a new Event Grid Subscription URL configured for your function's Event Grid Trigger
 
 ### Task 3: Add an Azure Cosmos DB output to the SavePlateData function
 
@@ -429,15 +429,15 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
 #### Tasks to complete
 
--   Add a new Azure Cosmos DB output binding to the SavePlateData function.
+-   Add a new Azure Cosmos DB output binding to the SavePlateData function
 
--   Connect it to the Azure Cosmos DB account you created earlier.
+-   Connect it to the Azure Cosmos DB account you created earlier
 
--   Set the Database name to LicensePlates, and the Collection name to Processed.
+-   Set the Database name to LicensePlates, and the Collection name to Processed
 
 #### Exit criteria
 
--   Your function has a new Azure Cosmos DB output configured under Integrate.
+-   Your function has a new Azure Cosmos DB output configured under Integrate
 
 ### Task 4: Create function to save manual verification info to Azure Cosmos DB
 
@@ -447,7 +447,7 @@ In this task, you will create a new Node.js function triggered by Event Grid, an
 
 -   Open the Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you [did not]{.underline} deploy in the previous exercise.
 
--   Create a new Event Grid trigger function named QueuePlateForManualCheckup with the language set to JavaScript.
+-   Create a new Event Grid trigger function named QueuePlateForManualCheckup with the language set to JavaScript
 
 -   Update the function code to set the context.bindings.outputDocument to a new JSON file with the following signature:
 
@@ -460,11 +460,11 @@ In this task, you will create a new Node.js function triggered by Event Grid, an
     }
 ```
 
--   The values should be set by the incoming Event Grid data properties.
+-   The values should be set by the incoming Event Grid data properties
 
 #### Exit criteria
 
--   You have a new function triggered by Event Grid, saving that Event Grid data to an Azure Cosmos DB output binding.
+-   You have a new function triggered by Event Grid, saving that Event Grid data to an Azure Cosmos DB output binding
 
 ### Task 5: Add an Event Grid subscription to the QueuePlateForManualCheckup function
 
@@ -472,13 +472,13 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
 #### Tasks to complete
 
--   Add an Event Grid subscription to the new QueuePlateForManualCheckup function.
+-   Add an Event Grid subscription to the new QueuePlateForManualCheckup function
 
--   This subscription should subscribe to EventGrid Topics, and to all event types.
+-   This subscription should subscribe to EventGrid Topics, and to all event types
 
 #### Exit criteria
 
--   You have a new Event Grid Subscription URL configured for your function's Event Grid Trigger.
+-   You have a new Event Grid Subscription URL configured for your function's Event Grid Trigger
 
 ### Task 6: Add an Azure Cosmos DB output to the QueuePlateForManualCheckup function
 
@@ -486,15 +486,15 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
 #### Tasks to complete
 
--   Add a new Azure Cosmos DB output binding to the QueuePlateForManualCheckup function.
+-   Add a new Azure Cosmos DB output binding to the QueuePlateForManualCheckup function
 
--   Connect it to the Azure Cosmos DB account you created earlier.
+-   Connect it to the Azure Cosmos DB account you created earlier
 
--   Set the Database name to LicensePlates, and the Collection name to NeedsManualReview.
+-   Set the Database name to LicensePlates, and the Collection name to NeedsManualReview
 
 #### Exit criteria
 
--   Your function has a new Azure Cosmos DB output configured under Integrate.
+-   Your function has a new Azure Cosmos DB output configured under Integrate
 
 ### Task 7: Configure custom event types for the new Event Grid subscriptions
 
@@ -502,17 +502,17 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
 #### Tasks to complete
 
--   Open your Event Grid Topic, then select the Event Grid subscription for the SavePlateData function.
+-   Open your Event Grid Topic, then select the Event Grid subscription for the SavePlateData function
 
 -   Configure a custom event type named **savePlateData**. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
--   Select the Event Grid subscription for the QueuePlateForManualCheckup function.
+-   Select the Event Grid subscription for the QueuePlateForManualCheckup function
 
 -   Configure a custom event type named **queuePlateForManualCheckup**. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
 #### Exit criteria
 
--   Both Event Grid subscriptions have custom event types assigned, as specified within the SendToEventGrid class, instead of All.
+-   Both Event Grid subscriptions have custom event types assigned, as specified within the SendToEventGrid class, instead of All
 
 ## Exercise 4: Monitor your functions with Application Insights
 
@@ -533,13 +533,13 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
 #### Tasks to complete
 
--   Create an Application Insights instance from within Azure.
+-   Create an Application Insights instance from within Azure
 
--   Select the ASP.NET web application type.
+-   Select the ASP.NET web application type
 
 #### Exit criteria 
 
--   Save the Instrumentation Key.
+-   Save the Instrumentation Key
 
 ### Task 2: Enable Application Insights integration in your Function Apps
 
@@ -547,7 +547,7 @@ Both of the Function Apps need to be updated with the Application Insights instr
 
 #### Tasks to complete
 
--   Add the Application Insights instrumentation key to both Function Apps.
+-   Add the Application Insights instrumentation key to both Function Apps
 
 ### Task 3: Use the Live Metrics Stream to monitor functions in real time
 
@@ -557,11 +557,11 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
 -   Open the Live Metrics Stream in your Application Insights instance. You can open your instance directly from the Function App.
 
--   Open the starter solution in Visual Studio and update the App.config file in the UploadImages project with your Blob storage connection string.
+-   Open the starter solution in Visual Studio and update the App.config file in the UploadImages project with your Blob storage connection string
 
 -   Run the UploadImages project and choose Option 1 to upload a handful of test photos. View the incoming telemetry in the Live Metrics Stream. **Please note**, since our function with the blob trigger is running on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after the function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options: Use an App Service plan with Always On enabled, or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name or an Event Grid trigger. Sometimes simply opening the function on the portal speeds up the process.
 
--   Re-run the UploadImages console application, this time choosing Option 2 to upload 1,000 photos.
+-   Re-run the UploadImages console application, this time choosing Option 2 to upload 1,000 photos
 
 #### Exit criteria 
 
@@ -573,17 +573,17 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 #### Tasks to complete
 
--   Set the Computer Vision API pricing tier to F0 Free.
+-   Set the Computer Vision API pricing tier to F0 Free
 
 -   Open the Live Metrics Stream in your Application Insights instance. You can open your instance directly from the Function App.
 
--   Run the UploadImages console application, choosing Option 2 to upload 1,000 photos.
+-   Run the UploadImages console application, choosing Option 2 to upload 1,000 photos
 
 #### Exit criteria 
 
 -   Take note of the number of servers online and the various graphs in the Live Metrics Stream, as you are uploading 1,000 photos. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resiliency policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
 
--   Stop uploading photos after some time, then set the Computer Vision API pricing tier back to S1 Standard.
+-   Stop uploading photos after some time, then set the Computer Vision API pricing tier back to S1 Standard
 
 ## Exercise 5: Explore your data in Azure Cosmos DB
 
@@ -604,21 +604,21 @@ In this exercise, the attendee will apply application settings using the Microso
 
 #### Tasks to complete
 
--   View a few documents saved to the Processed collection.
+-   View a few documents saved to the Processed collection
 
--   View a few documents saved to the NeedsManualReview collection.
+-   View a few documents saved to the NeedsManualReview collection
 
--   Create a new SQL query on the Processed collection that counts the number of processed documents that have not been exported.
+-   Create a new SQL query on the Processed collection that counts the number of processed documents that have not been exported
 
 #### Exit criteria
 
--   You should see several documents in the Processed collection, and the license plate text that was extracted from the photos using the Computer Vision API's OCR capabilities.
+-   You should see several documents in the Processed collection, and the license plate text that was extracted from the photos using the Computer Vision API's OCR capabilities
 
 -   Notice that the first four properties in the Processed document are properties added by your functions. The rest are standard properties assigned by Cosmos DB.
 
--   You should see several documents in the NeedsManualReview collection.
+-   You should see several documents in the NeedsManualReview collection
 
--   Your SQL query should, at this point, equal to the number of total documents in the Processed collection.
+-   Your SQL query should, at this point, equal to the number of total documents in the Processed collection
 
 ## Exercise 6: Create the data export workflow
 
@@ -639,9 +639,9 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
 #### Tasks to complete
 
--   Provision the Logic App service.
+-   Provision the Logic App service
 
--   Design a new Logic App with a Recurrence trigger that fires every 15 minutes.
+-   Design a new Logic App with a Recurrence trigger that fires every 15 minutes
 
 -   Add an action to the trigger using the Azure Functions connector to connect to your Function App whose name ends in **FunctionApp**, or contains the ExportLicensePlates function. Select the ExportLicensePlates function.
 
@@ -649,17 +649,17 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
 -   Add an Office 365 Outlook Send Mail action to the condition's If false block. The email should be sent to you, have a subject of "Toll Booth license plate export failed" (or similar), and a message in the body that includes the Status code value from the ExportLicensePlates function.
 
--   Save and run the Logic App.
+-   Save and run the Logic App
 
 #### Exit criteria
 
 -   You should start receiving email alerts because the license plate data is not being exported. This is because we need to finish making changes to the ExportLicensePlates function so that it can extract the license plate data from Azure Cosmos DB, generate the CSV file, and upload it to Blob storage.
 
--   While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can click on the executed step and see the raw output.
+-   While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
 
     ![In the Logic App Designer, green check marks display next to Recurrence, ExportLicensePlates, Condition, and Send an email.](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image11.png "Logic App Designer")
 
--   Disable the Logic App for now, so it doesn't keep emailing you while completing the next exercise.
+-   Disable the Logic App for now, so it doesn't keep emailing you while completing the next exercise
 
 ## Exercise 7: Configure continuous deployment for your Function App
 
@@ -679,34 +679,35 @@ In this exercise, configure your Function App that contains the ProcessImages fu
 
 #### Tasks to complete
 
--   Create a new public GitHub repository for this lab.
+-   Create a new public GitHub repository for this lab
 
 #### Exit criteria
 
--   Copy the repository's HTTPS git path and save for later.
+-   Copy the repository's HTTPS git path and save for later
 
 ### Task 2: Add GitHub repository to your Visual Studio solution
 
 #### Tasks to complete
 
--   Commit your changes to the TollBooth starter project in Visual Studio.
+-   Commit your changes to the TollBooth starter project in Visual Studio
 
 -   Select Sync link after committing, then add the link to your GitHub repository under Push to Remote Repository. This should be the HTTPS git path you copied in the previous task.
 
--   Publish to your GitHub repository.
+-   Publish to your GitHub repository
 
 #### Exit criteria
 
--   Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the TollBooth folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.\
+-   Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the TollBooth folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.
+
     ![On the GitHub Repository page for serverless-architecture-lab, on the Code tab, project files display.](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image12.png "GitHub Repository page")
 
 ### Task 3: Configure your Function App to use your GitHub repository for continuous deployment
 
 #### Tasks to complete
 
--   Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function.
+-   Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function
 
--   Setup a new GitHub deployment option, pointing to your new GitHub repo.
+-   Setup a new GitHub deployment option, pointing to your new GitHub repo
 
 #### Exit criteria
 
@@ -716,17 +717,18 @@ In this exercise, configure your Function App that contains the ProcessImages fu
 
 #### Tasks to complete
 
--   Complete TODO items found in DatabaseMethods.cs.
+-   Complete TODO items found in DatabaseMethods.cs
 
--   Complete TODO item found in FileMethods.cs.
+-   Complete TODO item found in FileMethods.cs
 
--   Commit and sync your changes to GitHub.
+-   Commit and sync your changes to GitHub
 
 #### Exit criteria 
 
--   You completed TODO items 5-7.
+-   You completed TODO items 5-7
 
--   Go back to Deployments for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one.\
+-   Go back to Deployments for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one.
+
     ![On the Deployments blade, a partially-completed full-circle graph displays next to the message, Finished the ExportLicensePlates function, GitHub, building, 8:49 PM.](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image13.png "Deployments blade")
 
 ## Exercise 8: Rerun the workflow and verify data export
@@ -739,26 +741,28 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 #### Tasks to complete
 
--   Re-enable your Logic App.
+-   Re-enable your Logic App
 
--   Run the Recurrence trigger.
+-   Run the Recurrence trigger
 
 #### Exit criteria
 
--   Select the latest run history item. If the expression result for the condition is **true**, then that means the CSV file should've been exported to Blob storage. Be sure to disable the Logic App so it doesn't keep sending you emails every 15 minutes.\
+-   Select the latest run history item. If the expression result for the condition is **true**, then that means the CSV file should've been exported to Blob storage. Be sure to disable the Logic App so it doesn't keep sending you emails every 15 minutes.
+
     ![In Logic App Designer, in the Condition section, under Inputs, true is circled.](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image14.png "Logic App Designer")
 
 ### Task 2: View the exported CSV file
 
 #### Tasks to complete
 
--   Browse the export container in your Blob storage account.
+-   Browse the export container in your Blob storage account
 
--   Download the CSV file generated when you last ran your Logic App.
+-   Download the CSV file generated when you last ran your Logic App
 
 #### Exit criteria
 
-1.  The CSV file should look similar to the following:\
+1.  The CSV file should look similar to the following:
+
     ![A CSV file displays with the following columns: FileName, LicensePlateText, TimeStamp, and LicencePlateFound.](images/Hands-onlabunguided-Serverlessarchitectureimages/media/image15.png "CSV file")
 
 -   The ExportLicensePlates function updates all of the records it exported by setting the exported value to true. This makes sure that only new records since the last export are included in the next one. Verify this by re-executing the script in Azure Cosmos DB that counts the number of documents in the Processed collection where exported is false. It should return 0 unless you've subsequently uploaded new photos.
@@ -771,13 +775,13 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 ### Task 1: Delete the Resource group in which you placed your Azure resources.
 
-1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top.
+1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top
 
-2.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**.
+1.  Confirm the deletion by re-typing the **resource group name** and selecting **Delete**
 
-3. If you created a different resource group for your virtual machined, be sure to delete that as well.
+1. If you created a different resource group for your virtual machined, be sure to delete that as well
 
-4. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
+1. Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website
 
 You should follow all steps provided *after* attending the hands-on lab.
 

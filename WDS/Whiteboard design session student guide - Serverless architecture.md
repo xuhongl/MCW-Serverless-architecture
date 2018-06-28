@@ -31,19 +31,19 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 - [Serverless architecture whiteboard design session student guide](#serverless-architecture-whiteboard-design-session-student-guide)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
         - [Customer situation](#customer-situation)
         - [Customer needs](#customer-needs)
         - [Customer objections](#customer-objections)
         - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3-present-the-solution)
+    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
+    - [Step 3: Present the solution](#step-3--present-the-solution)
     - [Wrap-up](#wrap-up)
     - [Additional references](#additional-references)
 
 <!-- /TOC -->
 
-# Serverless architecture whiteboard design session student guide
+#  Serverless architecture whiteboard design session student guide
 
 ## Abstract and learning objectives 
 
@@ -51,29 +51,30 @@ Setup and configure a serverless architecture within Azure using a combination o
 
 Learning Objectives:
 
--   Use a series of Azure Functions that independently scale and break down business logic into discrete components.
+-   Use a series of Azure Functions that independently scale and break down business logic into discrete components
 
--   Use computer vision algorithms within an Azure Function to accurately detect license plates in car images at scale.
+-   Use computer vision algorithms within an Azure Function to accurately detect license plates in car images at scale
 
--   Provision and use Cosmos DB as a highly available NoSQL data store for processed data.
+-   Provision and use Cosmos DB as a highly available NoSQL data store for processed data
 
--   Create a Logic App that contains a workflow to export processed license plates and conditionally send alerts based on successful or unsuccessful operation.
+-   Create a Logic App that contains a workflow to export processed license plates and conditionally send alerts based on successful or unsuccessful operation
 
--   Use App Insights to monitor the serverless topology, observing how well the solution scales when under load.
+-   Use App Insights to monitor the serverless topology, observing how well the solution scales when under load
 
--   Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps.
+-   Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps
 
 ## Step 1: Review the customer case study 
 
 **Outcome** 
 
 Analyze your customer’s needs.
-Time frame: 15 minutes 
+
+Timeframe: 15 minutes 
+
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
 1.  Meet your table participants and trainer 
 2.  Read all of the directions for steps 1–3 in the student guide 
 3.  As a table team, review the following customer case study
-
 
 ### Customer situation
 
@@ -103,41 +104,41 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 
 ### Customer needs 
 
-1.  Replace manual process with a reliable, automated solution using serverless components.
+1.  Replace manual process with a reliable, automated solution using serverless components
 
-2.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise.
+1.  Take advantage of a machine learning service that would allow them to accurately detect license plate numbers without needing artificial intelligence expertise
 
-3.  Mechanism for manually entering license plate images that could not be processed.
+1.  Mechanism for manually entering license plate images that could not be processed
 
-4.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images.
+1.  Have a solution that can scale to any number of cars that pass through all toll booths, handling unforeseen traffic conditions that cause unexpected spikes in processed images
 
-5.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported.
+1.  Establish an automated workflow that periodically exports processed license plate data on a regular interval, and sends an alert email when no items are exported
 
-6.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control.
+1.  Would like to locally develop the serverless components and establish an automated deployment pipeline from source control
 
-7.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts.
+1.  Use a monitoring dashboard that can provide a real-time view of serverless components, historical telemetry data for deeper analysis, and supports custom alerts
 
-8.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future.
+1.  Design an extensible solution that could support serverless batch and real-time analytics, as well as other scenarios in the future
 
 ### Customer objections 
 
-1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline.
+1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline
 
 2.  Will a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
 3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
-  
+
 
 ### Infographic for common scenarios
 
-![The Common Scenario diagram begins with an Internet icon on the left. Two arrows point from this icon to an Azure Storage Blobs Icon, and an Azure API Management icon. The Azure Storage Blobs icon points to an Azure functions icon, which in turn points to both a second Azure Functions icon (via an Event Grid arrow), and a second Azure Storage Blobs icon, which then points and ends at a Logic Apps icon. The Azure API Management icon points to two separate Azure Functions icon, which both point back to an Azure Cosmos DB icon, when then points to and ends at a Power BI icon.](images/Whiteboarddesignsessionstudentguide-Serverlessarchitectureimages/media/image2.png "Common Scenario diagram")
+![The Common Scenario diagram begins with an Internet icon on the left. Two arrows point from this icon to an Azure Storage Blobs Icon, and an Azure API Management icon. The Azure Storage Blobs icon points to an Azure functions icon, which in turn points to both a second Azure Functions icon (via an Event Grid arrow), and a second Azure Storage Blobs icon, which then points and ends at a Logic Apps icon. The Azure API Management icon points to two separate Azure Functions icon, which both point back to an Azure Cosmos DB icon, when then points to and ends at a Power BI icon.](images/Whiteboarddesignsessiontrainerguide-Serverlessarchitectureimages/media/image2.png "Common Scenario diagram")
 
 ## Step 2: Design a proof of concept solution
 
 **Outcome** 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
-Time frame: 60 minutes
+Timeframe: 60 minutes
 
 **Business needs**
 
@@ -148,13 +149,14 @@ Directions: With all participants at your table, answer the following questions 
 **Design** 
 Directions: With all participants at your table, respond to the following questions on a flip chart.
 
+
  *High-level architecture*
 
 1.  Without getting into the details (the following sections will address the particular details), diagram your initial vision for handling the top-level requirements for the license plate processing serverless components, OCR capabilities, data export workflow, and monitoring plus DevOps.
 
 *License plate processing serverless components*
 
-<!-- -->
+
 
 1.  Which Azure messaging service would you recommend using to orchestrate event-driven activities between the serverless components?
 
@@ -169,19 +171,9 @@ Directions: With all participants at your table, respond to the following questi
 *License plate OCR*
 
 
-
 1.  What service would you recommend Contoso use to conduct license plate object character recognition (OCR) processing to extract the license plate number from each photo as it enters the system?
 
 2.  How would you integrate the OCR service to your license plate processing flow?
-
-*Data export workflow*
-
-
-
-1.  What Azure service would you recommend to create an automated workflow that runs on a regular interval to export processed license plate data and send alerts as needed?
-
-2.  Which other services would you integrate into your workflow?
-
 
 *Data export workflow*
 
@@ -212,9 +204,9 @@ Directions: With all participants at your table, respond to the following questi
 
 Directions: With all participants at your table: 
 
-1.  Identify any customer needs that are not addressed with the proposed solution. 
-2.  Identify the benefits of your solution. 
-3.  Determine how you will respond to the customer’s objections. 
+1.  Identify any customer needs that are not addressed with the proposed solution
+2.  Identify the benefits of your solution
+3.  Determine how you will respond to the customer’s objections 
 
 Prepare a 15-minute chalk-talk style presentation to the customer. 
 
@@ -225,29 +217,27 @@ Prepare a 15-minute chalk-talk style presentation to the customer.
  
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
 **Presentation** 
 
 Directions:
-1.  Pair with another table.
-2.  One table is the Microsoft team and the other table is the customer.
-3.  The Microsoft team presents their proposed solution to the customer.
-4.  The customer makes one of the objections from the list of objections.
-5.  The Microsoft team responds to the objection.
-6.  The customer team gives feedback to the Microsoft team. 
-7.  Tables switch roles and repeat Steps 2–6.
-
+1.  Pair with another table
+2.  One table is the Microsoft team and the other table is the customer
+3.  The Microsoft team presents their proposed solution to the customer
+4.  The customer makes one of the objections from the list of objections
+5.  The Microsoft team responds to the objection
+6.  The customer team gives feedback to the Microsoft team
+7.  Tables switch roles and repeat Steps 2–6
 
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
--   Tables reconvene with the larger group to hear an SME share the preferred solution for the case study.
+-   Tables reconvene with the larger group to hear an SME share the preferred solution for the case study
 
 ##  Additional references
-
 
 |    |            |
 |----------|:-------------:|
@@ -259,6 +249,6 @@ Time frame: 15 minutes
 | Monitor Azure Functions using Application Insights    |  <https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring>     |
 | Introduction to Azure Event Grid  | <https://docs.microsoft.com/en-us/azure/event-grid/overview>    |
 | Call Azure Functions from logic apps     | <https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-azure-functions%23call-azure-functions-from-logic-apps>  |
-| Azure Cosmos DB + Azure Functions |<https://docs.microsoft.com/en-us/azure/cosmos-db/serverless-computing-database>  |
+| Azure Cosmos DB + Azure Functions | <https://docs.microsoft.com/en-us/azure/cosmos-db/serverless-computing-database>  |
 | Continuous deployment of Azure Functions   |  <https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment>   |
 | Code and test Azure Functions locally    |  <https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local>    |

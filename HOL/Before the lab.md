@@ -48,19 +48,19 @@ Note: It is highly recommended to use a DS2 or D2 instance size for this VM.
 
 Note: Sometimes this image has IE ESC disabled. Sometimes it does not.
 
-1.  On the new VM you just created, select the **Server Manager** icon.
+1.  On the new VM you just created, select the **Server Manager** icon
 
     ![Screenshot of the Server Manager icon.](images/Setup/image4.png "Server Manager icon")
 
-2.  Select **Local Server**.
+1.  Select **Local Server**
 
     ![Local Server is selected from the Server Manager menu.](images/Setup/image5.png "Server Manager menu")
 
-3.  On the right side of the pane, select **On** by **IE Enhanced Security Configuration**.
+1.  On the side of the pane, select **On** by **IE Enhanced Security Configuration**
 
     ![Screenshot of IE Enhanced Security Configuration, which is set to On.](images/Setup/image6.png "IE Enhanced Security Configuration")
 
-4.  Change to **Off** for Administrators and select **OK**.
+1.  Change to **Off** for Administrators and select **OK**
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, under Administrators, the Off button is selected.](images/Setup/image7.png "Internet Explorer Enhanced Security Configuration dialog box")
 
@@ -68,28 +68,28 @@ Note: Sometimes this image has IE ESC disabled. Sometimes it does not.
 
 Note: Some aspects of this lab require the use of Google Chrome. You may find yourself blocked if using Internet Explorer later in the lab.
 
-1. Launch Internet Explorer and download [Google Chrome](https://www.google.com/chrome/).
+1. Launch Internet Explorer and download [Google Chrome](https://www.google.com/chrome/)
 
-2. Follow the setup instructions and make sure you can run Chrome to navigate to any webpage. 
+1. Follow the setup instructions and make sure you can run Chrome to navigate to any webpage
 
 
 ### Task 4: Validate connectivity to Azure
 
-1.  From within the virtual machine, launch Visual Studio and validate that you can log in with your Microsoft Account when prompted.
+1.  From within the virtual machine, launch Visual Studio and validate that you can log in with your Microsoft Account when prompted
 
-2.  To validate connectivity to your Azure subscription, launch Visual Studio, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription.
+1.  To validate connectivity to your Azure subscription, launch Visual Studio, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription
 
     ![In Server Explorer, Azure is selected, and its right-click menu displays with options to Refresh, Connect to Microsoft Azure Subscription, Manage and Filter Subscriptions, or Open the Getting Started Page.](images/Setup/image8.png "Server Explorer")
 
 ### Task 5: Download and explore the TollBooth starter solution
 
-1.  Create a new folder on your C: drive named **Hackathon**.
+1.  Create a new folder on your C: drive named **Hackathon**
 
-2.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder. 
+1.  Download the sample application from here: <http://bit.ly/2D0uo6z> and extract to the **Hackathon** folder
 
 Note: The link above is case sensitive.
 
-3.  From the **TollBooth** folder under **Hackathon**, open the Visual Studio Solution file: **TollBooth.sln**.
+1.  From the **TollBooth** folder under **Hackathon**, open the Visual Studio Solution file: **TollBooth.sln**
 
     The solution contains the following projects:
 
@@ -101,10 +101,10 @@ Note: The link above is case sensitive.
 
 ### Task 6: Create a new Azure Resource group
 
-1.  Within the Azure Management Portal, open the **Resource groups** tile and\
-    select **Add**.
+1.  Within the Azure Management Portal, open the **Resource groups** tile and
+    select **Add**
 
-    ![In the left menu of the Azure Portal, Resource groups is selected. In the Resource Groups blade, the Add button is selected.](images/Setup/image9.png "Azure Portal")
+    ![In the menu of the Azure Portal, Resource groups is selected. In the Resource Groups blade, the Add button is selected.](images/Setup/image9.png "Azure Portal")
 
 2.  Specify the name of the resource group as **ServerlessArchitecture**, and choose the Azure region to which you want to deploy the lab. This resource group will be used throughout the rest of the lab. Select **Create** to create the resource group.
 
