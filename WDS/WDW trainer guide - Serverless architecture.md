@@ -100,7 +100,7 @@ Outcome: Analyze your customer's needs
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Prepare to present a solution for your target customer audience
+Outcome: Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
 -   Determine your target customer audience
 
@@ -257,6 +257,7 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 ## Step 2: Design a proof of concept solution
 
 **Outcome** 
+
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
 Timeframe: 60 minutes
@@ -356,7 +357,7 @@ Directions:
 
 Timeframe: 15 minutes
 
--   Tables reconvene with the larger group to hear an SME share the preferred solution for the case study
+-   Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study
 
 ##  Additional references
 
@@ -419,7 +420,7 @@ Timeframe: 15 minutes
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear an SME share the following preferred solution
+-   Have the table participants reconvene with the larger session group to hear a SME share the following preferred solution
 
 ##  Preferred target audience
 
@@ -431,7 +432,7 @@ The primary audience is the business decision makers and technology decision mak
 
 *High-level architecture*
 
-1.  *Without getting into the details (the following sections will address the particular details), diagram your initial vision for handling the top-level requirements for the license plate processing serverless components, OCR capabilities, data export workflow, and monitoring plus DevOps.*
+1.  Without getting into the details (the following sections will address the particular details), diagram your initial vision for handling the top-level requirements for the license plate processing serverless components, OCR capabilities, data export workflow, and monitoring plus DevOps.
 
     ![The Solution diagram is described in the text following this diagram.](images/Whiteboarddesignsessiontrainerguide-Serverlessarchitectureimages/media/image3.png "Solution diagram")
 
@@ -444,7 +445,8 @@ The primary audience is the business decision makers and technology decision mak
 
 1.  Which Azure messaging service would you recommend using to orchestrate event-driven activities between the serverless components?
     
-    Use Event Grid, which is an eventing backplane that enables reliable event-driven, reactive programming. It uses a publish-subscribe model where publishers, like a blob storage container and Azure Functions, emit events and have no expectation about which events are handled. Subscribers decide which events they want to handle, by using filters to intelligently select only the incoming events they want to process. For example, use Event Grid to instantly trigger the serverless function to run image analysis each time a new photo is added to the blob storage container. Event Grid also works with custom topics, allowing us to pass data into the topic from the photo processing function, and have another function that handles saving successful license plate processing data to the database, and a different function that handles saving information about photos that need to be manually reviewed when no license plate number is found. This is done by setting the event type to a custom value which the downstream functions filter on to process the correct event data.\
+    Use Event Grid, which is an eventing backplane that enables reliable event-driven, reactive programming. It uses a publish-subscribe model where publishers, like a blob storage container and Azure Functions, emit events and have no expectation about which events are handled. Subscribers decide which events they want to handle, by using filters to intelligently select only the incoming events they want to process. For example, use Event Grid to instantly trigger the serverless function to run image analysis each time a new photo is added to the blob storage container. Event Grid also works with custom topics, allowing us to pass data into the topic from the photo processing function, and have another function that handles saving successful license plate processing data to the database, and a different function that handles saving information about photos that need to be manually reviewed when no license plate number is found. This is done by setting the event type to a custom value which the downstream functions filter on to process the correct event data.
+    
     Event Grid will support Contoso's future expansion efforts through its ability to fan-out events. This means that you can subscribe multiple endpoints to the same event to send copies of the event to as many places as needed. This allows Contoso to add new event subscribers that perform different processing functions without needing to overhaul the eventing backplane. Event Grid costs \$0.60 per million operations (\$0.30 during preview) and the first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 2.  What Azure service would you suggest Contoso use to execute custom business logic code when an event is triggered?
@@ -460,7 +462,8 @@ The primary audience is the business decision makers and technology decision mak
     There are a few ways to address this issue. The first step is to review your downstream services to see if there are any published rate limits, controlling how often you are allowed to call the service. For instance, if you are using the free tier of a Cognitive Services API, you are limited to 10 requests per minute, at a maximum of 5k requests per month. If you anticipate exceeding these limits, consider upgrading to a higher tier that allows for more requests at a higher interval. The second step is to perform a load test on your architecture, using a service such as Visual Studio Team Services, and observe the collected telemetry during the load test for any failures in your downstream components. If the resource-constrained component is an HTTP-based service, look for HTTP response codes, such as 429 and 503, which could indicate throttling due to exceeding the number of requests allowed through policy or service limits. Once you have taken note of any such limitations, there are two methods by which you can reduce the stress on affected downstream services. The first approach is to configure the concurrency settings on your triggers by setting the maxConcurrentRequests value in the host.json file to the maximum number of HTTP functions that will be executed in parallel. This implements rate limiting on the function itself to help alleviate the stress on affected downstream components. The second approach is to implement a resiliency strategy in code, by using a retry pattern with exponential back-off, or a circuit breaker pattern that prevents your function from repeatedly trying to execute an operation that is likely to fail. Your best option might be to use a combination of these two patterns to handle different types of errors and status codes with varying fault handling strategies. Review the Azure Architecture center's article on transient fault handling for more information: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults>
 
 5.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
-    *Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
+
+Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
 
 *License plate OCR*
 
@@ -481,7 +484,7 @@ The primary audience is the business decision makers and technology decision mak
     Logic Apps would help integrate an automated workflow without worrying about building hosting, scalability, availability, and management. You would add a recurrence trigger to the logic app that fires on a defined schedule. The logic app would execute the Azure function that collects new processed license plate data and exports it to a CSV file in Azure Storage.*
     
 
-2.  *Which other services would you integrate into your workflow?*
+2.  Which other services would you integrate into your workflow?
 
     Contoso has stated that they use Office 365 services for their email. Logic Apps can use the Office 365 Outlook connector to send emails to any number of recipients. Start by adding a condition after the call to the Azure function. This condition needs to evaluate the response code sent by the function to determine whether the email step is fired. If the code is not equal to 200 (OK status), then the email should be sent with information in the body crafted based on the response code. For instance, the function should return a 204 (NoContent) status code if no license plate data was found that needs to be exported. This would indicate that no photos were processed in the period since the previous trigger interval, possibly indicating a situation out of the norm that should be investigated more closely.
 
@@ -489,11 +492,13 @@ The primary audience is the business decision makers and technology decision mak
 
 
 1.  Assuming they would like to be able to plug-in more solutions that respond to the event when a license plate has been successfully extracted from an image, how would you extend your solution using Event Grid? Be specific on the system topics, custom topics and subscriptions at play.
+
     As the following diagram illustrates, Contoso could design their solution to be extensible by using an Event Grid Custom Topic. Whenever the license plate image is successfully processed, the Azure Function that saves the license plate data to Cosmos DB, could instead be extended to enqueue an event into a Custom Topic with an event type of "LicensePlate.Processed", and a data payload of the image path (in Blob storage), the extracted license plate text, and the timestamp the image was captured. Other Event Grid subscriptions could later be created against this topic, listening for events of the aforementioned type. 
 
     ![The Solution diagram is described in the text preceding and following this diagram.](images/Whiteboarddesignsessiontrainerguide-Serverlessarchitectureimages/media/image4.png "Solution diagram")
 
 2.  What pipeline would you plug-into an Event Grid subscription listening for license plate events that could be used to provide real-time and batch analytics as a serverless solution?
+
     The previous diagram illustrates this solution. With the aforementioned custom topic in place, you could achieve the both near real-time and batch analytics by configuring a new subscription that use an Event Hubs instance as the handler. 
     
     You would configure Event Hubs Capture to write the ingested messages on a periodic basis (defined in terms of the volume of messages in MB or the length of a sliding window) to Azure Storage. From Azure Storage you could use Azure Data Lake Analytics to batch process the data, join it with other lookup data or perform other transformations. Azure Data Lake Analytics allocates resources to your jobs automatically, and is completely serverless. 
@@ -517,15 +522,15 @@ The primary audience is the business decision makers and technology decision mak
 
 ## Checklist of preferred objection handling
 
-*We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline.*
+1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline.
 
  Azure Functions support several triggers, including several Azure services, as well as basic, yet flexible trigger types such as HTTP and webhook triggers. In our proposed solution, we use Event Grid events to trigger certain functions, enabling other functions to send data to the reliable queue through an Event Grid topic, along with specifying a specific event type so that the functions that need to react to the events only react to the filtered events they care about.
 
- *Will transitioning to a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?*
+2.  Will transitioning to a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
  One of the primary benefits of using serverless components is that billing is based just on resources consumed or the actual time your code is running. For many event-driven workflows, sub-second billing will save more money in the long run compared to paying for constantly running resources, whether they are used or not. When using Azure Functions, short-lived and sporadic use will benefit most from the Consumption plan. However, if you are consistently getting a lot of traffic or have many long-running operations, the App Service plan might be more cost-effective. Most serverless components have an option to put upper limits on things like concurrent executions, and other rate-limiting options.
 
- *How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?*
+3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
 
  The way this is handled in our solution is to create a manual verification queue when the OCR process fails, or the confidence level of the result is low, indicated by an empty result after filtering out invalid characters. More advanced machine learning models may be employed with algorithms that are specifically tuned to license plate recognition (LPR). Part of the result would include a confidence level, which could be used to decide whether the photo needs manual verification.
 
