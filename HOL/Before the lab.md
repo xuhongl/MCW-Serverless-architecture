@@ -1,5 +1,5 @@
 
-# Serverless Architecture setup
+# Serverless architecture setup
 
 ## Requirements
 
