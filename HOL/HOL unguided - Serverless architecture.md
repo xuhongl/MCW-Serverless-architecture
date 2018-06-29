@@ -32,7 +32,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Serverless architecture hands-on lab unguided](#serverless-architecture-hands-on-lab-unguided)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
     - [Overview](#overview)
-    - [Solution Architecture](#solution-architecture)
+    - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
     - [Exercise 1: Azure data, storage, and serverless environment setup](#exercise-1--azure-data--storage--and-serverless-environment-setup)
         - [Help references](#help-references)
@@ -62,7 +62,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
         - [Task 3: Publish the Function App from Visual Studio](#task-3--publish-the-function-app-from-visual-studio)
             - [Tasks to complete](#tasks-to-complete)
             - [Exit criteria](#exit-criteria)
-        - [](#)
     - [Exercise 3: Create functions in the portal](#exercise-3--create-functions-in-the-portal)
         - [Help references](#help-references)
         - [Task 1: Create function to save license plate data to Azure Cosmos DB](#task-1--create-function-to-save-license-plate-data-to-azure-cosmos-db)
@@ -141,7 +140,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 Setup and configure a serverless architecture within Azure using a combination of Azure Functions, Logic Apps, Event Grid, Cosmos DB, and Azure Storage. The focus is on removing server management from the equation, breaking down the solution into smaller components that are individually scalable, and allowing the customer to only pay for what they use.
 
-Learning Objectives:
+Learning objectives:
 
 -   Use a series of Azure Functions that independently scale and break down business logic into discrete components
 
