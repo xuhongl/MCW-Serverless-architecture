@@ -256,7 +256,7 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 
 ## Step 2: Design a proof of concept solution
 
-**Outcome** 
+**Outcome**
 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
@@ -463,7 +463,7 @@ The primary audience is the business decision makers and technology decision mak
 
 5.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
 
-Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
+    Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
 
 *License plate OCR*
 
@@ -524,15 +524,15 @@ Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-
 
 1.  We are concerned about how individual serverless components will be able to "talk" to each other and reliably pass messages through the pipeline.
 
- Azure Functions support several triggers, including several Azure services, as well as basic, yet flexible trigger types such as HTTP and webhook triggers. In our proposed solution, we use Event Grid events to trigger certain functions, enabling other functions to send data to the reliable queue through an Event Grid topic, along with specifying a specific event type so that the functions that need to react to the events only react to the filtered events they care about.
+    Azure Functions support several triggers, including several Azure services, as well as basic, yet flexible trigger types such as HTTP and webhook triggers. In our proposed solution, we use Event Grid events to trigger certain functions, enabling other functions to send data to the reliable queue through an Event Grid topic, along with specifying a specific event type so that the functions that need to react to the events only react to the filtered events they care about.
 
 2.  Will transitioning to a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
- One of the primary benefits of using serverless components is that billing is based just on resources consumed or the actual time your code is running. For many event-driven workflows, sub-second billing will save more money in the long run compared to paying for constantly running resources, whether they are used or not. When using Azure Functions, short-lived and sporadic use will benefit most from the Consumption plan. However, if you are consistently getting a lot of traffic or have many long-running operations, the App Service plan might be more cost-effective. Most serverless components have an option to put upper limits on things like concurrent executions, and other rate-limiting options.
+    One of the primary benefits of using serverless components is that billing is based just on resources consumed or the actual time your code is running. For many event-driven workflows, sub-second billing will save more money in the long run compared to paying for constantly running resources, whether they are used or not. When using Azure Functions, short-lived and sporadic use will benefit most from the Consumption plan. However, if you are consistently getting a lot of traffic or have many long-running operations, the App Service plan might be more cost-effective. Most serverless components have an option to put upper limits on things like concurrent executions, and other rate-limiting options.
 
 3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
 
- The way this is handled in our solution is to create a manual verification queue when the OCR process fails, or the confidence level of the result is low, indicated by an empty result after filtering out invalid characters. More advanced machine learning models may be employed with algorithms that are specifically tuned to license plate recognition (LPR). Part of the result would include a confidence level, which could be used to decide whether the photo needs manual verification.
+    The way this is handled in our solution is to create a manual verification queue when the OCR process fails, or the confidence level of the result is low, indicated by an empty result after filtering out invalid characters. More advanced machine learning models may be employed with algorithms that are specifically tuned to license plate recognition (LPR). Part of the result would include a confidence level, which could be used to decide whether the photo needs manual verification.
 
 ## Customer quote (to be read back to the attendees at the end)
 
