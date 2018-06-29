@@ -88,7 +88,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 Setup and configure a serverless architecture within Azure using a combination of Azure Functions, Logic Apps, Event Grid, Cosmos DB, and Azure Storage. The focus is on removing server management from the equation, breaking down the solution into smaller components that are individually scalable, and allowing the customer to only pay for what they use.
 
-Learning Objectives:
+Learning objectives:
 
 -   Use a series of Azure Functions that independently scale and break down business logic to discrete components
 
