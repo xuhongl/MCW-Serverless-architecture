@@ -1,9 +1,10 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
-# Serverless architecture   
-## Before the hands-on lab   
+# Serverless architecture
+
+## Before the hands-on lab
+
 June 2018
-
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -21,15 +22,15 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
     a. Visual Studio Community 2017 or greater, **version 15.4** or later
 
-        i.  <https://www.visualstudio.com/vs/>
+    1.  <https://www.visualstudio.com/vs/>
 
     b. Azure development workload for Visual Studio 2017
 
-        ii. <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
+    1.  <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
 
     c. .NET Framework 4.7 runtime (or higher)
 
-        iii. <https://www.microsoft.com/net/download/windows>
+    1.  <https://www.microsoft.com/net/download/windows>
 
 3.  Office 365 account. If required, you can sign up for an Office 365 trial at:
 
