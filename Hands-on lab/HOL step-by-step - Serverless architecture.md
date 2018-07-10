@@ -543,9 +543,9 @@ In this task, you will create a new Node.js function triggered by Event Grid and
         context.log(eventGridEvent);
 
         context.bindings.outputDocument = {
-            fileName : eventGridEvent.Data["fileName"],
-            licensePlateText : eventGridEvent.Data["licensePlateText"],
-            timeStamp : eventGridEvent.Data["timeStamp"],
+            fileName : eventGridEvent.Data["FileName"],
+            licensePlateText : eventGridEvent.Data["LicensePlateText"],
+            timeStamp : eventGridEvent.Data["TimeStamp"],
             exported : false
         }
 
@@ -639,9 +639,9 @@ In this task, you will create a new Node.js function triggered by Event Grid and
         context.log(eventGridEvent);
 
         context.bindings.outputDocument = {
-            fileName : eventGridEvent.Data["fileName"],
+            fileName : eventGridEvent.Data["FileName"],
             licensePlateText : "",
-            timeStamp : eventGridEvent.Data["timeStamp"],
+            timeStamp : eventGridEvent.Data["TimeStamp"],
             resolved : false
         }
 
