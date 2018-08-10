@@ -22,14 +22,10 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are the property of their respective owners.
 
-# Serverless architecture whiteboard design session trainer guide
-
-## Contents
+**Contents**
 
 <!-- TOC -->
 
-- [Serverless architecture whiteboard design session trainer guide](#serverless-architecture-whiteboard-design-session-trainer-guide)
-  - [Contents](#contents)
 - [Trainer information](#trainer-information)
   - [Role of the trainer](#role-of-the-trainer)
   - [Whiteboard design session flow](#whiteboard-design-session-flow)
@@ -92,7 +88,9 @@ Each whiteboard design session uses the following flow:
 
 **Step 1: Review the customer case study (15 minutes)**
 
-Outcome: Analyze your customer's needs
+**Outcome:** 
+
+Analyze your customer's needs.
 
 - Customer's background, situation, needs, and technical requirements
 
@@ -102,11 +100,11 @@ Outcome: Analyze your customer's needs
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+**Outcome:**
+
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
 - Determine your target customer audience
-
-<!-- -->
 
 - Determine customer's business needs to address your solution
 
@@ -116,7 +114,9 @@ Outcome: Design a solution and prepare to present the solution to the target cus
 
 **Step 3: Present the solution (30 minutes)**
 
-Outcome: Present solution to your customer
+**Outcome:**
+
+Present solution to your customer
 
 - Present solution
 
@@ -170,21 +170,9 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives
 
-Setup and configure a serverless architecture within Azure using a combination of Azure Functions, Logic Apps, Event Grid, Cosmos DB, and Azure Storage. The focus is on removing server management from the equation, breaking down the solution into smaller components that are individually scalable, and allowing the customer to only pay for what they use.
+n this whiteboard design session, you will work with a group to design a solution for processing vehicle photos as they are uploaded to a storage account, using serverless technologies on Azure. The license plate data needs to be extracted and stored in a highly available NoSQL data store for exporting. The data export process will be orchestrated by a serverless Azure component that coordinates exporting new license plate data to file storage and sending notifications as needed. You will also configure a Continuous Deployment process to automatically publish new changes to Function Apps. Finally, the entire processing pipeline will need to be monitored, with particular attention paid to components scaling to meet processing demand.
 
-Learning Objectives:
-
-- Use a series of Azure Functions that independently scale and break down business logic into discrete components
-
-- Use computer vision algorithms within an Azure Function to accurately detect license plates in car images at scale
-
-- Provision and use Cosmos DB as a highly available NoSQL data store for processed data
-
-- Create a Logic App that contains a workflow to export processed license plates and conditionally send alerts based on successful or unsuccessful operation
-
-- Use App Insights to monitor the serverless topology, observing how well the solution scales when under load
-
-- Implement a Continuous Deployment DevOps process to automatically publish changes to Function Apps
+At the end of this whiteboard design session, you will have gained insight on how best to take advantage of the new serverless wave by designing a highly scalable and cost-effective solution that requires very little code and virtually no infrastructure, compared to traditional hosted web applications and services.
 
 ## Step 1: Review the customer case study
 
