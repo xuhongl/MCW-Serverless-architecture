@@ -22,15 +22,12 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are the property of their respective owners.
 
-# Serverless architecture whiteboard design session student guide
-
-
-## Contents
+**Contents**
 
 <!-- TOC -->
 
 - [Serverless architecture whiteboard design session student guide](#serverless-architecture-whiteboard-design-session-student-guide)
-  - [Contents](#contents)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
     - [Customer situation](#customer-situation)
     - [Customer needs](#customer-needs)
@@ -42,6 +39,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Additional references](#additional-references)
 
 <!-- /TOC -->
+
+# Serverless architecture whiteboard design session student guide
+
+## Abstract and learning objectives 
+
+In this whiteboard design session, you will work with a group to design a solution for processing vehicle photos as they are uploaded to a storage account, using serverless technologies on Azure. The license plate data needs to be extracted and stored in a highly available NoSQL data store for exporting. The data export process will be orchestrated by a serverless Azure component that coordinates exporting new license plate data to file storage and sending notifications as needed. You will also configure a Continuous Deployment process to automatically publish new changes to Function Apps. Finally, the entire processing pipeline will need to be monitored, with particular attention paid to components scaling to meet processing demand.
+
+At the end of this whiteboard design session, you will have gained insight on how best to take advantage of the new serverless wave by designing a highly scalable and cost-effective solution that requires very little code and virtually no infrastructure, compared to traditional hosted web applications and services.
 
 ## Step 1: Review the customer case study
 
