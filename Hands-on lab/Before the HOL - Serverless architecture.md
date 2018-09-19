@@ -20,31 +20,18 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 © 2018 Microsoft Corporation. All rights reserved.
 
-## Requirements
+## Contents
 
-1.  Microsoft Azure subscription (non-Microsoft subscription)
+- [Setup Azure](#setup-azure)
+    - [Task 1:Create a new Azure Resource Group](#task-1-create-a-new-azure-resource-group)
+    - [Task 2:Set up a development environment](#Task-2-Set-up-a-development-environment)
+    - [Task 3:Disable IE Enhanced Security](#Task-3:Disable-IE-Enhanced-Security)
+    - [Task 4:Install Google Chrome](#Task-4:Install-Google-Chrome)
+    - [Task 5:Validate connectivity to Azure](#Task-5:Validate-connectivity-to-Azure)
+    - [Task 6:Download and explore the TollBooth starter solution](#Task-6:Download-and-explore-the-TollBooth-starter-solution)
+- [Next steps](#next-steps)
 
-2.  Local machine or a virtual machine configured with (**complete the day before the lab!**):
-
-    a. Visual Studio Community 2017 or greater, **version 15.4** or later
-
-    1.  <https://www.visualstudio.com/vs/>
-
-    b. Azure development workload for Visual Studio 2017
-
-    1.  <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
-
-    c. .NET Framework 4.7 runtime (or higher)
-
-    1.  <https://www.microsoft.com/net/download/windows>
-
-3.  Office 365 account. If required, you can sign up for an Office 365 trial at:
-
-    a. <https://portal.office.com/Signup/MainSignup15.aspx?Dap=False&QuoteId=79a957e9-ad59-4d82-b787-a46955934171&ali=1>
-
-4.  GitHub account. You can create a free account at <https://github.com>.
-
-## Before the hands-on lab
+# Setup Azure 
 
 **Duration**: 10 minutes
 
@@ -157,3 +144,10 @@ Note: Some aspects of this lab require the use of Google Chrome. You may find yo
 
 4.  Switch to windows explorer, navigate back to the **Hackathon** folder and open the **license plates** subfolder. It contains sample license plate photos used for testing out the solution. One of the photos is guaranteed to fail OCR processing, which is meant to show how the workload is designed to handle such failures. The **copyfrom** folder is used by the UploadImages project as a basis for the 1,000 photo upload option for testing scalability.
 
+## Next steps
+
+You are now ready to complete the hands-on lab. Select a guide below to get started, or you can return to the overview page for the lab.
+
+- Complete Hands-on lab
+  - [Step-by-step guide](./HOL-step-by-step-Serverless-architecture.md)
+- Return to [Hands-on lab readme](./readme.md)
