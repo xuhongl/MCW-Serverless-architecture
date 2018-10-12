@@ -25,11 +25,11 @@ The names of manufacturers, products, or URLs are provided for informational pur
 - [Serverless architecture before the hands-on lab setup guide](#serverless-architecture-before-the-hands-on-lab-setup-guide)
     - [Setup Azure](#setup-azure)
         - [Task 1: Create a new Azure Resource Group](#task-1-create-a-new-azure-resource-group)
-        - [Task 2: Set up a development environment](#Task-2-set-up-a-development-environment)
-        - [Task 3: Disable IE Enhanced Security](#Task-3-disable-ie-enhanced-security)
-        - [Task 4: Install Google Chrome](#Task-4-install-google-chrome)
-        - [Task 5:Validate connectivity to Azure](#Task-5-validate-connectivity-to-azure)
-        - [Task 6: Download and explore the TollBooth starter solution](#Task-6-download-and-explore-the-tollbooth-starter-solution)
+        - [Task 2: Set up a development environment](#task-2-set-up-a-development-environment)
+        - [Task 3: Disable IE Enhanced Security](#task-3-disable-ie-enhanced-security)
+        - [Task 4: Install Google Chrome](#task-4-install-google-chrome)
+        - [Task 5: Validate connectivity to Azure](#task-5-validate-connectivity-to-azure)
+        - [Task 6: Download and explore the TollBooth starter solution](#task-6-download-and-explore-the-tollbooth-starter-solution)
 
 # Serverless architecture before the hands-on lab setup guide 
 
