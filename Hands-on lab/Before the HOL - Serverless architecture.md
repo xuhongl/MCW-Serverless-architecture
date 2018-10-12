@@ -23,7 +23,8 @@ The names of manufacturers, products, or URLs are provided for informational pur
 **Contents**
 
 - [Serverless architecture before the hands-on lab setup guide](#serverless-architecture-before-the-hands-on-lab-setup-guide)
-    - [Setup Azure](#setup-azure)
+    - [Requirements](#requirements)
+    - [Before the hands-on lab](#before-the-hands-on-lab)
         - [Task 1: Create a new Azure Resource Group](#task-1-create-a-new-azure-resource-group)
         - [Task 2: Set up a development environment](#task-2-set-up-a-development-environment)
         - [Task 3: Disable IE Enhanced Security](#task-3-disable-ie-enhanced-security)
@@ -33,7 +34,21 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 # Serverless architecture before the hands-on lab setup guide 
 
-## Setup Azure 
+## Requirements
+
+-  Microsoft Azure subscription (non-Microsoft subscription)
+-  Local machine or a virtual machine configured with (**complete the day before the lab!**):
+    - Visual Studio Community 2017 or greater, **version 15.4** or later
+        -  <https://www.visualstudio.com/vs/>
+    - Azure development workload for Visual Studio 2017
+        -  <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
+    - .NET Framework 4.7 runtime (or higher)
+        -  <https://www.microsoft.com/net/download/windows>
+-  Office 365 account. If required, you can sign up for an Office 365 trial at:
+    - <https://portal.office.com/Signup/MainSignup15.aspx?Dap=False&QuoteId=79a957e9-ad59-4d82-b787-a46955934171&ali=1>
+-  GitHub account. You can create a free account at <https://github.com>.
+
+## Before the hands-on lab 
 
 **Duration**: 10 minutes
 
