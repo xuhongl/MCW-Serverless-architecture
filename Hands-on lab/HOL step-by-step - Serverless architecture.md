@@ -330,7 +330,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 2.  Select **+ Create a resource**, then enter **computer vision** into the search box on top. Select **Computer Vision** from the results
 
-    ![In the Azure Portal, Computer version is typed in the search box.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image29.png 'Azure Portal')
+    ![In the Azure Portal, Computer vision is typed in the search box.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image29.png 'Azure Portal')
 
 3.  Select the **Create** button on the **Computer Vision API** **overview** blade
 
@@ -396,7 +396,7 @@ In this task, you will apply application settings using the Microsoft Azure Port
 |                          |                                                                                                                                                   |
 | ------------------------ | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Application Key**      |                                                                     **Value**                                                                     |
-| computerVisionApiUrl     | Computer Vision API endpoint you copied earlier. Append **/ocr** to the end. Example: https://westus2.api.cognitive.microsoft.com/vision/v1.0/ocr |
+| computerVisionApiUrl     | Computer Vision API endpoint you copied earlier. Append **/recognizeText?mode=Printed** to the end. Example:  https://westus.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed |
 | computerVisionApiKey     |                                                              Computer Vision API key                                                              |
 | eventGridTopicEndpoint   |                                                             Event Grid Topic endpoint                                                             |
 | eventGridTopicKey        |                                                            Event Grid Topic access key                                                            |
