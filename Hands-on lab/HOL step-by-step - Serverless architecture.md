@@ -136,9 +136,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 | ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Description**                            |                                                                          **Links**                                                                          |
 | Creating a storage account (blob hot tier) | <https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json%23create-a-storage-account> |
-| Creating a function app                    |                   <https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function%23create-a-function-app>                    |
+| Creating a function app                    |                   <https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal>                    |
 | Concepts in Event Grid                     |                                                <https://docs.microsoft.com/en-us/azure/event-grid/concepts>                                                 |
-| Creating an Azure Cosmos DB account        |                   <https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-sql-api-dotnet%23create-an-azure-cosmos-db-account>                    |
+| Creating an Azure Cosmos DB account        |                   <https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account>                    |
 
 ### Task 1: Provision the storage account
 
