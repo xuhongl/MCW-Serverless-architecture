@@ -7,5 +7,3 @@
 
 [HOL step-by-step - Serverless architecture.html](https://cloudworkshop.blob.core.windows.net/serverless-architecture/Hands-on%20lab/HOL%20step-by-step%20-%20Serverless%20architecture.html)
 
-[HOL unguided - Serverless architecture.html](https://cloudworkshop.blob.core.windows.net/serverless-architecture/Hands-on%20lab/HOL%20unguided%20-%20Serverless%20architecture.html)
-
