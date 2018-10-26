@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
 <div class="MCWHeader1">
 Serverless architecture
@@ -29,8 +29,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Trainer information](#trainer-information)
   - [Role of the trainer](#role-of-the-trainer)
   - [Whiteboard design session flow](#whiteboard-design-session-flow)
-  - [Before the whiteboard design session: how to prepare](#before-the-whiteboard-design-session-how-to-prepare)
-  - [During the whiteboard design session: tips for an effective whiteboard design session](#during-the-whiteboard-design-session-tips-for-an-effective-whiteboard-design-session)
+  - [Before the whiteboard design session: How to prepare](#before-the-whiteboard-design-session-how-to-prepare)
+  - [During the whiteboard design session: Tips for an effective whiteboard design session](#during-the-whiteboard-design-session-tips-for-an-effective-whiteboard-design-session)
 - [Serverless architecture whiteboard design session student guide](#serverless-architecture-whiteboard-design-session-student-guide)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
@@ -42,7 +42,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Step 3: Present the solution](#step-3-present-the-solution)
   - [Wrap-up](#wrap-up)
   - [Additional references](#additional-references)
-- [Serverless architecture whiteboard design session trainer guide](#serverless-architecture-whiteboard-design-session-trainer-guide-1)
+- [Serverless architecture whiteboard design session trainer guide](#serverless-architecture-whiteboard-design-session-trainer-guide)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study-1)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution-1)
   - [Step 3: Present the solution](#step-3-present-the-solution-1)
@@ -62,27 +62,27 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place.
+- Creates a safe environment in which learning can take place.
 
--   Stimulates the participant's thinking.
+- Stimulates the participant's thinking.
 
--   Involves the participant in the learning process.
+- Involves the participant in the learning process.
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants).
+- Manages the learning process (on time, on topic, and adjusting to benefit participants).
 
--   Ensures individual participant accountability.
+- Ensures individual participant accountability.
 
--   Ties it all together for the participant.
+- Ties it all together for the participant.
 
--   Provides insight and experience to the learning process.
+- Provides insight and experience to the learning process.
 
--   Effectively leads the whiteboard design session discussion.
+- Effectively leads the whiteboard design session discussion.
 
--   Monitors quality and appropriateness of participant deliverables.
+- Monitors quality and appropriateness of participant deliverables.
 
--   Effectively leads the feedback process.
+- Effectively leads the feedback process.
 
-## Whiteboard design session flow 
+## Whiteboard design session flow
 
 Each whiteboard design session uses the following flow:
 
@@ -92,11 +92,11 @@ Each whiteboard design session uses the following flow:
 
 Analyze your customer's needs.
 
--   Customer's background, situation, needs and technical requirements
+- Customer's background, situation, needs and technical requirements
 
--   Current customer infrastructure and architecture
+- Current customer infrastructure and architecture
 
--   Potential issues, objectives and blockers
+- Potential issues, objectives and blockers
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
@@ -104,13 +104,13 @@ Analyze your customer's needs.
 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
--   Determine your target customer audience.
+- Determine your target customer audience.
 
--   Determine customer's business needs to address your solution.
+- Determine customer's business needs to address your solution.
 
--   Design and diagram your solution.
+- Design and diagram your solution.
 
--   Prepare to present your solution.
+- Prepare to present your solution.
 
 **Step 3: Present the solution (30 minutes)**
 
@@ -118,29 +118,29 @@ Design a solution and prepare to present the solution to the target customer aud
 
 Present solution to your customer:
 
--   Present solution
+- Present solution
 
--   Respond to customer objections
+- Respond to customer objections
 
--   Receive feedback
+- Receive feedback
 
 **Wrap-up (15 minutes)**
 
--   Review preferred solution
+- Review preferred solution
 
 ## Before the whiteboard design session: How to prepare
 
 Before conducting your first whiteboard design session:
 
--   Read the Student guide (including the case study) and Trainer guide.
+- Read the Student guide (including the case study) and Trainer guide.
 
--   Become familiar with all key points and activities.
+- Become familiar with all key points and activities.
 
--   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions.
+- Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions.
 
--   Prior to the whiteboard design session, discuss the case study to pick up more ideas.
+- Prior to the whiteboard design session, discuss the case study to pick up more ideas.
 
--   Make notes for later.
+- Make notes for later.
 
 ## During the whiteboard design session: Tips for an effective whiteboard design session
 
@@ -150,13 +150,13 @@ Before conducting your first whiteboard design session:
 
 When participants are doing activities, you can **look ahead to refresh your memory**.
 
--   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing.
+- **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing.
 
--   **Add examples, points, and stories** from your own experience. Think about stories you can share that help you make your points clearly and effectively.
+- **Add examples, points, and stories** from your own experience. Think about stories you can share that help you make your points clearly and effectively.
 
--   **Consider creating a "parking lot"** to record issues or questions raised that are outside the scope of the whiteboard design session or can be answered later. Decide how you will address these issues, so you can acknowledge them without being derailed by them.
+- **Consider creating a "parking lot"** to record issues or questions raised that are outside the scope of the whiteboard design session or can be answered later. Decide how you will address these issues, so you can acknowledge them without being derailed by them.
 
-***Have fun**! Encourage participants to have fun and share!*
+**\*Have fun**! Encourage participants to have fun and share!\*
 
 **Involve your participants.** Talk and share your knowledge but always involve your participants, even while you are the one speaking.
 
@@ -174,7 +174,7 @@ In this whiteboard design session, you will work with a group to design a soluti
 
 At the end of this whiteboard design session, you will have gained insight on how best to take advantage of the new serverless wave by designing a highly scalable and cost-effective solution that requires very little code and virtually no infrastructure, compared to traditional hosted web applications and services.
 
-## Step 1: Review the customer case study 
+## Step 1: Review the customer case study
 
 **Outcome**
 
@@ -256,7 +256,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
 
 1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -266,11 +266,11 @@ Directions:  With all participants at your table, answer the following questions
 
 Directions: With all participants at your table, respond to the following questions on a flip chart:
 
-*High-level architecture*
+_High-level architecture_
 
 1.  Without getting into the details (the following sections will address the particular details), diagram your initial vision for handling the top-level requirements for the license plate processing serverless components, OCR capabilities, data export workflow, and monitoring plus DevOps.
 
-*License plate processing serverless components*
+_License plate processing serverless components_
 
 1.  Which Azure messaging service would you recommend using to orchestrate event-driven activities between the serverless components?
 
@@ -282,25 +282,25 @@ Directions: With all participants at your table, respond to the following questi
 
 5.  What Azure service would you recommend for storing the license plate data? Consider options that automatically scale to meet demand, and offer bindings to other serverless components that simplify connecting to and storing data within the data store.
 
-*License plate OCR*
+_License plate OCR_
 
 1.  What service would you recommend Contoso use to conduct license plate object character recognition (OCR) processing to extract the license plate number from each photo as it enters the system?
 
 2.  How would you integrate the OCR service to your license plate processing flow?
 
-*Data export workflow*
+_Data export workflow_
 
 1.  What Azure service would you recommend to create an automated workflow that runs on a regular interval to export processed license plate data and send alerts as needed?
 
 2.  Which other services would you integrate into your workflow?
 
-*Extensible serverless analytics*
+_Extensible serverless analytics_
 
 1.  Assuming they would like to be able to plug-in more solutions that respond to the event when a license plate has been successfully extracted from an image, how would you extend your solution using Event Grid? Be specific on the system topics, custom topics and subscriptions at play.
 
 2.  What pipeline would you plug-into an Event Grid subscription listening for license plate events that could be used to provide real-time and batch analytics as a serverless solution?
 
-*Monitoring and DevOps*
+_Monitoring and DevOps_
 
 1.  What tools and services would you recommend Contoso use to develop the serverless components locally, synchronize with a source code repository, and implement continuous deployment?
 
@@ -346,7 +346,7 @@ Directions:
 
 7.  Tables switch roles and repeat Steps 2-6.
 
-##  Wrap-up 
+## Wrap-up
 
 Timeframe: 15 minutes
 
@@ -372,43 +372,43 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer.
+- Check in with your table participants to introduce yourself as the trainer.
 
--   Ask, "What questions do you have about the customer case study?"
+- Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and timeframes of the whiteboard design session.
+- Briefly review the steps and timeframes of the whiteboard design session.
 
--   Ready, set, go! Let the table participants begin.
+- Ready, set, go! Let the table participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time.
+- Check in with your tables to ensure that they are transitioning from step to step on time.
 
--   Provide some feedback on their responses to the business needs and design.
+- Provide some feedback on their responses to the business needs and design.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
+  - Try asking questions first that will lead the participants to discover the answers on their own.
 
--   Provide feedback for their responses to the customer's objections.
+- Provide feedback for their responses to the customer's objections.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
-    
+  - Try asking questions first that will lead the participants to discover the answers on their own.
+
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins.
+- Determine which table will be paired with your table before Step 3 begins.
 
--   For the first round, assign one table as the presenting team and the other table as the customer.
+- For the first round, assign one table as the presenting team and the other table as the customer.
 
--   Have the presenting team present their solution to the customer team.
+- Have the presenting team present their solution to the customer team.
 
-    -   Have the customer team provide one objection for the presenting team to respond to.
+  - Have the customer team provide one objection for the presenting team to respond to.
 
-    -   The presentation, objections, and feedback should take no longer than 15 minutes.
+  - The presentation, objections, and feedback should take no longer than 15 minutes.
 
-    -   If needed, the trainer may also provide feedback.
+  - If needed, the trainer may also provide feedback.
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
+- Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
 
 ## Preferred target audience
 
@@ -418,7 +418,7 @@ The primary audience is the business decision makers and technology decision mak
 
 ## Preferred solution
 
-*High-level architecture*
+_High-level architecture_
 
 1.  Without getting into the details (the following sections will address the particular details), diagram your initial vision for handling the top-level requirements for the license plate processing serverless components, OCR capabilities, data export workflow, and monitoring plus DevOps.
 
@@ -426,9 +426,9 @@ The primary audience is the business decision makers and technology decision mak
 
     The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. Each photo is stored in a subfolder named after the photo booth's Id so the Id can be added to the processed license plate data in the database. An Event Grid subscription is created against the Blob storage create event, calling the photo processing Azure Function endpoint (on the side of the diagram), which in turn sends the photo to the Cognitive Services Computer Vision API OCR service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData.\" However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called \"queuePlateForManualCheckup.\" Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate Cosmos DB collection for the outcome, using the Cosmos DB output binding. A Logic App that runs on an hourly interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. Application Insights is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows Contoso to observe dynamic scaling first-hand and configure alerts when certain events take place.
 
-    >**Note**:  The preferred solution is only one of many possible, viable approaches.
+    > **Note**: The preferred solution is only one of many possible, viable approaches.
 
-*License plate processing serverless components*
+_License plate processing serverless components_
 
 1.  Which Azure messaging service would you recommend using to orchestrate event-driven activities between the serverless components?
 
@@ -452,7 +452,7 @@ The primary audience is the business decision makers and technology decision mak
 
     Use Azure Cosmos DB, which is a globally distributed, massively scalable, multi-model database service that includes native integration with Azure Functions. You can use output bindings directly to Cosmos DB from your functions, simplifying the steps needed to persist your incoming license plate processing data.
 
-*License plate OCR*
+_License plate OCR_
 
 1.  What service would you recommend Contoso use to conduct license plate object character recognition (OCR) processing to extract the license plate number from each photo as it enters the system?
 
@@ -462,7 +462,7 @@ The primary audience is the business decision makers and technology decision mak
 
     The Computer Vision API can be integrated by having the image processing function make a REST request containing the photo to the registered service endpoint. It is highly recommended that a resiliency strategy is implemented for the call, in case the service is imposing rate limits on your requests during high traffic periods. The return data is in JSON format, containing the discovered text and bounding boxes indicating their position within the photo.
 
-*Data export workflow*
+_Data export workflow_
 
 1.  What Azure service would you recommend Contoso use to create an automated workflow that runs on a regular interval to export processed license plate data and send alerts as needed?
 
@@ -472,7 +472,7 @@ The primary audience is the business decision makers and technology decision mak
 
     Contoso has stated that they use Office 365 services for their email. Logic Apps can use the Office 365 Outlook connector to send emails to any number of recipients. Start by adding a condition after the call to the Azure function. This condition needs to evaluate the response code sent by the function to determine whether the email step is fired. If the code is not equal to 200 (OK status), then the email should be sent with information in the body crafted based on the response code. For instance, the function should return a 204 (NoContent) status code if no license plate data was found that needs to be exported. This would indicate that no photos were processed in the period since the previous trigger interval, possibly indicating a situation out of the norm that should be investigated more closely.
 
-*Extensible serverless analytics*
+_Extensible serverless analytics_
 
 1.  Assuming they would like to be able to plug-in more solutions that respond to the event when a license plate has been successfully extracted from an image, how would you extend your solution using Event Grid? Be specific on the system topics, custom topics and subscriptions at play.
 
@@ -488,7 +488,7 @@ The primary audience is the business decision makers and technology decision mak
 
     Similarly, from the same Event Hubs instance you could connect Azure Stream Analytics to apply standing SQL queries to analyze the time-series data (such as by computing aggregates over windows of time) in near-realtime and output the result to a number of Azure services like SQL Database or Power BI.
 
-*Monitoring and DevOps*
+_Monitoring and DevOps_
 
 1.  What tools and services would you recommend Contoso use to develop the serverless components locally, synchronize with a source code repository, and implement continuous deployment?
 

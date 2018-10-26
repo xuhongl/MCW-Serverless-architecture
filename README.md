@@ -34,7 +34,7 @@ At the end of the hands-on-lab, you will have confidence in designing, developin
 - Azure Cognitive Services
 - Azure Event Grid
 - Application Insights
-- AzureCosmos DB
+- Azure Cosmos DB
 - Logic Apps
 
 ## Azure solution
