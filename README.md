@@ -41,6 +41,9 @@ At the end of the hands-on-lab, you will have confidence in designing, developin
 
 Cloud-Native Apps
 
-## Related references
+## Related references, resources, and material
 
 [MCW](https://github.com/Microsoft/MCW)
+
+[Serverless Web Application Reference Architectue](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/web-app)
+[Serverless event processing using Azure Functions Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/event-processing)
