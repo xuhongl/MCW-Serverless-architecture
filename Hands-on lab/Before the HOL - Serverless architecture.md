@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-September 2018
+November 2018
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -82,19 +82,33 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
     d.  Click **Create**.
 
-    e.  Type a Name, Username, Password and select your **Serverless Architecture** resource group.
+    e.  Select your subscription and recently created resource group
+    
+    f.  For name, type **MainVM**.
 
-    f.  Click **OK**.
+    g.  Leave availabity option as **No infrastructure redundacy required**
 
-    g.  Select your VM size.
+    h.  Ensure the image is **Visual Studio Community 2017 on Windows Server 2016 (x64)**
+
+    i.  Select your VM size.
 
     >**Note**: It is highly recommended to use a DS2 or D2 instance size for this VM.
 
-    h.  For the inbound ports, select 3389.
+    j.  For username, type **demouser**
 
-    i.  Click **OK**.
+    k.  For password, type **Password.1!!**
 
-    j.  Click **Create**.
+    l.  Click **Next : Disks**.
+
+    m.  Click **Next : Networking**.
+
+    n.  Click **Allow selected ports**.
+
+    o.  For the inbound ports, select **RDP (3389)**.
+
+    p.  Click **Review + create**.
+
+    p.  Click **Create**.
 
 ### Task 3: Disable IE Enhanced Security
 
@@ -102,19 +116,17 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
 1.  Login to the newly created VM using RDP and the username and password you supplied earlier.
 
-2.  On the new VM you just created, select the **Server Manager** icon.
+2.  After the VM loads, the Server Manager should open.
 
-    ![Screenshot of the Server Manager icon.](images/Setup/image4.png 'Server Manager icon')
-
-4.  Select **Local Server**.
+3.  Select **Local Server**.
 
     ![Local Server is selected from the Server Manager menu.](images/Setup/image5.png 'Server Manager menu')
 
-5.  On the side of the pane, select **On** by **IE Enhanced Security Configuration**.
+4.  On the side of the pane, for **IE Enhanced Security Configuration**, if it displays **On** select it
 
     ![Screenshot of IE Enhanced Security Configuration, which is set to On.](images/Setup/image6.png 'IE Enhanced Security Configuration')
 
-6.  Change to **Off** for Administrators and select **OK**.
+    -  Change to **Off** for Administrators and select **OK**.
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, under Administrators, the Off button is selected.](images/Setup/image7.png 'Internet Explorer Enhanced Security Configuration dialog box')
 
