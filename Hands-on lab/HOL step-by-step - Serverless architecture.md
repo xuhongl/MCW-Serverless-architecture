@@ -156,7 +156,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![Fields in the Create storage account blade are set to the previously defined values.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image12.png 'Create strorage account blade')
 
-4.  Select **Review + create**, then select **Create**
+4.  Select **Review + create**, then select **Create**.
 
 5.  After the storage account has completed provisioning, open the storage account by opening the **ServerlessArchitecture** resource group, and then selecting the **storage account** name.
 
@@ -481,7 +481,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
 6.  After you select the Function App, select **OK**.
 
-    > Note:  If prompted to update the functions version on Azure, click **Yes**
+    > **Note**:  If prompted to update the functions version on Azure, click **Yes**.
 
 7.  Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, "Publish Succeeded."
 
@@ -607,7 +607,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
     ![The New button is selected next to the Azure Cosmos DB account connection field.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image49.png 'New button')
 
-    > NOTE: If you see a notice for "Extensions not installed", click **Install**
+    > **Note**: If you see a notice for "Extensions not installed", click **Install**.
 
 4.  Select your Cosmos DB account from the list that appears.
 
@@ -621,7 +621,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
 6.  Select **Save**.
 
-    > NOTE: you should wait for the template dependency to install if you were promted earlier.
+    > **Note**: you should wait for the template dependency to install if you were promted earlier.
 
 ### Task 4: Create function to save manual verification info to Azure Cosmos DB
 
@@ -714,7 +714,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
 3.  Specify the following configuration options in the Azure Cosmos DB output form:
 
-    > NOTE: If you see a notice for "Extensions not installed", click **Install**
+    > **Note**: If you see a notice for "Extensions not installed", click **Install**.
 
     a. For database name, enter **LicensePlates**.
 
@@ -893,7 +893,6 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
     ![the Command prompt window displays image uploading information.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image71.png 'Command Prompt window')
 
 4.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resiliency policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
-
 
     >**Note**:  If you do not see data flow after a short period, consider restarting the Function App.
 
