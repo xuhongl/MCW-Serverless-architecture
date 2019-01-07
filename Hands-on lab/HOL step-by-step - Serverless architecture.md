@@ -198,7 +198,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     f. Leave the **storage** option as **create new**.
 
-    g. Ensure **Off** is selected for **Application Insights** (we'll add this later).
+    g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
 
     ![Fields in the Function App blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image18.png 'Function App blade')
 
@@ -519,7 +519,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image43.png 'TollBoothEvents2 blade')
 
-4.  Event **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
+4.  In the **Quickstart** dialog, select **In-portal** then select **Continue**
+
+5.  Select **More templates**, then select **Finish and view templates**
+
+6.  Event **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
 
     a.  If prompted, click **Install** and wait for the extension to install.
 
@@ -527,7 +531,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image44.png 'Template search form')
 
-5.  In the New Function form, fill out the following properties:
+7.  In the New Function form, fill out the following properties:
 
     a. For name, enter **SavePlateData**
 
