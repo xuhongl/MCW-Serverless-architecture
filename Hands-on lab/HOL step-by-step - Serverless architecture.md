@@ -1081,6 +1081,8 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 3.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**.
 
+> NOTE:  When selecting **Public**, any connection information will be published to the github repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
+
     ![In the New Repository section, the Repository name field is set to serverless-architecture-lab, and the Public radio button is selected. At the bottom, the Create repository button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image99.png 'New Repository section')
 
 4.  On your new repository page, copy the **HTTPS git path** to your clipboard, using the **button** provided.
@@ -1262,3 +1264,11 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 4.  Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
 
 You should follow all steps provided *after* attending the Hands-on lab.
+
+### Task 2: Delete the GitHub repo.
+
+1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
+
+2.  Navigate to your repo and select it
+
+3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**
