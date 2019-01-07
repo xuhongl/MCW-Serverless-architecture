@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": "",
+    "computerVisionApiUrl": "",
+    "computerVisionApiKey": "",
+    "eventGridTopicEndpoint": "",
+    "eventGridTopicKey": "",
+    "cosmosDBEndPointUrl": "",
+    "cosmosDBAuthorizationKey": "",
+    "cosmosDBDatabaseId": "LicensePlates",
+    "cosmosDBCollectionId": "Processed",
+    "exportCsvContainerName": "export",
+    "blobStorageConnection": ""
+  }
+}
