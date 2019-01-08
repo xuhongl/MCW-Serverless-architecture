@@ -198,7 +198,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     f. Leave the **storage** option as **create new**.
 
-    g. Ensure **Off** is selected for **Application Insights** (we'll add this later).
+    g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
 
     ![Fields in the Function App blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image18.png 'Function App blade')
 
@@ -519,7 +519,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image43.png 'TollBoothEvents2 blade')
 
-4.  Event **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
+4.  In the **Quickstart** dialog, select **In-portal** then select **Continue**
+
+5.  Select **More templates**, then select **Finish and view templates**
+
+6.  Event **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
 
     a.  If prompted, click **Install** and wait for the extension to install.
 
@@ -527,7 +531,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image44.png 'Template search form')
 
-5.  In the New Function form, fill out the following properties:
+7.  In the New Function form, fill out the following properties:
 
     a. For name, enter **SavePlateData**
 
@@ -1077,6 +1081,8 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 3.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**.
 
+> NOTE:  When selecting **Public**, any connection information will be published to the github repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
+
     ![In the New Repository section, the Repository name field is set to serverless-architecture-lab, and the Public radio button is selected. At the bottom, the Create repository button is selected.](images/Hands-onlabstep-by-step-Serverlessarchitectureimages/media/image99.png 'New Repository section')
 
 4.  On your new repository page, copy the **HTTPS git path** to your clipboard, using the **button** provided.
@@ -1152,7 +1158,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 ```
     // TODO 5: Retrieve a List of LicensePlateDataDocument objects from the collectionLink where the exported value is false.
     licensePlates = _client.CreateDocumentQuery<LicensePlateDataDocument>(collectionLink,
-            new FeedOptions() { MaxItemCount = 100 })
+            new FeedOptions() { EnableCrossPartitionQuery=true,MaxItemCount = 100 })
         .Where(l => l.exported == false)
         .ToList();
     // TODO 6: Remove the line below.
@@ -1258,3 +1264,11 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 4.  Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
 
 You should follow all steps provided *after* attending the Hands-on lab.
+
+### Task 2: Delete the GitHub repo.
+
+1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
+
+2.  Navigate to your repo and select it
+
+3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**
