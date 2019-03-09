@@ -158,7 +158,7 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
 3. On the repo page, select **Clone or download**, then select **Download ZIP**.
 
-   ![Download .zip containing the repository](media/git-hub-download-repo.png 'Download ZIP') ![](images/Setup/github-download-repo.png)
+   ![Download .zip containing the repository](images/Setup/github-download-repo.png)
 
 4. Unzip the contents to the folder **C:\\ServerlessMCW\\**.
 
