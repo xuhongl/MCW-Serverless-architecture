@@ -75,6 +75,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 2: View the exported CSV file](#task-2-view-the-exported-csv-file)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Delete the resource group in which you placed your Azure resources.](#task-1-delete-the-resource-group-in-which-you-placed-your-azure-resources)
+    - [Task 2: Delete the GitHub repo.](#task-2-delete-the-github-repo)
 
 <!-- /TOC -->
 
