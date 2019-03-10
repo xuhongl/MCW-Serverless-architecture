@@ -135,9 +135,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 1.  Using a new tab or instance of your browser, navigate to the Azure Management portal, <http://portal.azure.com>.
 
-2.  Select **+Create a resource**, then select **Storage**, **Storage account -- blob, file, table, queue**.
+2.  Select **+ Create a resource**, then select **Storage**, **Storage account**.
 
-    ![In the menu pane of Azure Portal, New is selected. Under Azure Marketplace, Storage is selected, and under Featured, Storage account - blob, file, table, queue is selected.](media/image11.png 'Azure Portal')
+    ![In the menu pane of Azure Portal, Create a resource is selected. Under Azure Marketplace, Storage is selected, and under Featured, Storage account - blob, file, table, queue is selected.](media/new-storage-account.png 'Azure Portal')
 
 3.  On the **Create storage account** blade, specify the following configuration options:
 
@@ -171,15 +171,17 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 8.  Select **Blobs** under **Blob Service** in the menu. Then select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private (no anonymous access)** for the public access level, then select **OK** to save.
 
-    ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access). ](media/image16.png 'Storage and Containers blades')
+    ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access).](media/image16.png 'Storage and Containers blade')
 
 9.  Repeat these steps to create a container named **export**.
+
+    ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays export, and the Public access level is set to Private (no anonymous access).](media/new-container-export.png "Storage and Containers blade")
 
 ### Task 2: Provision the Function Apps
 
 1.  Navigate to the Azure Management portal, <http://portal.azure.com>.
 
-2.  Select **+ Create a resoruce**, then enter **function** into the search box on top. Select **Function App** from the results.
+2.  Select **+ Create a resource**, then enter **function** into the search box on top. Select **Function App** from the results.
 
     ![In the menu pane of the Azure Portal, the New button is selected. Function is typed in the search field, and Function App is selected from the search results.](media/image17.png 'Azure Portal')
 
@@ -187,7 +189,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 4.  On the **Create Function App** blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBooth EventsINIT**.
+    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothFunctionApp**.
 
     b. Specify the Resource Group **ServerlessArchitecture**.
 
@@ -201,13 +203,35 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
 
-    ![Fields in the Function App blade are set to the previously defined settings.](media/image18.png 'Function App blade')
+    ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-net.png "Function App blade")
 
 5.  Select **Create**.
 
     ![Screenshot of the Create button.](media/image13.png 'Create button')
 
-6.  **Repeat steps 1-5** to create a second Function App, named **TollBoothFunctionAppINIT** or similar.
+6.  **Repeat steps 1-3** to create a second Function App.
+
+7.  On the **Create Function App** blade, specify the following configuration options:
+
+    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothEvents**.
+
+    b. Specify the Resource Group **ServerlessArchitecture**.
+
+    c. For hosting plan, select the **Consumption Plan**.
+
+    d. Select the same **location** as your Resource Group.
+
+    e. For Runtime stack, select **Javascript**.
+
+    f. Leave the **storage** option as **create new**.
+
+    g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
+
+    ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-javascript.png "Function App blade")
+
+8.  Select **Create**.
+
+    ![Screenshot of the Create button.](media/image13.png 'Create button')
 
 ### Task 3: Provision the Event Grid topic
 
@@ -265,7 +289,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     d. Select the same **location** as your Resource Group if available. Otherwise, select the next closest **region**.
 
-    e. Ensure **Enable geo-redundancy** is selected.
+    e. Ensure **Disable geo-redundancy** is selected.
+
+    f. Ensure **Disable multi-region writes** is selected.
 
     ![Fields in the Azure Cosmos DB blade are set to the previously defined settings.](media/image24.png 'Azure Cosmos DB blade')
 
@@ -279,15 +305,17 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 7.  On the **Add Collection** blade, specify the following configuration options:
 
-    a. Enter **LicensePlates** for the **database id**.
+    a. Enter **LicensePlates** for the **Database id**.
 
-    b. Enter **Processed** for the **collection id**.
+    b. Leave **Provision database throughput** unchecked.
 
-    c. Storage capacity: **Fixed**
+    c. Enter **Processed** for the **Collection id**.
 
-    d. Throughput: **5000**
+    d. Partition key: **/licensePlateText**
 
-    ![In the Add Collection blade, fields are set to the previously defined settings.](media/image26.png 'Add Collection blade')
+    e. Throughput: **5000**
+
+    ![In the Add Collection blade, fields are set to the previously defined settings.](media/cosmosdb-add-processed-collection.png "Add Collection blade")
 
 8)  Select **OK**.
 
@@ -295,15 +323,15 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 10) On the **Add Collection** blade, specify the following configuration options:
 
-    a. For database id, enter **LicensePlates**.
+    a. For Database id, choose **Use existing** and select **LicensePlates**.
 
-    b. For collection id, enter **NeedsManualReview**.
+    b. For Collection id, enter **NeedsManualReview**.
 
-    c. Storage capacity: **Fixed**
+    c. Partition key: **/fileName**
 
     d. Throughput: **5000**
 
-    ![In the Add Collection blade, fields are set to the previously defined values.](media/image27.png 'Add Collection blade')
+    ![In the Add Collection blade, fields are set to the previously defined values.](media/cosmosdb-add-manualreview-collection.png 'Add Collection blade')
 
 11) Select **OK**.
 
