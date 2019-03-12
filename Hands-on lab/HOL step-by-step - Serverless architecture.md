@@ -74,8 +74,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 1: Run the Logic App](#task-1-run-the-logic-app)
     - [Task 2: View the exported CSV file](#task-2-view-the-exported-csv-file)
   - [After the hands-on lab](#after-the-hands-on-lab)
-    - [Task 1: Delete the resource group in which you placed your Azure resources.](#task-1-delete-the-resource-group-in-which-you-placed-your-azure-resources)
-    - [Task 2: Delete the GitHub repo.](#task-2-delete-the-github-repo)
+    - [Task 1: Delete the resource group in which you placed your Azure resources](#task-1-delete-the-resource-group-in-which-you-placed-your-azure-resources)
+    - [Task 2: Delete the GitHub repo](#task-2-delete-the-github-repo)
 
 <!-- /TOC -->
 
@@ -1025,11 +1025,13 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     c. Select the same **location** as your Resource Group.
 
+    d. Select **Off** underneath Log Analytics.
+
     ![In the Create logic app blade, fields are set to the previously defined settings.](media/image81.png 'Create logic app blade')
 
 5.  Click **Create**.  Open the Logic App once it has been provisioned.
 
-6.  In the Logic App Designer, scroll through the page until you located the _Start with a common trigger_ section. Select the **Recurrence** trigger.
+6.  In the Logic App Designer, scroll through the page until you locate the _Start with a common trigger_ section. Select the **Recurrence** trigger.
 
     ![The Recurrence tile is selected in the Logic App Designer.](media/image82.png 'Logic App Designer')
 
@@ -1051,23 +1053,23 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![Under Azure Functions, under Actions (2), Azure Functions (ExportLicensePlates) is selected.](media/image87.png 'Logic App Designer Azure Functions section')
 
-12. This function does not require any parameters that need to be sent when it gets called. Select **+ New step**, then search for **condition**.  Select it.
+12. This function does not require any parameters that need to be sent when it gets called. Select **+ New step**, then search for **condition**. Select the **Condition** Control option from the Actions search result.
 
-    ![Under ExportLicensePlates, the field is blank. Under the + New step button, Add a condition is selected.](media/image88.png 'Logic App Designer ExportLicensePlates section')
+    ![Under ExportLicensePlates, the field is blank. Under the + New step button, Add a condition is selected.](media/logicapp-add-condition.png 'Logic App Designer ExportLicensePlates section')
 
 13. For the **value** field, select the **Status code** parameter. Make sure the operator is set to **is equal to**, then enter **200** in the second value field. 
 
     >**Note**: This evaluates the status code returned from the ExportLicensePlates function, which will return a 200 code when license plates are found and exported. Otherwise, it sends a 204 (NoContent) status code when no license plates were discovered that need to be exported. We will conditionally send an email if any response other than 200 is returned.
 
-    ![The first Condition field displays Status code. The second, drop-down menu field displays is equal to, and the third field is set to 200.](media/image89.png 'Condition fields')
+    ![The first Condition field displays Status code. The second, drop-down menu field displays is equal to, and the third field is set to 200.](media/logicapp-condition.png 'Condition fields')
 
 14. We will ignore the If true condition because we don't want to perform an action if the license plates are successfully exported. Select **Add an action** within the **If false** condition block.
 
-    ![Under the Conditions field is an If true (green checkmark) section, and an if false (red x) section. In the If false section, Add an action is selected.](media/image90.png 'Logic App Designer Condition fields if true/false ')
+    ![Under the Conditions field is an If true (green checkmark) section, and an if false (red x) section. In the If false section, Add an action is selected.](media/logicapp-condition-false-add.png 'Logic App Designer Condition fields if true/false ')
 
 15. Enter **Send an email** in the filter box, then select the **Send an email** action.
 
-    ![From the Actions list, Office 365 Outlook (Send an email) is selected.](media/image92.png 'Office 365 Outlook Actions list')
+    ![From the Actions list, Office 365 Outlook (Send an email) is selected.](media/logicapp-send-email.png 'Office 365 Outlook Actions list')
 
 16. Click **Sign in** and sign in to your Office 365 Outlook account.
 
@@ -1121,7 +1123,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 3.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**.
 
-> NOTE:  When selecting **Public**, any connection information will be published to the github repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
+    > NOTE:  When selecting **Public**, any connection information will be published to the github repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
 
     ![In the New Repository section, the Repository name field is set to serverless-architecture-lab, and the Public radio button is selected. At the bottom, the Create repository button is selected.](media/image99.png 'New Repository section')
 
@@ -1133,17 +1135,17 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Open the **TollBooth** project in Visual Studio.
 
-2.  Right-click the **TollBooth** project in Solution Explorer, then select **Commit...** under the **Source Control** menu item.
+2.  Right-click the **TollBooth** solution in Solution Explorer, then select **Add Solution to Source Control**.
 
-    ![In Solution Explorer, TollBooth is selected. From its right-click menu, Source Control and then Commit are selected.](media/image101.png 'Solution Explorer')
+    ![In Solution Explorer, TollBooth solution is selected. From its right-click menu, Add Solution to Source Control is selected.](media/vs-add-to-source-control.png "Solution Explorer")
 
-3.  Enter a commit message, then select **Commit All**.
+3.  Select **View** in Visual Studio's top menu, then select **Team Explorer**.
 
-    ![In Team Explorer - Changes, under Changes, the commit message reads "Finishing function code." Below that, the Commit All button is selected.](media/image102.png 'Team Explorer - Changes')
+    ![The View, Team Explorer menu item is highlighted.](media/vs-view-team-explorer.png "Visual Studio")
 
-4.  After committing, select the **Sync** link. This will allow us to add the remote GitHub repository.
+4.  Click **Sync** under the Project section of the Team Explorer pane.
 
-    ![Under Team Explorer - Changes, in the informational message Commit 02886e85 created locally. Sync to share, the Sync link is selected.](media/image103.png 'Team Explorer - Changes')
+    ![The Sync button is highlighted.](media/vs-sync-button.png "Team Explorer")
 
 5.  Select the **Publish Git Repo** button, then paste the git URL for your new repository you copied from GitHub. Finally, select **Publish**.
 
@@ -1157,29 +1159,31 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 1.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function.
 
-2.  Select **Deployment options** underneath the **Platform features** tab.
+2.  Select **Deployment Center** underneath the **Platform features** tab.
 
-    ![In the TollBoothFunctionApp blade, on the Platform features tab, under Code Deployment, Deployment options is selected.](media/image106.png 'TollBoothFunctionApp blade')
+    ![In the TollBoothFunctionApp blade, on the Platform features tab, under Code Deployment, Deployment Center is selected.](media/functionapp-deployment-center-link.png 'TollBoothFunctionApp blade')
 
-3.  Select **Setup** in the **Deployments** blade.
+3.  Select **GitHub** in the **Deployment Center** blade. Enter your GitHub credentials if prompted. Select **Continue**.
 
-    ![In the Deployments blade, the Setup icon is selected.](media/image107.png 'Deployments blade')
+    ![In the Deployment Center blade, the GitHub icon is selected.](media/functionapp-dc-github.png "Deployment Center blade")
 
-4.  Select **Choose Source**, then **GitHub** in the list of sources.
+4.  Select **App Service Kudu build server**, then select **Continue**.
 
-    ![In the Deployment option blade, Choose source is selected. In the Choose source blade, GitHub is selected.](media/image108.png 'Deployment option and Choose source blades')
+    ![Under the Build Provider step, App Service Kudu build server is selected.](media/functionapp-dc-build-provider.png "Deployment Center blade")
 
-5.  Select **Authorization**, then enter your GitHub credentials when prompted.
+5.  **Choose your organization**.
 
-6.  **Choose your organization**.
+6.  Choose your new repository under **Choose project**. Make sure the **master branch** is selected.
 
-7.  Choose your new repository under **Choose project**. Make sure the **master branch** is selected.
+    ![Fields in the Deployment option blade set to the following settings: Choose your organization, Personal; Choose repository, serverless-architecture-lab; Choose branch, master.](media/functionapp-dc-configure.png 'Deployment Center blade')
 
-    ![Fields in the Deployment option blade set to the following settings: Choose Source, GitHub; Authorization, hidden; Choose your organization, Personal; Choose project, serverless-architecture-lab; Choose branch, master. Performance Test, not configured.](media/image109.png 'Deployment option blade')
+7.  Select **Continue**.
 
-8.  Select **OK**.
+8.  On the Summary page, select **Finish**.
 
-9.  After continuous deployment is configured, all file changes in your deployment source are copied to the function app and a full site deployment is triggered. The site is redeployed when files in the source are updated.
+8.  After continuous deployment is configured, all file changes in your deployment source are copied to the function app and a full site deployment is triggered. The site is redeployed when files in the source are updated.
+
+    ![The Deployment Center is shown with a pending build.](media/functionapp-dc.png "Function App Deployment Center")
 
 ### Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment
 
@@ -1195,13 +1199,13 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 5.  The following code represents the completed task in DatabaseMethods.cs:
 
-```
-    // TODO 5: Retrieve a List of LicensePlateDataDocument objects from the collectionLink where the exported value is false.
-    licensePlates = _client.CreateDocumentQuery<LicensePlateDataDocument>(collectionLink,
-            new FeedOptions() { EnableCrossPartitionQuery=true,MaxItemCount = 100 })
-        .Where(l => l.exported == false)
-        .ToList();
-    // TODO 6: Remove the line below.
+```csharp
+// TODO 5: Retrieve a List of LicensePlateDataDocument objects from the collectionLink where the exported value is false.
+licensePlates = _client.CreateDocumentQuery<LicensePlateDataDocument>(collectionLink,
+        new FeedOptions() { EnableCrossPartitionQuery=true,MaxItemCount = 100 })
+    .Where(l => l.exported == false)
+    .ToList();
+// TODO 6: Remove the line below.
 ```
 
 6.  Make sure that you deleted the following line under TODO 6: licensePlates = new List\<LicensePlateDataDocument\>();.
@@ -1210,9 +1214,9 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 8.  The following code represents the completed task in DatabaseMethods.cs:
 
-```
-    // TODO 7: Asyncronously upload the blob from the memory stream.
-    await blob.UploadFromStreamAsync(stream);
+```csharp
+// TODO 7: Asyncronously upload the blob from the memory stream.
+await blob.UploadFromStreamAsync(stream);
 ```
 
 9.  Save your changes.
@@ -1235,9 +1239,9 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     Afterward, you should see a message stating that the incoming and outgoing commits were successfully synchronized.
 
-14. Go back to Deployments for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one
+14. Go back to Deployment Center for your Function App in the portal. You should see an entry for the deployment kicked off by this last commit. Check the timestamp on the message to verify that you are looking at the latest one.
 
-    ![On the Deployments blade, a partially-completed full-circle graph displays next to the message, Finished the ExportLicensePlates function, GitHub, building, 8:49 PM.](media/image112.png 'Deployments blade')
+    ![The latest deployment is displayed in the Deployment Center.](media/functionapp-dc-latest.png "Deployment Center")
 
 ## Exercise 8: Rerun the workflow and verify data export
 
@@ -1275,15 +1279,15 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 4.  You should see at least one recently uploaded CSV file. Select the filename to view its properties.
 
-    ![In the Export blade, under name, a .csv file is selected.](media/image118.png 'Export blade')
+    ![In the Export blade, under name, a .csv file is selected.](media/blob-export.png 'Export blade')
 
 5.  Select **Download** in the blob properties window.
 
-    ![In the Blob properties blade, the Download butotn is selected.](media/image119.png 'Blob properties blade')
+    ![In the Blob properties blade, the Download button is selected.](media/blob-download.png 'Blob properties blade')
 
     The CSV file should look similar to the following:
 
-    ![A CSV file displays with the following columns: FileName, LicensePlateText, TimeStamp, and LicencePlateFound.](media/image120.png 'CSV file')
+    ![A CSV file displays with the following columns: FileName, LicensePlateText, TimeStamp, and LicensePlateFound.](media/csv.png 'CSV file')
 
 6.  The ExportLicensePlates function updates all of the records it exported by setting the exported value to true. This makes sure that only new records since the last export are included in the next one. Verify this by re-executing the script in Azure Cosmos DB that counts the number of documents in the Processed collection where exported is false. It should return 0 unless you've subsequently uploaded new photos.
 
@@ -1293,7 +1297,7 @@ With the latest code changes in place, run your Logic App and verify that the fi
 
 In this exercise, attendees will deprovision any Azure resources that were created in support of the lab.
 
-### Task 1: Delete the resource group in which you placed your Azure resources.
+### Task 1: Delete the resource group in which you placed your Azure resources
 
 1.  From the Portal, navigate to the blade of your **Resource Group** and select **Delete** in the command bar at the top.
 
@@ -1305,7 +1309,7 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 You should follow all steps provided *after* attending the Hands-on lab.
 
-### Task 2: Delete the GitHub repo.
+### Task 2: Delete the GitHub repo
 
 1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
 
