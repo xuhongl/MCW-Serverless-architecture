@@ -375,7 +375,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the TollboothOCR blade, in the pane, Overview is selected. In the  pane, the copy button next to the Endpoint URL is selected.](media/image31.png 'TollboothOCR blade')
 
-8.  Under Resource Managemnet, select **Keys**.
+8.  Under Resource Management, select **Keys**.
 
 9.  Within the **Keys** blade, copy the **Key 1** value.
 
@@ -402,15 +402,15 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
-2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
+2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. This is the one you created using the **.NET** runtime stack. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
 
     ![In the ServerlessArchtecture resource group, TollBoothFunctionApp is selected.](media/image33.png 'ServerlessArchtecture resource group')
 
-3.  Select on **Application settings** on the Overview pane.
+3.  Select **Application settings** on the Overview pane.
 
     ![In the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](media/image34.png 'TollBoothFunctionApp blade')
 
-4.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key or Value pairs (the key names must exactly match those found in the table below):
+4.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below):
 
 |                          |                                                                                                                                                              |
 | ------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -454,36 +454,36 @@ There are a few components within the starter project that must be completed, ma
 
 > ![A list of TODO tasks, including their description, project, file, and line number display.](media/image38.png 'TODO tasks')
 
-4.  Open **ProcessImage.cs**. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to "ProcessImage". This has a BlobTrigger that watches for new blobs being added to the images container of the storage account that was created in Exercise 1.
+1.  Open **ProcessImage.cs**. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to "ProcessImage". This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
-5.  The following code represents the completed task in ProcessImage.cs:
+2.  The following code represents the completed task in ProcessImage.cs:
 
+```csharp
+// **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
+
+licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
 ```
- // **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
 
- licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
-```
-
-6.  Open **FindLicensePlateText.cs**. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resiliency pattern using Polly. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function's scalability.
+6.  Open **FindLicensePlateText.cs**. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resilience pattern using [Polly](https://github.com/App-vNext/Polly), an open source .NET library that helps you handle transient errors. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function's scalability.
 
 7.  The following code represents the completed task in FindLicensePlateText.cs:
 
-```
-    // TODO 2: Populate the below two variables with the correct AppSettings properties.
-    var uriBase = ConfigurationManager.AppSettings["computerVisionApiUrl"];
-    var apiKey = ConfigurationManager.AppSettings["computerVisionApiKey"];
+```csharp
+// TODO 2: Populate the below two variables with the correct AppSettings properties.
+var uriBase = Environment.GetEnvironmentVariable("computerVisionApiUrl");
+var apiKey = Environment.GetEnvironmentVariable("computerVisionApiKey");
 ```
 
 8.  Open **SendToEventGrid.cs**. This class is responsible for sending an Event to the Event Grid topic, including the event type and license plate data. Event listeners will use the event type to filter and act on the events they need to process. Make note of the event types defined here (the first parameter passed into the Send method), as they will be used later on when creating new functions in the second Function App you provisioned earlier.
 
 9.  The following code represents the completed tasks in SendToEventGrid.cs:
 
-```
-    // TODO 3: Modify send method to include the proper eventType name value for saving plate data.
-    await Send("savePlateData", "TollBooth/CustomerService", data);
+```csharp
+// TODO 3: Modify send method to include the proper eventType name value for saving plate data.
+await Send("savePlateData", "TollBooth/CustomerService", data);
 
-    // TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
-    await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
+// TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
+await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
 
 ### Task 3: Publish the Function App from Visual Studio
@@ -498,29 +498,53 @@ In this task, you will publish the Function App from the starter project in Visu
 
 3.  In the Pick a Publish Target window that appears, make sure **Azure Function App** is selected, choose the **Select Existing** radio button, then select **Publish**.
 
-    ![In the Publish window, the Azure Function App tile is selected. Under this, both the Select Existing radio button and the Publish button are selected.](media/image40.png 'Publish window')
+    ![In the Publish window, the Azure Function App tile is selected. Under this, both the Select Existing radio button and the Publish button are selected.](media/vs-publish-function.png 'Publish window')
 
 >**Note**:  If you do not see the ability to publish to an Azure Function, you may need to update your Visual Studio instance.
 
-4.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
+1.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
 
-5.  Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise.
+2.  Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise.
 
     ![In the App Service form, Resource Group displays in the View field, and in the tree-view below, the ServerlessArchitecture folder is expanded, and TollBoothFunctionApp is selected.](media/image41.png 'App Service form')
 
-6.  After you select the Function App, select **OK**.
+3.  After you select the Function App, select **OK**.
 
     > **Note**:  If prompted to update the functions version on Azure, click **Yes**.
 
-7.  Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, "Publish Succeeded."
+4.  Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, "Publish Succeeded."
 
-8.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
+5.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
-9.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published.
+6.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published.
 
-10. Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed.
+7.  Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed.
 
     ![In the TollBoothFunctionApp blade, in the pane, both TollBoothFunctionApp, and Functions (Read Only) are expanded. Below Functions, two functions (ExportLicensePlates and ProcessImage) are called out.](media/image42.png 'TollBoothFunctionApp blade')
+
+8.  Now we need to add an Event Grid subscription to the ProcessImage function so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
+
+    ![The ProcessImage function and the Add Event Grid subscription items are highlighted.](media/processimage-add-eg-sub.png "ProcessImage function")
+
+9.  On the **Create Event Subscription** blade, specify the following configuration options:
+
+    a. **Name**: Unique value for the App name similar to **processimagesub** (ensure the green check mark appears).
+    
+    b. **Event Schema**: Select Event Grid Schema.
+    
+    c. For **Topic Type**, select **Storage Accounts**.
+
+    d. Select your **subscription** and **ServerlessArchitecture** resource group.
+
+    e. For resource, select your recently created Event Grid.
+
+    f. _Uncheck_ **Subscribe to all event types**, then select **Blob Created** from the event types dropdown list.
+
+    g. Leave Web Hook as the Endpoint Type.
+
+10. Leave the remaining fields at their default values and select **Create**.
+
+    ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/processimage-eg-sub.png)
 
 ## Exercise 3: Create functions in the portal
 
@@ -542,17 +566,13 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
-2.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you [did not]{.underline} deploy to in the previous exercise.
+2.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you _did not_ deploy to in the previous exercise.
 
 3.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**.
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/image43.png 'TollBoothEvents2 blade')
 
-4.  In the **Quickstart** dialog, select **In-portal** then select **Continue**
-
-5.  Select **More templates**, then select **Finish and view templates**
-
-6.  Event **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
+4.  Enter **event grid** into the template search form, then select the **Azure Event Grid trigger** template.  
 
     a.  If prompted, click **Install** and wait for the extension to install.
 
@@ -560,7 +580,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](media/image44.png 'Template search form')
 
-7.  In the New Function form, fill out the following properties:
+5.  In the New Function form, fill out the following properties:
 
     a. For name, enter **SavePlateData**
 
@@ -568,36 +588,22 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     b.  Select **Create**.
 
-7)  Replace the code in the new SavePlateData function with the following:
+6)  Replace the code in the new SavePlateData function with the following:
 
-```
+```javascript
+module.exports = function (context, eventGridEvent) {
+    context.log(typeof eventGridEvent);
+    context.log(eventGridEvent);
 
-    #r "Microsoft.Azure.EventGrid"
-    #r "Microsoft.Azure.WebJobs"
-    #r "Newtonsoft.Json"
-    #r "Microsoft.Azure.DocumentDB.Core"
-    #r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"
-    using Microsoft.Azure.EventGrid.Models;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.CosmosDB;
-    using Microsoft.Azure.WebJobs.Host;
-    using System.Collections.Generic;
-    using Microsoft.Extensions.Logging;
-
-    public static void Run(JObject eventGridEvent, out JObject outputDocument, ILogger log)
-    {
-        log.LogInformation(eventGridEvent.ToString());
-        dynamic data = eventGridEvent["data"];
-
-        outputDocument = new JObject();
-        outputDocument["fileName"] = data.fileName;
-        outputDocument["licensePlateText"] = data.licensePlateText;
-        outputDocument["timeStamp"] = data.timeStamp;
-        outputDocument["exported"] = false;
+    context.bindings.outputDocument = {
+        fileName : eventGridEvent.data["fileName"],
+        licensePlateText : eventGridEvent.data["licensePlateText"],
+        timeStamp : eventGridEvent.data["timeStamp"],
+        exported : false
     }
 
+    context.done();
+};
 ```
 
 8.  Select **Save**.
@@ -608,29 +614,33 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
 1.  With the SavePlateData function open, select **Add Event Grid subscription**.
 
-    ![In the SavePlateData blade, the Add Event Grid subscription link is selected.](media/image46.png 'SavePlateData blade')
+    ![In the SavePlateData blade, the Add Event Grid subscription link is selected.](media/saveplatedata-add-eg-sub.png 'SavePlateData blade')
 
 2.  On the **Create Event Subscription** blade, specify the following configuration options:
 
-    a. For **Topic Type**, select **Event Grid Topics**.
+    a. **Name**: Unique value for the App name similar to **saveplatedatasub** (ensure the green check mark appears).
+    
+    b. **Event Schema**: Select Event Grid Schema.
+    
+    c. For **Topic Type**, select **Event Grid Topics**.
 
-    b. Select your **subscription** and **ServerlessArchitecture** resource group.
+    d. Select your **subscription** and **ServerlessArchitecture** resource group.
 
-    c. For resource, select your recently created Event Grid.
+    e. For resource, select your recently created Event Grid.
 
-    d. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
+    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
 
-    e. **Name**: Unique value for the App name similar to **saveplatedatasub** (ensure the green check mark appears)..
+    g. Leave Web Hook as the Endpoint Type.
 
 3.  Leave the remaining fields at their default values and select **Create**.
 
-    ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/image47.png)
+    ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/saveplatedata-eg-sub.png)
 
 ### Task 3: Add an Azure Cosmos DB output to the SavePlateData function
 
 In this task, you will add an Azure Cosmos DB output binding to the SavePlateData function, enabling it to save its data to the Processed collection.
 
-1.  Expand the **SavePlateData** function in the menu, the select **Integrate**.
+1.  Expand the **SavePlateData** function in the menu, then select **Integrate**.
 
 2.  Under Outputs, select **+ New Output**, select **Azure Cosmos DB** from the list of outputs, then select **Select**.
 
@@ -650,11 +660,11 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
     b. For the collection name, type **Processed**.
 
-    ![Under Azure Cosmos DB output the following field values display: Document parameter name, outputDocument; Collection name, Processed; Database name, LicensePlates; Azure Cosmos DB account conection, tollbooths_DOCUMENTDB.](media/image50.png 'Azure Cosmos DB output section')
+    ![Under Azure Cosmos DB output the following field values display: Document parameter name, outputDocument; Collection name, Processed; Database name, LicensePlates; Azure Cosmos DB account conection, tollbooths_DOCUMENTDB.](media/saveplatedata-cosmos-integration.png 'Azure Cosmos DB output section')
 
 6.  Select **Save**.
 
-    > **Note**: you should wait for the template dependency to install if you were promted earlier.
+    > **Note**: you should wait for the template dependency to install if you were prompted earlier.
 
 ### Task 4: Create function to save manual verification info to Azure Cosmos DB
 
@@ -682,31 +692,20 @@ In this task, you will create a new function triggered by Event Grid and outputs
 
 5.  Replace the code in the new QueuePlateForManualCheckup function with the following:
 
-```
-    
-    #r "Microsoft.Azure.EventGrid"
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.DocumentDB.Core"
-    using Microsoft.Azure.EventGrid.Models;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
+```javascript
+module.exports = async function (context, eventGridEvent) {
+    context.log(typeof eventGridEvent);
+    context.log(eventGridEvent);
 
-    public static void Run(JObject eventGridEvent, out JObject outputDocument, ILogger log)
-    {
-        log.LogInformation(eventGridEvent["data"].ToString());
-        dynamic data = JsonConvert.DeserializeObject(eventGridEvent["data"].ToString());
-
-        outputDocument = new JObject();
-        outputDocument["fileName"] = data.fileName;
-        outputDocument["licensePlateText"] = "";
-        outputDocument["timeStamp"] = data.timeStamp;
-        outputDocument["resolved"] = false;
-        
+    context.bindings.outputDocument = {
+        fileName : eventGridEvent.data["fileName"],
+        licensePlateText : "",
+        timeStamp : eventGridEvent.data["timeStamp"],
+        resolved : false
     }
 
+    context.done();
+};
 ```
 
 6.  Select **Save**.
@@ -717,23 +716,27 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
 1.  With the QueuePlateForManualCheckup function open, select **Add Event Grid subscription**.
 
-    ![In the QueuePlateForManualCheckup blade, the Add Event Grid subscription link is selected.](media/image52.png 'QueuePlateForManualCheckup blade')
+    ![In the QueuePlateForManualCheckup blade, the Add Event Grid subscription link is selected.](media/manualcheckup-add-eg-sub.png 'QueuePlateForManualCheckup blade')
 
 2.  On the **Create Event Subscription** blade, specify the following configuration options:
 
-    a. For **Topic Type**, select **Event Grid Topics**.
+    a. **Name**: Unique value for the App name similar to **queueplateFormanualcheckupsub** (ensure the green check mark appears).
+    
+    b. **Event Schema**: Select Event Grid Schema.
+    
+    c. For **Topic Type**, select **Event Grid Topics**.
 
-    b. Select your **subscription** and **ServerlessArchitecture** resource group.
+    d. Select your **subscription** and **ServerlessArchitecture** resource group.
 
-    c. For resource, select your Event Grid topic.
+    e. For resource, select your recently created Event Grid.
 
-    d. **Name**: Unique value for the App name similar to **queueplateFormanualcheckupsub** (ensure the green check mark appears).
+    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
 
-    e. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
+    g. Leave Web Hook as the Endpoint Type.
 
 3.  Leave the remaining fields at their default values and select **Create**.
 
-    ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/image53.png)
+    ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/manualcheckup-eg-sub.png)
 
 ### Task 6: Add an Azure Cosmos DB output to the QueuePlateForManualCheckup function
 
@@ -755,7 +758,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
     c. Select the **Azure Cosmos DB account connection** you created earlier.
 
-    ![In the Azure Cosmos DB output form, the following field values display: Document parameter name, outputDocument; Collection name, NeedsManualReview; Database name, LicensePlates; Azure Cosmos DB account conection, tollbooths_DOCUMENTDB.](media/image55.png 'Azure Cosmos DB output form')
+    ![In the Azure Cosmos DB output form, the following field values display: Document parameter name, outputDocument; Collection name, NeedsManualReview; Database name, LicensePlates; Azure Cosmos DB account connection, tollbooths_DOCUMENTDB.](media/manualcheckup-cosmos-integration.png 'Azure Cosmos DB output form')
 
 4.  Select **Save**.
 
@@ -771,11 +774,15 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
     ![On the Event Grid Topic overview blade, select the saveplatedatasub Event Grid subscription.](media/image56.png)
 
-4.  Click the **Properties** tab, then uncheck **Subscribe to all event types**.
+4.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
 
-5.  Click **Add Event Type**, then enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
+5.  Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
 
-    ![Select Properties tab, uncheck Subscribe to all event types and set the event types to savePlateData.](media/image56.1.png)
+    ![The Filters tab is selected and the Subscribe to all event types checkbox has been cleared. An arrow is pointing to the Delete button on the All event type.](media/event-grid-delete-all.png "Delete all")
+
+5.  Select **Add Event Type**, then enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
+
+    ![The savePlateData event type has been added.](media/event-grid-saveplatedata.png "Add event type")
 
 6.  Select **Save**.
 
@@ -783,9 +790,15 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
     ![On the Event Grid Topic overview blade, select the queueplateformanualcheckupsub Event Grid subscription.](media/image58.png)
 
-8.  Click the **Properties** tabe, uncheck **Subscribe to all event types**.
+8.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
 
-9.  Enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
+9.  Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
+
+    ![The Filters tab is selected and the Subscribe to all event types checkbox has been cleared. An arrow is pointing to the Delete button on the All event type.](media/event-grid-delete-all.png "Delete all")
+
+9.  Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
+
+    ![The queuePlateForManualCheckup type has been added.](media/event-grid-queueplateformanualcheckup.png "Add event type")
 
 10. Select **Save**.
 
@@ -815,7 +828,7 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
 4.  On the **Application Insights** blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name similar to **functioninsights** (ensure the green check mark appears).
+    a. **Name**: Unique value for the App name similar to **TollboothMonitor** (ensure the green check mark appears).
 
     b. For Application Type, select **ASP.NET web application**.
 
@@ -895,8 +908,6 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
 11. Switch back to your browser window with the Live Metrics Stream still open within Application Insights. You should start seeing new telemetry arrive, showing the number of servers online, the incoming request rate, CPU process amount, etc. You can select some of the sample telemetry in the list to the side to view output data.
 
-    >**Note**: Since our function with the blob trigger is running on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after the function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options: Use an App Service plan with Always On enabled, or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name or an Event Grid trigger. Sometimes, simply opening the function on the portal speeds up the process
-
     ![The Live Metrics Stream window displays information for the two online servers. Displaying line and point graphs include incoming requests, outgoing requests, and overvall health. To the side is a list of Sample Telemetry information. ](media/image70.png 'Live Metrics Stream window')
 
 12. Leave the Live Metrics Stream window open once again, and close the console window for the image upload. Debug the UploadImages project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos.
@@ -913,19 +924,19 @@ Now that Application Insights has been integrated into your Function Apps, you c
 
 In this task, you will change the Computer Vision API to the Free tier. This will limit the number of requests to the OCR service to 10 per minute. Once changed, run the UploadImages console app to upload 1,000 images again. The resiliency policy programmed into the FindLicensePlateText.MakeOCRRequest method of the ProcessImage function will begin exponentially backing off requests to the Computer Vision API, allowing it to recover and lift the rate limit. This intentional delay will greatly increase the function's response time, thus causing the Consumption plan's dynamic scaling to kick in, allocating several more servers. You will watch all of this happen in real time using the Live Metrics Stream view.
 
-1.  Open your Computer Vision API service by opening the **ServerlessArchitecture** resource group, and then selecting the **Computer Vision API** service name.
+1.  Open your Computer Vision API service by opening the **ServerlessArchitecture** resource group, and then selecting the **Cognitive Services** service name.
 
 2.  Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**.
 
     >**Note**:  If you already have a **FO** free pricing tier instance, you will not be able to create another one.
 
-    ![In the TollboothOCR blade, under Resource Manaement, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](media/image73.png 'TollboothOCR and Choose your pricing tier blades')
+    ![In the TollboothOCR blade, under Resource Management, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](media/image73.png 'TollboothOCR and Choose your pricing tier blades')
 
 3.  Switch to Visual Studio, debug the **UploadImages** project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos.
 
     ![the Command prompt window displays image uploading information.](media/image71.png 'Command Prompt window')
 
-4.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resiliency policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
+4.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resilience policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
 
     >**Note**:  If you do not see data flow after a short period, consider restarting the Function App.
 
@@ -974,13 +985,13 @@ In this exercise, you will use the Azure Cosmos DB Data Explorer in the portal t
 
 8.  Modify the SQL query to count the number of processed documents that have not been exported:
 
-```
-SELECT COUNT(c.id) FROM c WHERE c.exported = false
+```sql
+SELECT VALUE COUNT(c.id) FROM c WHERE c.exported = false
 ```
 
 9.  Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
 
-    ![On the Query 1 tab, under Execute Query, the previously defined SQL query displays. Under Results, the number 1369 is circled.](media/image79.png 'Query 1 tab')
+    ![On the Query 1 tab, under Execute Query, the previously defined SQL query displays. Under Results, the number 1369 is highlighted.](media/cosmos-query-results.png "Query 1 tab")
 
 ## Exercise 6: Create the data export workflow
 
@@ -1044,25 +1055,25 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![Under ExportLicensePlates, the field is blank. Under the + New step button, Add a condition is selected.](media/image88.png 'Logic App Designer ExportLicensePlates section')
 
-14. For the **value** field, select the **Status code** parameter. Make sure the operator is set to **is equal to**, then enter **200** in the second value field. 
+13. For the **value** field, select the **Status code** parameter. Make sure the operator is set to **is equal to**, then enter **200** in the second value field. 
 
     >**Note**: This evaluates the status code returned from the ExportLicensePlates function, which will return a 200 code when license plates are found and exported. Otherwise, it sends a 204 (NoContent) status code when no license plates were discovered that need to be exported. We will conditionally send an email if any response other than 200 is returned.
 
     ![The first Condition field displays Status code. The second, drop-down menu field displays is equal to, and the third field is set to 200.](media/image89.png 'Condition fields')
 
-15. We will ignore the If true condition because we don't want to perform an action if the license plates are successfully exported. Select **Add an action** within the **If false** condition block.
+14. We will ignore the If true condition because we don't want to perform an action if the license plates are successfully exported. Select **Add an action** within the **If false** condition block.
 
     ![Under the Conditions field is an If true (green checkmark) section, and an if false (red x) section. In the If false section, Add an action is selected.](media/image90.png 'Logic App Designer Condition fields if true/false ')
 
-16. Enter **Send an email** in the filter box, then select the **Send an email** action.
+15. Enter **Send an email** in the filter box, then select the **Send an email** action.
 
     ![From the Actions list, Office 365 Outlook (Send an email) is selected.](media/image92.png 'Office 365 Outlook Actions list')
 
-18. Click **Sign in** and sign in to your Office 365 Outlook account.
+16. Click **Sign in** and sign in to your Office 365 Outlook account.
 
     ![In the Office 365 Outlook - Send an email prompt, the Sign in button is selected.](media/image93.png 'Office 365 Outlook Sign in prompt')
 
-19. In the Send an email form, provide the following values:
+17. In the Send an email form, provide the following values:
 
     d. Enter your email address in the **To** box.
 
@@ -1072,17 +1083,17 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![Under Send an email, fields are set to the previously defined settings. ](media/image94.png 'Logic App Designer , Send an email fields')
 
-20. Select **Save** in the tool bar to save your Logic App.
+18. Select **Save** in the tool bar to save your Logic App.
 
-21. Select **Run** to execute the Logic App. You should start receiving email alerts because the license plate data is not being exported. This is because we need to finish making changes to the ExportLicensePlates function so that it can extract the license plate data from Azure Cosmos DB, generate the CSV file, and upload it to Blob storage.
+19. Select **Run** to execute the Logic App. You should start receiving email alerts because the license plate data is not being exported. This is because we need to finish making changes to the ExportLicensePlates function so that it can extract the license plate data from Azure Cosmos DB, generate the CSV file, and upload it to Blob storage.
 
     ![The Run button is selected on the Logic Apps Designer blade toolbar.](media/image95.png 'Logic Apps Designer blade')
 
-22. While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
+20. While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
 
     ![In the Logic App Designer, green check marks display next to Recurrence, ExportLicensePlates, Condition, and Send an email.](media/image96.png 'Logic App Designer ')
 
-23. The Logic App will continue to run in the background, executing every 15 minutes (or whichever interval you set) until you disable it. To disable the app, go to the **Overview** blade for the Logic App and select the **Disable** button on the taskbar.
+21. The Logic App will continue to run in the background, executing every 15 minutes (or whichever interval you set) until you disable it. To disable the app, go to the **Overview** blade for the Logic App and select the **Disable** button on the taskbar.
 
     ![The Disable button is selected on the TollBoothLogic blade top menu.](media/image97.png 'TollBoothLogic blade')
 
