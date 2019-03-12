@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using TollBooth.Models;
 
 namespace TollBooth
@@ -13,9 +14,9 @@ namespace TollBooth
     public class SendToEventGrid
     {
         private readonly HttpClient _client;
-        private readonly TraceWriter _log;
+        private readonly ILogger _log;
 
-        public SendToEventGrid(TraceWriter log, HttpClient client)
+        public SendToEventGrid(ILogger log, HttpClient client)
         {
             _log = log;
             _client = client;
@@ -41,11 +42,11 @@ namespace TollBooth
         private async Task Send(string eventType, string subject, LicensePlateData data)
         {
             // Get the API URL and the API key from settings.
-            var uri = ConfigurationManager.AppSettings["eventGridTopicEndpoint"];
-            var key = ConfigurationManager.AppSettings["eventGridTopicKey"];
+            var uri = Environment.GetEnvironmentVariable("eventGridTopicEndpoint");
+            var key = Environment.GetEnvironmentVariable("eventGridTopicKey");
 
-            _log.Info($"Sending license plate data to the {eventType} Event Grid type");
-
+            _log.LogInformation($"Sending license plate data to the {eventType} Event Grid type");
+            
             var events = new List<Event<LicensePlateData>>
             {
                 new Event<LicensePlateData>()
@@ -62,7 +63,7 @@ namespace TollBooth
             _client.DefaultRequestHeaders.Add("aeg-sas-key", key);
             await _client.PostAsJsonAsync(uri, events);
 
-            _log.Info($"Sent the following to the Event Grid topic: {events[0]}");
+            _log.LogInformation($"Sent the following to the Event Grid topic: {events[0]}");
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CsvHelper;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using TollBooth.Models;
@@ -16,15 +16,15 @@ namespace TollBooth
     internal class FileMethods
     {
         private readonly CloudBlobClient _blobClient;
-        private readonly string _containerName = ConfigurationManager.AppSettings["exportCsvContainerName"];
-        private readonly string _blobStorageConnection = ConfigurationManager.AppSettings["blobStorageConnection"];
-        private readonly TraceWriter _log;
+        private readonly string _containerName = Environment.GetEnvironmentVariable("exportCsvContainerName");
+        private readonly string _blobStorageConnection = Environment.GetEnvironmentVariable("blobStorageConnection");
+        private readonly ILogger _log;
 
-        public FileMethods(TraceWriter log)
+        public FileMethods(ILogger log)
         {
             _log = log;
             // Retrieve storage account information from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_blobStorageConnection);
+            var storageAccount = CloudStorageAccount.Parse(_blobStorageConnection);
 
             // Create a blob client for interacting with the blob service.
             _blobClient = storageAccount.CreateCloudBlobClient();
@@ -34,8 +34,8 @@ namespace TollBooth
         {
             var successful = false;
 
-            _log.Info("Generating CSV file");
-            string blobName = $"{DateTime.UtcNow.ToString("s")}.csv";
+            _log.LogInformation("Generating CSV file");
+            string blobName = $"{DateTime.UtcNow:s}.csv";
 
             using (var stream = new MemoryStream())
             {
@@ -46,7 +46,7 @@ namespace TollBooth
                     csv.WriteRecords(licensePlates.Select(ToLicensePlateData));
                     await textWriter.FlushAsync();
 
-                    _log.Info($"Beginning file upload: {blobName}");
+                    _log.LogInformation($"Beginning file upload: {blobName}");
                     try
                     {
                         var container = _blobClient.GetContainerReference(_containerName);
@@ -64,7 +64,7 @@ namespace TollBooth
                     }
                     catch (Exception e)
                     {
-                        _log.Error($"Could not upload CSV file: {e.Message}", e);
+                        _log.LogCritical($"Could not upload CSV file: {e.Message}", e);
                         successful = false;
                     }
                 }
