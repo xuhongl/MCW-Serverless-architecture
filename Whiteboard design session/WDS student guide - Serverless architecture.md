@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-November 2018
+March 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -113,6 +113,8 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 2.  Will a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
 3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
+
+4.  Is it possible to add a secure API that allows our customers to retrieve information about their vehicles plus captured photos? How do we protect our system from unauthorized access or an excessive number of requests?
 
 ### Infographic for common scenarios
 

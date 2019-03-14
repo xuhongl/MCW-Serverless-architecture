@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-November 2018
+March 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -241,6 +241,8 @@ As a stretch goal, Contoso would like to know that the license processing pipeli
 2.  Will a serverless architecture that has the capacity to infinitely scale put us at risk for huge monthly bills?
 
 3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
+
+4.  Is it possible to add a secure API that allows our customers to retrieve information about their vehicles plus captured photos? How do we protect our system from unauthorized access or an excessive number of requests?
 
 ### Infographic for common scenarios
 
@@ -515,6 +517,35 @@ _Monitoring and DevOps_
 3.  How do we make sure that erroneous image processing does not make certain toll bills fall through the cracks or, even worse, send a bill to the wrong person?
 
     The way this is handled in our solution is to create a manual verification queue when the OCR process fails, or the confidence level of the result is low, indicated by an empty result after filtering out invalid characters. More advanced machine learning models may be employed with algorithms that are specifically tuned to license plate recognition (LPR). Part of the result would include a confidence level, which could be used to decide whether the photo needs manual verification.
+
+4.  Is it possible to add a secure API that allows our customers to retrieve information about their vehicles plus captured photos? How do we protect our system from unauthorized access or an excessive number of requests?
+
+    Given the nature of Contoso's serverless architecture, they can expand functionality by adding additional Azure functions. For instance, they can add a new function with an HTTP trigger that runs when the endpoint is hit by a client. This function can process GET requests with a customer id or custom identifier, which will return information for that customer's vehicles and any captured photos.
+
+    Since Contoso would like to add a layer of protection, they should consider using Azure [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) (APIM). This service provides a consistent surface area for API endpoints you wish to expose to the public, including the new Azure function that will serve up information to customers.
+
+    APIM offers several pricing tiers. Contoso should consider using the new consumption tier, which allows API Management to be used in a serverless fashion, with instant provisioning, automated scaling, built-in high availability, and pay-per-action pricing. This consumption model is a great match for their Azure Functions consumption plan, enabling Contoso to pay for only the resources they use.
+
+    There are many benefits to using an API manager:
+
+    - **Security**: the API manager layer verifies the incoming requests' [JWT](https://jwt.io/) token against their authority URL, such as an Azure Active Directory B2C Authority URL. This is accomplished via an inbound policy that intercepts each call:
+
+      ```xml
+      <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+          <openid-config url="<--your_own_authorization_url-->" />
+          <audiences>
+              <audience><-- your_own_app_id --></audience>
+          </audiences>
+      </validate-jwt>
+      ```
+
+    - **Documentation**: the API manager provides developers writing applications against Contoso APIs with a complete development portal for documentation and testing.
+
+    - **Usage Stats**: the API manager provides usage stats on all API calls (and report failures) which makes it really convenient to assess the API performance.
+
+    - **Rate Limiting**: the API manager can be configured to rate limit APIs based on IP origin, access, etc. This can be useful to prevent DDOS (distributed denial-of-service) attacks or provide different tiers of access based on users.
+
+    **Please note** that, in the case of Azure Functions, while the APIs are front-ended with an API manager (and hence shielded, protected, and rate limited), the APIs are still publicly available. This means that a DDOS attack or other attacks can still happen against the bare APIs if someone discovers them in the wild. One way to reduce this exposure is to ensure that calls to the function always go through APIM. In addition, Contoso should configure their Azure Function App to [accept requests only from the IP address of your APIM instance](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions). After doing this, they should set the HTTP-triggered function authentication level to `anonymous`.
 
 ## Customer quote (to be read back to the attendees at the end)
 
