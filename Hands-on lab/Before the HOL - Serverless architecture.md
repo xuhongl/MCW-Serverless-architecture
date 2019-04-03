@@ -18,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 **Contents**
 
@@ -86,7 +86,7 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
     f. For Virtual machine name, type **MainVM**, or a different name that is unique.
 
-    g. Leave availabity option as **No infrastructure redundacy required**
+    g. Leave availability option as **No infrastructure redundancy required**
 
     h. Ensure the image is **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)**
 
@@ -169,7 +169,7 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 - TollBooth
 - UploadImages
 
-> **Note**: The UploadImages project is used for uploading a handful of car photosfor testing scalability of the serverless architecture.
+> **Note**: The UploadImages project is used for uploading a handful of car photos for testing scalability of the serverless architecture.
 
 4.  Switch to windows explorer, navigate back to the **starter** subfolder and open the **license plates** subfolder. It contains sample license plate photos used for testing out the solution. One of the photos is guaranteed to fail OCR processing, which is meant to show how the workload is designed to handle such failures. The **copyfrom** folder is used by the UploadImages project as a basis for the 1,000 photo upload option for testing scalability.
 
