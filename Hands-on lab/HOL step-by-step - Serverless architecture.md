@@ -18,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -678,13 +678,13 @@ In this task, you will create a new function triggered by Event Grid and outputs
 
     a.  If prompted, click **Install** and wait for the extension to install.
 
-    b.  Click **Continue**
+    b.  Click **Continue**.
 
     ![Event grid displays in the choose a template search field, and in the results, Event Grid trigger displays.](media/image44.png 'Event grid trigger')
 
 3.  In the **New Function** form, fill out the following properties:
 
-    a. For name, type **QueuePlateForManualCheckup**
+    a. For name, type **QueuePlateForManualCheckup**.
 
     ![In the New Function form, JavaScript is selected from the Language drop-down menu, and QueuePlateForManualCheckup is typed in the Name field.](media/image51.png 'Event Grid trigger, New Function form')
 
@@ -1071,17 +1071,17 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![From the Actions list, Office 365 Outlook (Send an email) is selected.](media/logicapp-send-email.png 'Office 365 Outlook Actions list')
 
-16. Click **Sign in** and sign in to your Office 365 Outlook account.
+16. Click **Sign in** and sign into your Office 365 Outlook account.
 
     ![In the Office 365 Outlook - Send an email prompt, the Sign in button is selected.](media/image93.png 'Office 365 Outlook Sign in prompt')
 
 17. In the Send an email form, provide the following values:
 
-    d. Enter your email address in the **To** box.
+    a. Enter your email address in the **To** box.
 
-    e. Provide a **subject**, such as **Toll Booth license plate export failed**.
+    b. Provide a **subject**, such as **Toll Booth license plate export failed**.
 
-    f. Enter a message into the **body**, and select the **Status code** from the ExportLicensePlates function so that it is added to the email body.
+    c. Enter a message into the **body**, and select the **Status code** from the ExportLicensePlates function so that it is added to the email body.
 
     ![Under Send an email, fields are set to the previously defined settings. ](media/image94.png 'Logic App Designer , Send an email fields')
 
@@ -1123,7 +1123,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
 3.  Select your owner account, enter a unique **repository name**, make sure it is set to **Public**, and then select **Create repository**.
 
-    > NOTE:  When selecting **Public**, any connection information will be published to the github repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
+    >**Note**:  When selecting **Public**, any connection information will be published to the GitHub repo.  Ensure you follow the delete steps at the end of this to remove any sensitive information.
 
     ![In the New Repository section, the Repository name field is set to serverless-architecture-lab, and the Public radio button is selected. At the bottom, the Create repository button is selected.](media/image99.png 'New Repository section')
 
@@ -1307,8 +1307,6 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 4.  Optionally, delete the GitHub repository you created for this lab by selecting **settings** and then **Delete this repository** from the GitHub website.
 
-You should follow all steps provided *after* attending the Hands-on lab.
-
 ### Task 2: Delete the GitHub repo
 
 1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
@@ -1316,3 +1314,5 @@ You should follow all steps provided *after* attending the Hands-on lab.
 2.  Navigate to your repo and select it
 
 3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**
+
+You should follow all steps provided *after* attending the Hands-on lab.
