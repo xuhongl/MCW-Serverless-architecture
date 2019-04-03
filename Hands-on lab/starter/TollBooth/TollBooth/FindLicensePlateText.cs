@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using TollBooth.Models;
 using Polly;
 using Polly.CircuitBreaker;
@@ -22,9 +23,9 @@ namespace TollBooth
     public class FindLicensePlateText
     {
         private readonly HttpClient _client;
-        private readonly TraceWriter _log;
+        private readonly ILogger _log;
 
-        public FindLicensePlateText(TraceWriter log, HttpClient client)
+        public FindLicensePlateText(ILogger log, HttpClient client)
         {
             _log = log;
             _client = client;
@@ -37,14 +38,14 @@ namespace TollBooth
 
         private async Task<string> MakeOCRRequest(byte[] imageBytes)
         {
-            _log.Info("Making OCR request");
+            _log.LogInformation("Making OCR request");
             var licensePlate = string.Empty;
             // Request parameters.
             const string requestParameters = "language=unk&detectOrientation=true";
             // Get the API URL and the API key from settings.
             // TODO 2: Populate the below two variables with the correct AppSettings properties.
-            var uriBase = ConfigurationManager.AppSettings[""];
-            var apiKey = ConfigurationManager.AppSettings[""];
+            var uriBase = Environment.GetEnvironmentVariable("");
+            var apiKey = Environment.GetEnvironmentVariable("");
 
             var resiliencyStrategy = DefineAndRetrieveResiliencyStrategy();
 
@@ -68,14 +69,14 @@ namespace TollBooth
             }
             catch (BrokenCircuitException bce)
             {
-                _log.Error($"Could not contact the Computer Vision API service due to the following error: {bce.Message}");
+                _log.LogCritical($"Could not contact the Computer Vision API service due to the following error: {bce.Message}");
             }
             catch (Exception e)
             {
-                _log.Error($"Critical error: {e.Message}", e);
+                _log.LogCritical($"Critical error: {e.Message}", e);
             }
 
-            _log.Info($"Finished OCR request. Result: {licensePlate}");
+            _log.LogInformation($"Finished OCR request. Result: {licensePlate}");
 
             return licensePlate;
         }
@@ -182,7 +183,7 @@ namespace TollBooth
         /// or perhaps by using Durable Functions that can hold the state.
         /// </summary>
         /// <returns></returns>
-        private PolicyWrap<HttpResponseMessage> DefineAndRetrieveResiliencyStrategy()
+        private AsyncPolicyWrap<HttpResponseMessage> DefineAndRetrieveResiliencyStrategy()
         {
             // Retry when these status codes are encountered.
             HttpStatusCode[] httpStatusCodesWorthRetrying = {
@@ -208,7 +209,7 @@ namespace TollBooth
                                                                                   //attempt => TimeSpan.FromSeconds(6), // Wait 6 seconds between retries
                     (exception, calculatedWaitDuration) =>
                     {
-                        _log.Info($"Computer Vision API server is throttling our requests. Automatically delaying for {calculatedWaitDuration.TotalMilliseconds}ms");
+                        _log.LogWarning($"Computer Vision API server is throttling our requests. Automatically delaying for {calculatedWaitDuration.TotalMilliseconds}ms");
                     }
                 );
 
@@ -223,10 +224,10 @@ namespace TollBooth
                     durationOfBreak: TimeSpan.FromSeconds(3),
                     onBreak: (outcome, breakDelay) =>
                     {
-                        _log.Info($"Polly Circuit Breaker logging: Breaking the circuit for {breakDelay.TotalMilliseconds}ms due to: {outcome.Exception?.Message ?? outcome.Result.StatusCode.ToString()}");
+                        _log.LogWarning($"Polly Circuit Breaker logging: Breaking the circuit for {breakDelay.TotalMilliseconds}ms due to: {outcome.Exception?.Message ?? outcome.Result.StatusCode.ToString()}");
                     },
-                    onReset: () => _log.Info("Polly Circuit Breaker logging: Call ok... closed the circuit again"),
-                    onHalfOpen: () => _log.Info("Polly Circuit Breaker logging: Half-open: Next call is a trial")
+                    onReset: () => _log.LogInformation("Polly Circuit Breaker logging: Call ok... closed the circuit again"),
+                    onHalfOpen: () => _log.LogInformation("Polly Circuit Breaker logging: Half-open: Next call is a trial")
                 );
 
             // Combine the waitAndRetryPolicy and circuit breaker policy into a PolicyWrap. This defines our resiliency strategy.
