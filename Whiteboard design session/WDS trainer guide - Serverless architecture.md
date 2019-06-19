@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-March 2019
+June 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -494,7 +494,7 @@ _Monitoring and DevOps_
 
 1.  What tools and services would you recommend Contoso use to develop the serverless components locally, synchronize with a source code repository, and implement continuous deployment?
 
-    The Azure Functions Core Tools is a local version of the Azure Functions runtime that can be run on your local computer for debugging during your development process or run in a local, isolated environment. This is the same runtime that powers Functions in Azure, and it can be installed using the NodeJS package manager (npm). Though the core tools can be used from the command line or with several code editors, the best integration is with Visual Studio 2017. Automated deployments of your function app can be facilitated through App Service continuous integration. Use one of the integrated services for your source code repository, such as BitBucket, DropBox, GitHub, and Azure DevOps, which enables a workflow whereby a deployment to Azure is triggered when your function code is pushed to your repository. This continuous delivery setup deploys the entire Function App, not a single function, so in cases where a function needs to often change independently, it is best if it is deployed as a separate Function App.
+    The Azure Functions Core Tools is a local version of the Azure Functions runtime that can be run on your local computer for debugging during your development process or run in a local, isolated environment. This is the same runtime that powers Functions in Azure, and it can be installed using the NodeJS package manager (npm). Though the core tools can be used from the command line or with several code editors, the best integration is with Visual Studio. Automated deployments of your function app can be facilitated through App Service continuous integration. Use one of the integrated services for your source code repository, such as BitBucket, DropBox, GitHub, and Azure DevOps, which enables a workflow whereby a deployment to Azure is triggered when your function code is pushed to your repository. This continuous delivery setup deploys the entire Function App, not a single function, so in cases where a function needs to often change independently, it is best if it is deployed as a separate Function App.
 
 2.  How would you monitor all the executing serverless components in real time from a single dashboard?
 
