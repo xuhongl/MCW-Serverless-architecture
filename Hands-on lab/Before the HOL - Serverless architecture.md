@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
 <div class="MCWHeader1">
 Serverless architecture
@@ -82,21 +82,21 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
     d. Click **Create**.
 
-    e. Select your subscription and recently created resource group
+    e. Select your subscription and recently created resource group.
 
     f. For Virtual machine name, type **MainVM**, or a different name that is unique.
 
-    g. Leave availability option as **No infrastructure redundancy required**
-
-    h. Ensure the image is **Visual Studio Community 2019 (latest) on Windows Server 2016 (x64)**
+    g. Leave availability option as **No infrastructure redundancy required**.
+    
+    h. Ensure the image is **Visual Studio Community 2019 (latest) on Windows Server 2016 (x64)**.
 
     i. Select your VM size.
 
     > **Note**: It is highly recommended to use a DS2 or D2 instance size for this VM.
 
-    j. For username, type **demouser**
+    j. For username, type **demouser**.
 
-    k. For password, type **Password.1!!**
+    k. For password, type **Password.1!!**.
 
     n. Click **Allow selected ports**.
 
@@ -104,7 +104,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
     p. Click **Review + create**.
 
-    p. Click **Create**.
+    q. Click **Create**.
 
 ### Task 3: Disable IE Enhanced Security
 
