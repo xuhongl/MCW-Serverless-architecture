@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
 <div class="MCWHeader1">
 Serverless architecture
@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-March 2019
+June 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -38,9 +38,9 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 - Microsoft Azure subscription (non-Microsoft subscription)
 - Local machine or a virtual machine configured with (**complete the day before the lab!**):
-  - Visual Studio Community 2017 or greater, **version 15.4** or later
+  - Visual Studio Community 2019 or greater
     - <https://www.visualstudio.com/vs/>
-  - Azure development workload for Visual Studio 2017
+  - Azure development workload for Visual Studio 2019
     - <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
   - .NET Framework 4.7 runtime (or higher)
     - <https://www.microsoft.com/net/download/windows>
@@ -68,35 +68,35 @@ In this exercise, you will set up your environment you will use for the rest of 
 
 ### Task 2: Set up a development environment
 
-If you do not have a machine with Visual Studio Community 2017 (or greater) and the Azure development workload, complete this task.
+If you do not have a machine with Visual Studio Community 2019 (or greater) and the Azure development workload, complete this task.
 
-1.  Create a virtual machine (VM) in Azure using the Visual Studio Community 2017 on Windows Server 2016 (x64) image. A Windows 10 image will work as well. **Note:** Your Azure subscription must include MSDN offers to create a VM with Visual Studio pre-loaded.
+1.  Create a virtual machine (VM) in Azure using the Visual Studio Community 2019 on Windows Server 2016 (x64) image. A Windows 10 image will work as well. **Note:** Your Azure subscription must include MSDN offers to create a VM with Visual Studio pre-loaded.
 
-    ![In Azure Portal, in the search field, Visual Studio Community 2017 on Windows Server 2016 (x64) is typed. Under Results, Visual Studio Community 2017 on Windows Server 2016 (x64) is selected.](images/Setup/image3.png 'Azure Portal')
+    ![In Azure Portal, in the search field, Visual Studio Community 2019 on Windows Server 2016 (x64) is typed. Under Results, Visual Studio Community 2019 on Windows Server 2016 (x64) is selected.](images/Setup/image3.png 'Azure Portal')
 
     a. Click **+Create a resource**.
 
-    b. Type **Visual Studio**.
+    b. Type **Visual Studio 2019**.
 
-    c. Select the **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)**.
+    c. Select the **Visual Studio Community 2019 (latest) on Windows Server 2016 (x64)**.
 
     d. Click **Create**.
 
-    e. Select your subscription and recently created resource group
+    e. Select your subscription and recently created resource group.
 
     f. For Virtual machine name, type **MainVM**, or a different name that is unique.
 
-    g. Leave availability option as **No infrastructure redundancy required**
-
-    h. Ensure the image is **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)**
+    g. Leave availability option as **No infrastructure redundancy required**.
+    
+    h. Ensure the image is **Visual Studio Community 2019 (latest) on Windows Server 2016 (x64)**.
 
     i. Select your VM size.
 
     > **Note**: It is highly recommended to use a DS2 or D2 instance size for this VM.
 
-    j. For username, type **demouser**
+    j. For username, type **demouser**.
 
-    k. For password, type **Password.1!!**
+    k. For password, type **Password.1!!**.
 
     n. Click **Allow selected ports**.
 
@@ -104,7 +104,7 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
     p. Click **Review + create**.
 
-    p. Click **Create**.
+    q. Click **Create**.
 
 ### Task 3: Disable IE Enhanced Security
 
@@ -138,15 +138,9 @@ If you do not have a machine with Visual Studio Community 2017 (or greater) and 
 
 ### Task 5: Validate connectivity to Azure
 
-1.  From within the virtual machine, launch Visual Studio and validate that you can log in with your Microsoft Account when prompted.
+1.  From within the virtual machine, launch Visual Studio (click **Continue without code** link) and validate that you can log in with your Microsoft Account when prompted.
 
-2.  Verify your Visual Studio version is 15.4.0 or higher.
-
-    a. Click **Help** in the menu, then select **About Microsoft Visual Studio**.
-
-    b. If the version is not 15.4.0, you will need to update it. Click **OK**, then click **View** in the menu. Select **Notifications**, you should see an entry for **Visual Studio Update is available\***. Select it and then click **Update** to update your instance.
-
-3.  To validate connectivity to your Azure subscription, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription.
+2.  To validate connectivity to your Azure subscription, open **Server Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription.
 
     ![In Server Explorer, Azure is selected, and its right-click menu displays with options to Refresh, Connect to Microsoft Azure Subscription, Manage and Filter Subscriptions, or Open the Getting Started Page.](images/Setup/image8.png 'Server Explorer')
 

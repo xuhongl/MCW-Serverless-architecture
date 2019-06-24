@@ -156,11 +156,11 @@ The solution begins with vehicle photos being uploaded to an Azure Storage blobs
 
 2.  Local machine or a virtual machine configured with (**complete the day before the lab!**):
 
-    a. Visual Studio Community 2017 or greater, **version 15.4** or later
+    a. Visual Studio Community 2019 or greater
 
     1.  <https://www.visualstudio.com/vs/>
 
-    b. Azure development workload for Visual Studio 2017
+    b. Azure development workload for Visual Studio
 
     1.  <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
 
@@ -276,7 +276,7 @@ The Computer Vision API will provide OCR capability on-demand from your ProcessI
 
 **Duration**: 45 minutes
 
-Use Visual Studio 2017 and its integrated Azure Functions tooling to develop and debug the functions locally, then publish them to Azure. The starter project solution, TollBooths, contains most of the code needed. You will add in the missing code before deploying to Azure.
+Use Visual Studio and its integrated Azure Functions tooling to develop and debug the functions locally, then publish them to Azure. The starter project solution, TollBooths, contains most of the code needed. You will add in the missing code before deploying to Azure.
 
 ### Help references
 

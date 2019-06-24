@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
 <div class="MCWHeader1">
 Serverless architecture
@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-March 2019
+June 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -26,7 +26,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
 
 <!-- TOC -->
 
-- [Serverles architecture hands-on lab step-by-step](#serverles-architecture-hands-on-lab-step-by-step)
+- [Serverless architecture hands-on lab step-by-step](#serverless-architecture-hands-on-lab-step-by-step)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Overview](#overview)
   - [Solution architecture](#solution-architecture)
@@ -79,7 +79,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
 
 <!-- /TOC -->
 
-# Serverles architecture hands-on lab step-by-step
+# Serverless architecture hands-on lab step-by-step
 
 ## Abstract and learning objectives
 
@@ -103,9 +103,9 @@ The solution begins with vehicle photos being uploaded to an Azure Storage blobs
 
 - Microsoft Azure subscription (non-Microsoft subscription)
 - Local machine or a virtual machine configured with (**complete the day before the lab!**):
-  - Visual Studio Community 2017 or greater, **version 15.4** or later
+  - Visual Studio Community 2019 or greater
     - <https://www.visualstudio.com/vs/>
-  - Azure development workload for Visual Studio 2017
+  - Azure development workload for Visual Studio
     - <https://docs.microsoft.com/azure/azure-functions/functions-develop-vs#prerequisites>
   - .NET Framework 4.7 runtime (or higher)
     - <https://www.microsoft.com/net/download/windows>
@@ -149,11 +149,11 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     d. For performance, ensure **Standard** is selected.
 
-    e. For account kind, select **Blobstorage**.
+    e. For account kind, select **StorageV2 (general purpose v2)**.
 
-    f. Select the **Hot** access tier.
+    f. For replication, select **Locally-redundant storage (LRS)**.
 
-    g. For replication, select **Locally-redundant storage (LRS)**.
+    g. Select the **Hot** access tier.
 
     ![Fields in the Create storage account blade are set to the previously defined values.](media/image12.png 'Create strorage account blade')
 
@@ -193,15 +193,17 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     b. Specify the Resource Group **ServerlessArchitecture**.
 
-    c. For hosting plan, select the **Consumption Plan**.
+    c. For **OS**, ensure **Windows** is selected.
 
-    d. Select the same **location** as your Resource Group.
+    d. For hosting plan, select the **Consumption Plan**.
 
-    e. For Runtime stack, select **.NET**.
+    e. Select the same **location** as your Resource Group.
 
-    f. Leave the **storage** option as **create new**.
+    f. For Runtime stack, select **.NET Core**.
 
-    g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
+    g. Leave the **storage** option as **create new**.
+
+    h. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
 
     ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-net.png 'Function App blade')
 
@@ -217,15 +219,17 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     b. Specify the Resource Group **ServerlessArchitecture**.
 
-    c. For hosting plan, select the **Consumption Plan**.
+    c. For **OS**, select the **Windows**.
 
-    d. Select the same **location** as your Resource Group.
+    d. For hosting plan, select the **Consumption Plan**.
 
-    e. For Runtime stack, select **Javascript**.
+    e. Select the same **location** as your Resource Group.
 
-    f. Leave the **storage** option as **create new**.
+    f. For Runtime stack, select **Javascript**.
 
-    g. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
+    g. Leave the **storage** option as **create new**.
+
+    h. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
 
     ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-javascript.png 'Function App blade')
 
@@ -283,9 +287,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     a. Specify the Resource Group **ServerlessArchitecture**.
 
-    a. For Account Name, type a unique value for the App name such as **ToolboothDB** (ensure the green check mark appears).
+    b. For Account Name, type a unique value for the App name such as **TollboothDB** (ensure the green check mark appears).
 
-    b. Select the **Core (SQL)** API.
+    c. Select the **Core (SQL)** API.
 
     d. Select the same **location** as your Resource Group if available. Otherwise, select the next closest **region**.
 
@@ -299,29 +303,29 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 5.  After the Azure Cosmos DB account has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Azure Cosmos DB** account name.
 
-6.  Select **Browse** in the blade menu, then select **+ Add Collection**.
+6.  Select **Browse** in the blade menu under **Containers** section, then select **+ Add Container**.
 
-    ![In the Tollbooths blade, Overview is selected, and the Add Collection button is selected.](media/image25.png 'Tollbooths blade')
+    ![In the Tollbooths blade, Overview is selected, and the Add Container button is selected.](media/image25.png 'Tollbooths blade')
 
-7.  On the **Add Collection** blade, specify the following configuration options:
+7.  On the **Add Container** blade, specify the following configuration options:
 
     a. Enter **LicensePlates** for the **Database id**.
 
     b. Leave **Provision database throughput** unchecked.
 
-    c. Enter **Processed** for the **Collection id**.
+    c. Enter **Processed** for the **Container id**.
 
     d. Partition key: **/licensePlateText**
 
     e. Throughput: **5000**
 
-    ![In the Add Collection blade, fields are set to the previously defined settings.](media/cosmosdb-add-processed-collection.png 'Add Collection blade')
+    ![In the Add Conatiner blade, fields are set to the previously defined settings.](media/cosmosdb-add-processed-collection.png 'Add Container blade')
 
 8)  Select **OK**.
 
-9)  Select **New Collection** to add another collection.
+9)  Select **New Container** to add another collection.
 
-10) On the **Add Collection** blade, specify the following configuration options:
+10) On the **Add Container** blade, specify the following configuration options:
 
     a. For Database id, choose **Use existing** and select **LicensePlates**.
 
@@ -331,7 +335,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     d. Throughput: **5000**
 
-    ![In the Add Collection blade, fields are set to the previously defined values.](media/cosmosdb-add-manualreview-collection.png 'Add Collection blade')
+    ![In the Add Conatiner blade, fields are set to the previously defined values.](media/cosmosdb-add-manualreview-collection.png 'Add Collection blade')
 
 11) Select **OK**.
 
@@ -359,7 +363,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     b. Select the same **location** as your Resource Group.
 
-    c. For pricing tier, select **S1 (10 Calls per second)**
+    c. For pricing tier, select **S1 (10 Calls per second)**.
 
     d. Specify the Resource Group **ServerlessArchitecture**.
 
@@ -387,7 +391,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 **Duration**: 45 minutes
 
-Use Visual Studio 2017 and its integrated Azure Functions tooling to develop and debug the functions locally, and then publish them to Azure. The starter project solution, TollBooths, contains most of the code needed. You will add in the missing code before deploying to Azure.
+Use Visual Studio and its integrated Azure Functions tooling to develop and debug the functions locally, and then publish them to Azure. The starter project solution, TollBooths, contains most of the code needed. You will add in the missing code before deploying to Azure.
 
 ### Help references
 
@@ -402,15 +406,15 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
-2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. This is the one you created using the **.NET** runtime stack. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
+2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. This is the one you created using the **.NET Core** runtime stack. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
 
     ![In the ServerlessArchtecture resource group, TollBoothFunctionApp is selected.](media/image33.png 'ServerlessArchtecture resource group')
 
-3.  Select **Application settings** on the Overview pane.
+3.  Select **Configuration** on the Overview pane.
 
     ![In the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](media/image34.png 'TollBoothFunctionApp blade')
 
-4.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below):
+4.  Scroll to the **Application settings** section. Use the **+ New application setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below):
 
 |                          |                                                                                                                                                             |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -444,7 +448,7 @@ There are a few components within the starter project that must be completed, ma
 
 > **Note:** Do **NOT** update the version of any NuGet package. This solution is built to function with the NuGet package versions currently defined within. Updating these packages to newer versions could cause unexpected results.
 
-1.  Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio.
+1.  Navigate to the **TollBooth** project (/hands-on-lab/starts/TollBooth/TollBooth.sln) using the Solution Explorer of Visual Studio.
 
 2.  From the Visual Studio **View** menu, select **Task List**.
 
@@ -452,7 +456,7 @@ There are a few components within the starter project that must be completed, ma
 
 3.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed.
 
-    > ![A list of TODO tasks, including their description, project, file, and line number display.](media/image38.png 'TODO tasks')
+    ![A list of TODO tasks, including their description, project, file, and line number display.](media/image38.png 'TODO tasks')
 
 4.  Open **ProcessImage.cs**. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to "ProcessImage". This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
@@ -486,7 +490,7 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
 
-> TODOs 5, 6, and 7 will be completed in later steps of the guide.
+> **Note**: TODOs 5, 6, and 7 will be completed in later steps of the guide.
 
 ### Task 3: Publish the Function App from Visual Studio
 
@@ -524,7 +528,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
     ![In the TollBoothFunctionApp blade, in the pane, both TollBoothFunctionApp, and Functions (Read Only) are expanded. Below Functions, two functions (ExportLicensePlates and ProcessImage) are called out.](media/image42.png 'TollBoothFunctionApp blade')
 
-8.  Now we need to add an Event Grid subscription to the ProcessImage function so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
+8.  Now we need to add an Event Grid subscription to the ProcessImage function, so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
 
     ![The ProcessImage function and the Add Event Grid subscription items are highlighted.](media/processimage-add-eg-sub.png 'ProcessImage function')
 
@@ -538,9 +542,9 @@ In this task, you will publish the Function App from the starter project in Visu
 
     d. Select your **subscription** and **ServerlessArchitecture** resource group.
 
-    e. For resource, select your recently created Event Grid.
+    e. For resource, select your recently created storage account.
 
-    f. _Uncheck_ **Subscribe to all event types**, then select **Blob Created** from the event types dropdown list.
+    f. Select only the **Blob Created** from the event types dropdown list.
 
     g. Leave Web Hook as the Endpoint Type.
 
@@ -570,7 +574,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 2.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you _did not_ deploy to in the previous exercise.
 
-3.  Select **Functions** in the menu. In the **Functions** blade, select **+ New Function**.
+3.  In the blade menu, select **Functions**, the click **+ New Function**.
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/image43.png 'TollBoothEvents2 blade')
 
@@ -578,19 +582,15 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     a. If prompted, click **Install** and wait for the extension to install.
 
-    b. Click **Continue**
+    ![Install azure extension form.](media/install-function-extension.png 'Template search form')
+
+    b. Click **Continue**.
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](media/image44.png 'Template search form')
 
-5.  In the New Function form, fill out the following properties:
+5.  Click **Create**.
 
-    a. For name, enter **SavePlateData**
-
-    ![In the New Function form SavePlateData is typed in the Name field.](media/image45.png 'Event Grid trigger, New Function form')
-
-    b. Select **Create**.
-
-6)  Replace the code in the new SavePlateData function with the following:
+6.  Replace the code in the new SavePlateData function with the following:
 
 ```javascript
 module.exports = function(context, eventGridEvent) {
@@ -608,7 +608,7 @@ module.exports = function(context, eventGridEvent) {
 };
 ```
 
-8.  Select **Save**.
+7.  Select **Save**.
 
 ### Task 2: Add an Event Grid subscription to the SavePlateData function
 
@@ -622,7 +622,7 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
     a. **Name**: Unique value for the App name similar to **saveplatedatasub** (ensure the green check mark appears).
 
-    b. **Event Schema**: Select Event Grid Schema.
+    b. **Event Schema**: Select **Event Grid Schema**.
 
     c. For **Topic Type**, select **Event Grid Topics**.
 
@@ -630,7 +630,7 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
     e. For resource, select your recently created Event Grid.
 
-    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
+    f. For Event Types, leave empty as you will enter a custom event type later.
 
     g. Leave Web Hook as the Endpoint Type.
 
@@ -653,6 +653,8 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
     ![The New button is selected next to the Azure Cosmos DB account connection field.](media/image49.png 'New button')
 
     > **Note**: If you see a notice for "Extensions not installed", click **Install**.
+
+    ![Cosmos Extension needed.](media/cosmos-extension-install.png 'New button')
 
 4.  Select your Cosmos DB account from the list that appears.
 
@@ -732,9 +734,7 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
     e. For resource, select your recently created Event Grid.
 
-    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
-
-    g. Leave Web Hook as the Endpoint Type.
+    f. Leave Web Hook as the Endpoint Type.
 
 3.  Leave the remaining fields at their default values and select **Create**.
 
@@ -776,33 +776,23 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
     ![On the Event Grid Topic overview blade, select the saveplatedatasub Event Grid subscription.](media/image56.png)
 
-4.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
+4.  Select the **Filters** tab
 
-5.  Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
-
-    ![The Filters tab is selected and the Subscribe to all event types checkbox has been cleared. An arrow is pointing to the Delete button on the All event type.](media/event-grid-delete-all.png 'Delete all')
-
-6.  Select **Add Event Type**, then enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
+5.  Select **Add Event Type**, then enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
     ![The savePlateData event type has been added.](media/event-grid-saveplatedata.png 'Add event type')
 
-7.  Select **Save**.
+6.  Select **Save**.
 
-8.  Select the **queueplateformanualcheckupsub** Event Grid subscription at the bottom of the **Overview** blade.
+7.  Select the **queueplateformanualcheckupsub** Event Grid subscription at the bottom of the **Overview** blade.
 
     ![On the Event Grid Topic overview blade, select the queueplateformanualcheckupsub Event Grid subscription.](media/image58.png)
 
-9.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
+8.  Select the **Filters** tab.
 
-10. Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
+9. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
-    ![The Filters tab is selected and the Subscribe to all event types checkbox has been cleared. An arrow is pointing to the Delete button on the All event type.](media/event-grid-delete-all.png 'Delete all')
-
-11. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
-
-    ![The queuePlateForManualCheckup type has been added.](media/event-grid-queueplateformanualcheckup.png 'Add event type')
-
-12. Select **Save**.
+10. Select **Save**.
 
 ## Exercise 4: Monitor your functions with Application Insights
 
@@ -832,15 +822,13 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
     a. **Name**: Unique value for the App name similar to **TollboothMonitor** (ensure the green check mark appears).
 
-    b. For Application Type, select **ASP.NET web application**.
+    b. Specify the **Resource Group** **ServerlessArchitecture**.
 
-    c. Specify the **Resource Group** **ServerlessArchitecture**.
-
-    d. Select the same **location** as your Resource Group.
+    c. Select the same **location** as your Resource Group.
 
     ![Fields in the Application Insights blade are set to the previously defined settings.](media/image61.png 'Application Insights blade')
 
-5.  Select **Create**.
+5.  Select **Review + Create**, then click **Create**.
 
 ### Task 2: Enable Application Insights integration in your Function Apps
 
@@ -856,19 +844,19 @@ Both of the Function Apps need to be updated with the Application Insights instr
 
 3.  Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function.
 
-4.  Select on **Application settings** on the **Overview** pane.
-
-    ![In the pane of the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](media/image34.png 'TollBoothFunctionApp blade')
+4.  Select **Configuration** on the **Overview** pane.
 
 5.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link and name the new setting **APPINSIGHTS_INSTRUMENTATIONKEY**. Paste the copied instrumentation key into its value field.
 
     ![In the TollBoothFunctionApp blade, the + Add new setting link is selected. In the list of application settings, APPINSIGHTS_INSTRUMENTATIONKEY is selected.](media/image63.png 'TollBoothFunctionApp blade')
 
-6.  Select **Save**.
+6.  Click **OK**.
+
+7.  Select **Save**.
 
     ![Screenshot of the Save icon.](media/image36.png 'Save icon')
 
-7.  Follow the steps above to add the APPINSIGHTS_INSTRUMENTATIONKEY setting to the function app that ends in **Events**.
+8.  Follow the steps above to add the APPINSIGHTS_INSTRUMENTATIONKEY setting to the function app that ends in **Events**.
 
 ### Task 3: Use the Live Metrics Stream to monitor functions in real time
 
@@ -930,7 +918,7 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 2.  Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**.
 
-    > **Note**: If you already have a **FO** free pricing tier instance, you will not be able to create another one.
+    > **Note**: If you already have an **F0** free pricing tier instance, you will not be able to create another one.
 
     ![In the TollboothOCR blade, under Resource Management, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](media/image73.png 'TollboothOCR and Choose your pricing tier blades')
 
@@ -969,13 +957,13 @@ In this exercise, you will use the Azure Cosmos DB Data Explorer in the portal t
 
     ![In the Tollbooth - Data Explorer blade, Data Explorer is selected.](media/image75.png 'Tollbooth - Data Explorer blade')
 
-3.  Expand the **Processed** collection, then select **Documents**. This will list each of the JSON documents added to the collection.
+3.  Expand the **Processed** collection, then select **Items**. This will list each of the JSON documents added to the collection.
 
 4.  Select one of the documents to view its contents. The first four properties are ones that were added by your functions. The remaining properties are standard and are assigned by Cosmos DB.
 
     ![Under Collections, Processed is expanded, and Documents is selected. On the Documents tab, a document is selected, and to the side, the first four properties of the document (fileName, licencePlateText, timeStamp, and exported) are circled.](media/image76.png 'Tollbooth - Data Explorer blade')
 
-5.  Expand the **NeedsManualReview** collection, then select **Documents**.
+5.  Expand the **NeedsManualReview** collection, then select **Items**.
 
 6.  Select one of the documents to view its contents. Notice that the filename is provided, as well as a property named "resolved". While this is out of scope for this lab, those properties can be used together to provide a manual process for viewing the photo and entering the license plate.
 
@@ -1311,10 +1299,10 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 ### Task 2: Delete the GitHub repo
 
-1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
+1.  Open https://www.github.com, then select your profile icon and select **Your repositories**.
 
-2.  Navigate to your repo and select it
+2.  Navigate to your repo and select it.
 
-3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**
+3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**.
 
 You should follow all steps provided _after_ attending the Hands-on lab.
