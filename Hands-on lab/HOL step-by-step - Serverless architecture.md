@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png 'Microsoft Cloud Workshops')
 
 <div class="MCWHeader1">
 Serverless architecture
@@ -26,7 +26,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
 
 <!-- TOC -->
 
-- [Serverles architecture hands-on lab step-by-step](#serverles-architecture-hands-on-lab-step-by-step)
+- [Serverless architecture hands-on lab step-by-step](#serverless-architecture-hands-on-lab-step-by-step)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Overview](#overview)
   - [Solution architecture](#solution-architecture)
@@ -79,7 +79,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
 
 <!-- /TOC -->
 
-# Serverles architecture hands-on lab step-by-step
+# Serverless architecture hands-on lab step-by-step
 
 ## Abstract and learning objectives
 
@@ -287,9 +287,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     a. Specify the Resource Group **ServerlessArchitecture**.
 
-    a. For Account Name, type a unique value for the App name such as **TollboothDB** (ensure the green check mark appears).
+    b. For Account Name, type a unique value for the App name such as **TollboothDB** (ensure the green check mark appears).
 
-    b. Select the **Core (SQL)** API.
+    c. Select the **Core (SQL)** API.
 
     d. Select the same **location** as your Resource Group if available. Otherwise, select the next closest **region**.
 
@@ -363,7 +363,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     b. Select the same **location** as your Resource Group.
 
-    c. For pricing tier, select **S1 (10 Calls per second)**
+    c. For pricing tier, select **S1 (10 Calls per second)**.
 
     d. Specify the Resource Group **ServerlessArchitecture**.
 
@@ -456,7 +456,7 @@ There are a few components within the starter project that must be completed, ma
 
 3.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed.
 
-    > ![A list of TODO tasks, including their description, project, file, and line number display.](media/image38.png 'TODO tasks')
+    ![A list of TODO tasks, including their description, project, file, and line number display.](media/image38.png 'TODO tasks')
 
 4.  Open **ProcessImage.cs**. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to "ProcessImage". This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
@@ -490,7 +490,7 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
 
-> TODOs 5, 6, and 7 will be completed in later steps of the guide.
+> **Note**: TODOs 5, 6, and 7 will be completed in later steps of the guide.
 
 ### Task 3: Publish the Function App from Visual Studio
 
@@ -528,7 +528,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
     ![In the TollBoothFunctionApp blade, in the pane, both TollBoothFunctionApp, and Functions (Read Only) are expanded. Below Functions, two functions (ExportLicensePlates and ProcessImage) are called out.](media/image42.png 'TollBoothFunctionApp blade')
 
-8.  Now we need to add an Event Grid subscription to the ProcessImage function so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
+8.  Now we need to add an Event Grid subscription to the ProcessImage function, so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
 
     ![The ProcessImage function and the Add Event Grid subscription items are highlighted.](media/processimage-add-eg-sub.png 'ProcessImage function')
 
@@ -584,11 +584,11 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![Install azure extension form.](media/install-function-extension.png 'Template search form')
 
-    b. Click **Continue**
+    b. Click **Continue**.
 
     ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](media/image44.png 'Template search form')
 
-5.  Click **Create**
+5.  Click **Create**.
 
 6.  Replace the code in the new SavePlateData function with the following:
 
@@ -788,7 +788,7 @@ In this task, you will configure a custom event type for each new Event Grid sub
 
     ![On the Event Grid Topic overview blade, select the queueplateformanualcheckupsub Event Grid subscription.](media/image58.png)
 
-8.  Select the **Filters** tab
+8.  Select the **Filters** tab.
 
 9. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
@@ -918,7 +918,7 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 2.  Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**.
 
-    > **Note**: If you already have a **FO** free pricing tier instance, you will not be able to create another one.
+    > **Note**: If you already have an **F0** free pricing tier instance, you will not be able to create another one.
 
     ![In the TollboothOCR blade, under Resource Management, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](media/image73.png 'TollboothOCR and Choose your pricing tier blades')
 
@@ -1299,10 +1299,10 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 ### Task 2: Delete the GitHub repo
 
-1.  Open https://www.github.com, then select your profile icon and select **Your repositories**
+1.  Open https://www.github.com, then select your profile icon and select **Your repositories**.
 
-2.  Navigate to your repo and select it
+2.  Navigate to your repo and select it.
 
-3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**
+3.  Click the **Settings** tab, scroll to the bottom, select **Delete this repository**.
 
 You should follow all steps provided _after_ attending the Hands-on lab.
