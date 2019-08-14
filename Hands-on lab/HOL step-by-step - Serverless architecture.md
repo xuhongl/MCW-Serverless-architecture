@@ -225,7 +225,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     e. Select the same **location** as your Resource Group.
 
-    f. For Runtime stack, select **Javascript**.
+    f. For Runtime stack, select **Node.js**.
 
     g. Leave the **storage** option as **create new**.
 
