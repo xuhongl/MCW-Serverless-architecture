@@ -578,19 +578,29 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/image43.png 'TollBoothEvents2 blade')
 
-4.  Enter **event grid** into the template search form, then select the **Azure Event Grid trigger** template.
+4.  Select **In-portal** within the _Choose a development environment_ step, then select **Continue**.
 
-    a. If prompted, click **Install** and wait for the extension to install.
+    ![The In-portal option and Continue button are highlighted.](media/new-function-in-portal.png "Azure Functions for JavaScript blade")
+
+5.  Select **More templates...** within the _Create a function_ step, then select **Finish and view templates**.
+
+    ![The More templates option and Finish and view templates button are higlighted.](media/new-function-more-templates.png "Azure Functions for JavaScript blade")
+
+6.  Enter **event grid** into the template search form, then select the **Azure Event Grid trigger** template.
+
+    ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](media/new-function-event-grid-trigger-template.png "Template search form")
+
+    a. If prompted to install the Azure Event Grid trigger extension, select **Install** and wait for the extension to install.
 
     ![Install azure extension form.](media/install-function-extension.png 'Template search form')
 
-    b. Click **Continue**.
+    b. Select **Continue**.
 
-    ![In the Template search form, event grid is typed in the search field. Below, the Event Grid trigger function option displays.](media/image44.png 'Template search form')
+7.  In the _New Function_ form, enter `SavePlateData` for the **Name**, then select **Create**.
 
-5.  Click **Create**.
+    ![SavePlateData is entered in the Name field and the Create button is highlighted.](media/new-function-saveplatedata.png "New Function form")
 
-6.  Replace the code in the new SavePlateData function with the following:
+8.  Replace the code in the new SavePlateData function with the following:
 
 ```javascript
 module.exports = function(context, eventGridEvent) {
@@ -608,7 +618,7 @@ module.exports = function(context, eventGridEvent) {
 };
 ```
 
-7.  Select **Save**.
+9.  Select **Save**.
 
 ### Task 2: Add an Event Grid subscription to the SavePlateData function
 
@@ -1133,15 +1143,17 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     ![The View, Team Explorer menu item is highlighted.](media/vs-view-team-explorer.png 'Visual Studio')
 
-4.  Click **Sync** under the Project section of the Team Explorer pane.
+4.  Commit **all pending code changes** before continuing.
+
+5.  Click **Sync** under the Project section of the Team Explorer pane.
 
     ![The Sync button is highlighted.](media/vs-sync-button.png 'Team Explorer')
 
-5.  Select the **Publish Git Repo** button, then paste the git URL for your new repository you copied from GitHub. Finally, select **Publish**.
+6.  Select the **Publish Git Repo** button, then paste the git URL for your new repository you copied from GitHub. Finally, select **Publish**.
 
     ![In the Team Explorer - Synchronization window, the Publish Git Repo button is selected, and in the field below, the copied URL displays.](media/image104.png 'Team Explorer - Synchronization')
 
-6.  Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the **TollBooth** folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.
+7.  Refresh your GitHub repository page in your browser. You should see that the project files have been added. Navigate to the **TollBooth** folder of your repo. Notice that the local.settings.json file has not been uploaded. That's because the .gitignore file of the TollBooth project explicitly excludes that file from the repository, making sure you don't accidentally share your application secrets.
 
     ![On the GitHub Repository page for serverless-architecture-lab, on the Code tab, project files display.](media/image105.png 'GitHub Repository page')
 
