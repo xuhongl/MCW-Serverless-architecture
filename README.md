@@ -4,11 +4,13 @@ Contoso is rapidly expanding their toll booth management business to operate in 
 
 They want to automate this process in a way that is cost effective and scalable. They believe serverless is the best route for them, but do not have the expertise to build the solution.
 
+June 2019
+
 ## Target Audience
 
 Application developers
 
-## Abstract
+## Abstracts
 
 ### Workshop
 
@@ -46,3 +48,16 @@ Cloud-Native Apps
 - [Serverless Web Application Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/web-app)
 - [Serverless event processing using Azure Functions Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/event-processing)
 - [MCW](https://github.com/Microsoft/MCW) 
+
+## Help & Support
+
+We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
+
+***Having trouble?***
+- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
+- Next, submit an issue with a detailed description of the problem.
+- Please do not submit pull requests. Our authors will review open issues and submit pull requests, as needed, for approval.  
+
+If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
+
+### Please allow 5 - 10 business days for review and resolution of issues.
