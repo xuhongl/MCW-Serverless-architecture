@@ -38,11 +38,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 3: Provision the Event Grid topic](#task-3-provision-the-event-grid-topic)
     - [Task 4: Provision the Azure Cosmos DB account](#task-4-provision-the-azure-cosmos-db-account)
     - [Task 5: Provision the Computer Vision API service](#task-5-provision-the-computer-vision-api-service)
+    - [Task 6: Provision Azure Key Vault](#task-6-provision-azure-key-vault)
+    - [Task 7: Retrieve the URI for each secret](#task-7-retrieve-the-uri-for-each-secret)
   - [Exercise 2: Develop and publish the photo processing and data export functions](#exercise-2-develop-and-publish-the-photo-processing-and-data-export-functions)
     - [Help references](#help-references-1)
     - [Task 1: Configure application settings](#task-1-configure-application-settings)
-    - [Task 2: Finish the ProcessImage function](#task-2-finish-the-processimage-function)
-    - [Task 3: Publish the Function App from Visual Studio](#task-3-publish-the-function-app-from-visual-studio)
+    - [Task 2: Create a system-assigned managed identity for your Function App to connect to Key Vault](#task-2-create-a-system-assigned-managed-identity-for-your-function-app-to-connect-to-key-vault)
+    - [Task 3: Add Function Apps to Key Vault access policy](#task-3-add-function-apps-to-key-vault-access-policy)
+    - [Task 4: Finish the ProcessImage function](#task-4-finish-the-processimage-function)
+    - [Task 5: Publish the Function App from Visual Studio](#task-5-publish-the-function-app-from-visual-studio)
   - [Exercise 3: Create functions in the portal](#exercise-3-create-functions-in-the-portal)
     - [Help references](#help-references-2)
     - [Task 1: Create function to save license plate data to Azure Cosmos DB](#task-1-create-function-to-save-license-plate-data-to-azure-cosmos-db)
@@ -66,8 +70,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 1: Create the Logic App](#task-1-create-the-logic-app)
   - [Exercise 7: Configure continuous deployment for your Function App](#exercise-7-configure-continuous-deployment-for-your-function-app)
     - [Help references](#help-references-6)
-    - [Task 1: Create a GitHub repository](#task-1-create-a-github-repository)
-    - [Task 2: Add GitHub repository to your Visual Studio solution](#task-2-add-github-repository-to-your-visual-studio-solution)
+    - [Task 1: Add git repository to your Visual Studio solution and deploy to GitHub](#task-1-add-git-repository-to-your-visual-studio-solution-and-deploy-to-github)
     - [Task 3: Configure your Function App to use your GitHub repository for continuous deployment](#task-3-configure-your-function-app-to-use-your-github-repository-for-continuous-deployment)
     - [Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment](#task-4-finish-your-exportlicenseplates-function-code-and-push-changes-to-github-to-trigger-deployment)
   - [Exercise 8: Rerun the workflow and verify data export](#exercise-8-rerun-the-workflow-and-verify-data-export)
@@ -97,7 +100,7 @@ Below is a diagram of the solution architecture you will build in this lab. Plea
 
 ![The Solution diagram is described in the text following this diagram.](../Whiteboard%20design%20session/media/preferred-solution.png 'Solution diagram')
 
-The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. A blob storage trigger fires on each image upload, executing the photo processing **Azure Function** endpoint (on the side of the diagram), which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData". However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called "queuePlateForManualCheckup". Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. A **Logic App** that runs on a 15-minute interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. **Application Insights** is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows you to observe dynamic scaling first-hand and configure alerts when certain events take place. **Azure Key Vault** is used to securely store secrets, such as connection strings and access keys. Key Vault is accessed by the Function Apps through an access policy within Key Vault, assigned to each Function App's system-assigned managed identity.
+The solution begins with vehicle photos being uploaded to an Azure Storage blobs container, as they are captured. An Event Grid subscription is created against the Blob storage create event, calling the photo processing **Azure Function** endpoint (on the side of the diagram), which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called "savePlateData". However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called "queuePlateForManualCheckup". Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. A **Logic App** that runs on a 15-minute interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. **Application Insights** is used to monitor all of the Azure Functions in real-time as data is being processed through the serverless architecture. This real-time monitoring allows you to observe dynamic scaling first-hand and configure alerts when certain events take place. **Azure Key Vault** is used to securely store secrets, such as connection strings and access keys. Key Vault is accessed by the Function Apps through an access policy within Key Vault, assigned to each Function App's system-assigned managed identity.
 
 ## Requirements
 
@@ -337,15 +340,15 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     ![In the Add Conatiner blade, fields are set to the previously defined values.](media/cosmosdb-add-manualreview-collection.png 'Add Collection blade')
 
-11) Select **OK**.
+11. Select **OK**.
 
-12) Select **Keys** under Settings in the menu.
+12. Select **Keys** under Settings in the menu.
 
-13) Underneath the **Read-write Keys** tab within the Keys blade, copy the **URI** and **Primary Key** values.
+13. Underneath the **Read-write Keys** tab within the Keys blade, copy the **URI** and **Primary Key** values.
 
     ![In the tollbooth - Keys blade, under Settings, Keys is selected. On the Read-write Keys tab, the copy buttons for the URL and Primary Key fields are selected.](media/image28.png 'tollbooth - Keys blade')
 
-14) Paste the values into a text editor, such as Notepad, for later reference.
+14. Paste the values into a text editor, such as Notepad, for later reference.
 
 ### Task 5: Provision the Computer Vision API service
 
@@ -460,7 +463,7 @@ When you set the App Settings for the Function App in the next section below, yo
 
     ![The Secret Identifier is highlighted.](media/key-vault-secret-identifier.png "Secret Identifier")
 
-    When you add the Key Vault reference to this secret within a Function App's App Settings, you will use the following format: `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is replaced by the Secret Identifier (URI) value above.
+    When you add the Key Vault reference to this secret within a Function App's App Settings, you will use the following format: `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is replaced by the Secret Identifier (URI) value above. **Be sure to remove the curly braces (`{}`)**.
 
     For example, a complete reference would look like the following:
 
@@ -493,23 +496,23 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
     ![In the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](media/image34.png 'TollBoothFunctionApp blade')
 
-4. Scroll to the **Application settings** section. Use the **+ New application setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below):
+4. Scroll to the **Application settings** section. Use the **+ New application setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below). **Be sure to remove the curly braces (`{}`)**.:
 
-|                          |                                                                                                                                                             |
-| ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Application Key**      |                                                                          **Value**                                                                          |
-| computerVisionApiUrl     | Computer Vision API endpoint you copied earlier. Append **vision/v2.0/ocr** to the end. Example: `https://<YOUR-SERVICE-NAME>.cognitiveservices.azure.com/vision/v2.0/ocr` |
-| computerVisionApiKey     |                                                                   Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **computerVisionApiKey** Key Vault secret                                                                   |
-| eventGridTopicEndpoint   |                                                                  Event Grid Topic endpoint                                                                  |
-| eventGridTopicKey        |                                                                 Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **eventGridTopicKey** Key Vault secret                                                                 |
-| cosmosDBEndPointUrl      |                                                                        Cosmos DB URI                                                                        |
-| cosmosDBAuthorizationKey |                                                                    Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **cosmosDBAuthorizationKey** Key Vault secret                                                                    |
-| cosmosDBDatabaseId       |                                                            Cosmos DB database id (LicensePlates)                                                            |
-| cosmosDBCollectionId     |                                                        Cosmos DB processed collection id (Processed)                                                        |
-| exportCsvContainerName   |                                                       Blob storage CSV export container name (export)                                                       |
-| blobStorageConnection    |                                                               Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **blobStorageConnection** Key Vault secret                                                                |
+    |                          |                                                                                                                                                             |
+    | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
+    | **Application Key**      |                                                                          **Value**                                                                          |
+    | computerVisionApiUrl     | Computer Vision API endpoint you copied earlier. Append **vision/v2.0/ocr** to the end. Example: `https://<YOUR-SERVICE-NAME>.cognitiveservices.azure.com/vision/v2.0/ocr` |
+    | computerVisionApiKey     |                                                                   Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **computerVisionApiKey** Key Vault secret                                                                   |
+    | eventGridTopicEndpoint   |                                                                  Event Grid Topic endpoint                                                                  |
+    | eventGridTopicKey        |                                                                 Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **eventGridTopicKey** Key Vault secret                                                                 |
+    | cosmosDBEndPointUrl      |                                                                        Cosmos DB URI                                                                        |
+    | cosmosDBAuthorizationKey |                                                                    Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **cosmosDBAuthorizationKey** Key Vault secret                                                                    |
+    | cosmosDBDatabaseId       |                                                            Cosmos DB database id (LicensePlates)                                                            |
+    | cosmosDBCollectionId     |                                                        Cosmos DB processed collection id (Processed)                                                        |
+    | exportCsvContainerName   |                                                       Blob storage CSV export container name (export)                                                       |
+    | blobStorageConnection    |                                                               Enter `@Microsoft.KeyVault(SecretUri={referenceString})`, where `{referenceString}` is the URI for the **blobStorageConnection** Key Vault secret                                                                |
 
-![In the Application Settings section, the previously mentioned key / value pairs are displayed.](media/application-settings.png 'Application Settings section')
+    ![In the Application Settings section, the previously mentioned key / value pairs are displayed.](media/application-settings.png 'Application Settings section')
 
 5. Select **Save**.
 
@@ -577,35 +580,35 @@ There are a few components within the starter project that must be completed, ma
 
 5. The following code represents the completed task in ProcessImage.cs:
 
-```csharp
-// **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
+    ```csharp
+    // **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
 
-licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
-```
+    licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
+    ```
 
 6. Open **FindLicensePlateText.cs**. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resilience pattern using [Polly](https://github.com/App-vNext/Polly), an open source .NET library that helps you handle transient errors. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function's scalability.
 
 7. The following code represents the completed task in FindLicensePlateText.cs:
 
-```csharp
-// TODO 2: Populate the below two variables with the correct AppSettings properties.
-var uriBase = Environment.GetEnvironmentVariable("computerVisionApiUrl");
-var apiKey = Environment.GetEnvironmentVariable("computerVisionApiKey");
-```
+    ```csharp
+    // TODO 2: Populate the below two variables with the correct AppSettings properties.
+    var uriBase = Environment.GetEnvironmentVariable("computerVisionApiUrl");
+    var apiKey = Environment.GetEnvironmentVariable("computerVisionApiKey");
+    ```
 
 8. Open **SendToEventGrid.cs**. This class is responsible for sending an Event to the Event Grid topic, including the event type and license plate data. Event listeners will use the event type to filter and act on the events they need to process. Make note of the event types defined here (the first parameter passed into the Send method), as they will be used later on when creating new functions in the second Function App you provisioned earlier.
 
 9. The following code represents the completed tasks in `SendToEventGrid.cs`:
 
-```csharp
-// TODO 3: Modify send method to include the proper eventType name value for saving plate data.
-await Send("savePlateData", "TollBooth/CustomerService", data);
+    ```csharp
+    // TODO 3: Modify send method to include the proper eventType name value for saving plate data.
+    await Send("savePlateData", "TollBooth/CustomerService", data);
 
-// TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
-await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
-```
+    // TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
+    await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
+    ```
 
-> **Note**: TODOs 5, 6, and 7 will be completed in later steps of the guide.
+    > **Note**: TODOs 5, 6, and 7 will be completed in later steps of the guide.
 
 ### Task 5: Publish the Function App from Visual Studio
 
@@ -621,33 +624,33 @@ In this task, you will publish the Function App from the starter project in Visu
 
     ![In the Publish window, the Azure Function App tile is selected. Under this, both the Select Existing radio button and the Publish button are selected.](media/vs-publish-function.png 'Publish window')
 
-> **Note**: If you do not see the ability to publish to an Azure Function, you may need to update your Visual Studio instance.
+    > **Note**: If you do not see the ability to publish to an Azure Function, you may need to update your Visual Studio instance.
 
-1. In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
+4. In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
 
-2. Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise.
+5. Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise.
 
     ![In the App Service form, Resource Group displays in the View field, and in the tree-view below, the ServerlessArchitecture folder is expanded, and TollBoothFunctionApp is selected.](media/image41.png 'App Service form')
 
-3. After you select the Function App, select **OK**.
+6. After you select the Function App, select **OK**.
 
     > **Note**: If prompted to update the functions version on Azure, click **Yes**.
 
-4. Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, `========== Publish: 1 succeeded, 0 failed, 0 skipped ==========`.
+7. Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, `========== Publish: 1 succeeded, 0 failed, 0 skipped ==========`.
 
-5. Using a new tab or instance of your browser navigate to the Azure portal, <http://portal.azure.com>.
+8. Using a new tab or instance of your browser navigate to the Azure portal, <http://portal.azure.com>.
 
-6. Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published.
+9. Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published.
 
-7. Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed.
+10. Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed.
 
     ![In the TollBoothFunctionApp blade, in the pane, both TollBoothFunctionApp, and Functions (Read Only) are expanded. Below Functions, two functions (ExportLicensePlates and ProcessImage) are called out.](media/image42.png 'TollBoothFunctionApp blade')
 
-8. Now we need to add an Event Grid subscription to the ProcessImage function, so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
+11. Now we need to add an Event Grid subscription to the ProcessImage function, so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
 
     ![The ProcessImage function and the Add Event Grid subscription items are highlighted.](media/processimage-add-eg-sub.png 'ProcessImage function')
 
-9. On the **Create Event Subscription** blade, specify the following configuration options:
+12. On the **Create Event Subscription** blade, specify the following configuration options:
 
     a. **Name**: Unique value for the App name similar to **processimagesub** (ensure the green check mark appears).
 
@@ -663,7 +666,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
     g. Leave Web Hook as the Endpoint Type.
 
-10. Leave the remaining fields at their default values and select **Create**.
+13. Leave the remaining fields at their default values and select **Create**.
 
     ![In the Create Event Subscription blade, fields are set to the previously defined settings.](media/processimage-eg-sub.png)
 
@@ -717,21 +720,21 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 8. Replace the code in the new SavePlateData function with the following:
 
-```javascript
-module.exports = function(context, eventGridEvent) {
-  context.log(typeof eventGridEvent);
-  context.log(eventGridEvent);
+    ```javascript
+    module.exports = function(context, eventGridEvent) {
+    context.log(typeof eventGridEvent);
+    context.log(eventGridEvent);
 
-  context.bindings.outputDocument = {
-    fileName: eventGridEvent.data['fileName'],
-    licensePlateText: eventGridEvent.data['licensePlateText'],
-    timeStamp: eventGridEvent.data['timeStamp'],
-    exported: false
-  };
+    context.bindings.outputDocument = {
+        fileName: eventGridEvent.data['fileName'],
+        licensePlateText: eventGridEvent.data['licensePlateText'],
+        timeStamp: eventGridEvent.data['timeStamp'],
+        exported: false
+    };
 
-  context.done();
-};
-```
+    context.done();
+    };
+    ```
 
 9. Select **Save**.
 
@@ -821,21 +824,21 @@ In this task, you will create a new function triggered by Event Grid and outputs
 
 5. Replace the code in the new QueuePlateForManualCheckup function with the following:
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-  context.log(typeof eventGridEvent);
-  context.log(eventGridEvent);
+    ```javascript
+    module.exports = async function(context, eventGridEvent) {
+    context.log(typeof eventGridEvent);
+    context.log(eventGridEvent);
 
-  context.bindings.outputDocument = {
-    fileName: eventGridEvent.data['fileName'],
-    licensePlateText: '',
-    timeStamp: eventGridEvent.data['timeStamp'],
-    resolved: false
-  };
+    context.bindings.outputDocument = {
+        fileName: eventGridEvent.data['fileName'],
+        licensePlateText: '',
+        timeStamp: eventGridEvent.data['timeStamp'],
+        resolved: false
+    };
 
-  context.done();
-};
-```
+    context.done();
+    };
+    ```
 
 6. Select **Save**.
 
@@ -963,9 +966,9 @@ Both of the Function Apps need to be updated with the Application Insights instr
 
 2. Copy the **instrumentation key** from the Essentials section of the **Overview** blade.
 
-> **Note**: You may need to expand the **Essentials** section.
+    > **Note**: You may need to expand the **Essentials** section.
 
-![In the pane of the TollBoothMonitor blade, Overview is selected. In the pane, the copy button next to the Instrumentation key is selected.](media/app-insights-key.png 'TollBoothMonitor blade')
+    ![In the pane of the TollBoothMonitor blade, Overview is selected. In the pane, the copy button next to the Instrumentation key is selected.](media/app-insights-key.png 'TollBoothMonitor blade')
 
 3. Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function.
 
@@ -1098,9 +1101,9 @@ In this exercise, you will use the Azure Cosmos DB Data Explorer in the portal t
 
 8. Modify the SQL query to count the number of processed documents that have not been exported:
 
-```sql
-SELECT VALUE COUNT(1) FROM c WHERE c.exported = false
-```
+    ```sql
+    SELECT VALUE COUNT(1) FROM c WHERE c.exported = false
+    ```
 
 9. Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
 
@@ -1307,24 +1310,24 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 5. The following code represents the completed task in DatabaseMethods.cs:
 
 ```csharp
-// TODO 5: Retrieve a List of LicensePlateDataDocument objects from the collectionLink where the exported value is false.
-licensePlates = _client.CreateDocumentQuery<LicensePlateDataDocument>(collectionLink,
-        new FeedOptions() { EnableCrossPartitionQuery=true,MaxItemCount = 100 })
-    .Where(l => l.exported == false)
-    .ToList();
-// TODO 6: Remove the line below.
-```
+    // TODO 5: Retrieve a List of LicensePlateDataDocument objects from the collectionLink where the exported value is false.
+    licensePlates = _client.CreateDocumentQuery<LicensePlateDataDocument>(collectionLink,
+            new FeedOptions() { EnableCrossPartitionQuery=true,MaxItemCount = 100 })
+        .Where(l => l.exported == false)
+        .ToList();
+    // TODO 6: Remove the line below.
+    ```
 
-6. Make sure that you deleted the following line under TODO 6: licensePlates = new List\<LicensePlateDataDocument\>();.
+6. Make sure that you deleted the following line under TODO 6: `licensePlates = new List<LicensePlateDataDocument>();`.
 
 7. Save your changes then open **FileMethods.cs**.
 
 8. The following code represents the completed task in DatabaseMethods.cs:
 
-```csharp
-// TODO 7: Asyncronously upload the blob from the memory stream.
-await blob.UploadFromStreamAsync(stream);
-```
+    ```csharp
+    // TODO 7: Asyncronously upload the blob from the memory stream.
+    await blob.UploadFromStreamAsync(stream);
+    ```
 
 9. Save your changes.
 
