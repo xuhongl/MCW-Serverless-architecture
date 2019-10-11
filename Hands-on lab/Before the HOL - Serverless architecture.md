@@ -74,13 +74,13 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    ![In Azure Portal, in the search field, Visual Studio Community 2019 on Windows Server 2019 (x64) is typed. Under Results, Visual Studio Community 2019 on Windows Server 2016 (x64) is selected.](media/select-vs2019-image.png 'Azure Portal')
 
-   a. Click **+Create a resource**.
+   a. select **+ Create a resource**.
 
    b. Type **Visual Studio 2019**.
 
    c. Select the **Visual Studio Community 2019 (latest) on Windows Server 2019 (x64)**.
 
-   d. Click **Create**.
+   d. Select **Create**.
 
    e. Select your subscription and recently created resource group.
 
@@ -98,13 +98,13 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    k. For password, type **Password.1!!**.
 
-   n. Click **Allow selected ports**.
+   n. Select **Allow selected ports**.
 
    o. For the inbound ports, select **RDP (3389)**.
 
-   p. Click **Review + create**.
+   p. Select **Review + create**.
 
-   q. Click **Create**.
+   q. Select **Create**.
 
 ### Task 3: Disable IE Enhanced Security
 
