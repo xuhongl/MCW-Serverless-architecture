@@ -138,7 +138,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
 ### Task 5: Validate connectivity to Azure
 
-1. From within the virtual machine, launch Visual Studio (click **Continue without code** link) and validate that you can log in with your Microsoft Account when prompted.
+1. From within the virtual machine, launch Visual Studio (select **Continue without code** link) and validate that you can log in with your Microsoft Account when prompted.
 
 2. To validate connectivity to your Azure subscription, open **Cloud Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription.
 
