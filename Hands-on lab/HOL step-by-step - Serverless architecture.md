@@ -1316,7 +1316,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
         .Where(l => l.exported == false)
         .ToList();
     // TODO 6: Remove the line below.
-    ```
+```
 
 6. Make sure that you deleted the following line under TODO 6: `licensePlates = new List<LicensePlateDataDocument>();`.
 
