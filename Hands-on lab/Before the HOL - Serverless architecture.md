@@ -74,13 +74,13 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    ![In Azure Portal, in the search field, Visual Studio Community 2019 on Windows Server 2019 (x64) is typed. Under Results, Visual Studio Community 2019 on Windows Server 2016 (x64) is selected.](media/select-vs2019-image.png 'Azure Portal')
 
-   a. Click **+Create a resource**.
+   a. select **+ Create a resource**.
 
    b. Type **Visual Studio 2019**.
 
    c. Select the **Visual Studio Community 2019 (latest) on Windows Server 2019 (x64)**.
 
-   d. Click **Create**.
+   d. Select **Create**.
 
    e. Select your subscription and recently created resource group.
 
@@ -98,13 +98,13 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    k. For password, type **Password.1!!**.
 
-   n. Click **Allow selected ports**.
+   n. Select **Allow selected ports**.
 
    o. For the inbound ports, select **RDP (3389)**.
 
-   p. Click **Review + create**.
+   p. Select **Review + create**.
 
-   q. Click **Create**.
+   q. Select **Create**.
 
 ### Task 3: Disable IE Enhanced Security
 
@@ -138,7 +138,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
 ### Task 5: Validate connectivity to Azure
 
-1. From within the virtual machine, launch Visual Studio (click **Continue without code** link) and validate that you can log in with your Microsoft Account when prompted.
+1. From within the virtual machine, launch Visual Studio (select **Continue without code** link) and validate that you can log in with your Microsoft Account when prompted.
 
 2. To validate connectivity to your Azure subscription, open **Cloud Explorer** from the **View** menu, and ensure that you can connect to your Azure subscription.
 
@@ -155,6 +155,8 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
    ![Download .zip containing the repository](images/Setup/github-download-repo.png)
 
 4. Unzip the contents to the folder **C:\\ServerlessMCW\\**.
+
+   ![The extraction path is highlighted.](media/zip-extract.png "Extract Compressed Folders)
 
 5. Navigate to `C:\ServerlessMCW\MCW-Serverless-architecture-master\Hands-on lab\starter`.
 
