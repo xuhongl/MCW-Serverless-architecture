@@ -772,7 +772,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
 1. Expand the **SavePlateData** function in the menu, then select **Integrate**.
 
-2. Under Outputs, select **+ New Output**, select **Azure Cosmos DB** from the list of outputs, then select **Select**.
+2. Under Outputs, select **+ New Output**, select **Azure Cosmos DB** from the list of outputs, then choose **Select**.
 
     ![In the SavePlateData blade, in the pane under Function Apps, TollBoothEvents2, Functions, and SavePlateData are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](media/image48.png 'SavePlateData blade')
 
@@ -874,7 +874,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
 1. Expand the QueuePlateForManualCheckup function in the menu, the select **Integrate**.
 
-2. Under Outputs, select **+ New Output** then select **Azure Cosmos DB** from the list of outputs, then select **Select**.
+2. Under Outputs, select **+ New Output** then select **Azure Cosmos DB** from the list of outputs, then choose **Select**.
 
     ![In the blade, in the pane under Function Apps, TollBoothEvents2\ Functions\QueuePlateForManualCheckup are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](media/image54.png)
 
@@ -1042,7 +1042,7 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 1. Open your Computer Vision API service by opening the **ServerlessArchitecture** resource group, and then selecting the **Cognitive Services** service name.
 
-2. Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**.
+2. Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then choose **Select**.
 
     > **Note**: If you already have an **F0** free pricing tier instance, you will not be able to create another one.
 
