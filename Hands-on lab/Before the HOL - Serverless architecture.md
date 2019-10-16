@@ -156,7 +156,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
 4. Unzip the contents to the folder **C:\\ServerlessMCW\\**.
 
-   ![The extraction path is highlighted.](media/zip-extract.png "Extract Compressed Folders)
+    ![The extraction path is highlighted.](media/zip-extract.png "Extract Compressed Folders")
 
 5. Navigate to `C:\ServerlessMCW\MCW-Serverless-architecture-master\Hands-on lab\starter`.
 
