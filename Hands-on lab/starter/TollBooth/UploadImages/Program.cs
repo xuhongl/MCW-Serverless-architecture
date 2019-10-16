@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Configuration;
 using System.Net;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.DataMovement;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace UploadImages
 {
