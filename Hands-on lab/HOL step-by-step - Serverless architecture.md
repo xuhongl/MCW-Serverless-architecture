@@ -634,7 +634,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
 6. After you select the Function App, select **OK**.
 
-    > **Note**: If prompted to update the functions version on Azure, click **Yes**.
+    > **Note**: If prompted to update the functions version on Azure, select **Yes**.
 
 7. Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, `========== Publish: 1 succeeded, 0 failed, 0 skipped ==========`.
 
@@ -692,7 +692,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 2. Open the **ServerlessArchitecture** resource group, then select the Azure Function App you created whose name ends with **Events**. If you did not use this naming convention, make sure you select the Function App that you _did not_ deploy to in the previous exercise.
 
-3. In the blade menu, select **Functions**, the click **+ New Function**.
+3. In the blade menu, select **Functions**, the select **+ New Function**.
 
     ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/image43.png 'TollBoothEvents2 blade')
 
@@ -772,7 +772,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
 1. Expand the **SavePlateData** function in the menu, then select **Integrate**.
 
-2. Under Outputs, select **+ New Output**, select **Azure Cosmos DB** from the list of outputs, then select **Select**.
+2. Under Outputs, select **+ New Output**, select **Azure Cosmos DB** from the list of outputs, then choose **Select**.
 
     ![In the SavePlateData blade, in the pane under Function Apps, TollBoothEvents2, Functions, and SavePlateData are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](media/image48.png 'SavePlateData blade')
 
@@ -780,7 +780,7 @@ In this task, you will add an Azure Cosmos DB output binding to the SavePlateDat
 
     ![The New button is selected next to the Azure Cosmos DB account connection field.](media/image49.png 'New button')
 
-    > **Note**: If you see a notice for "Extensions not installed", click **Install**.
+    > **Note**: If you see a notice for "Extensions not installed", select **Install**.
 
     ![Cosmos Extension needed.](media/cosmos-extension-install.png 'New button')
 
@@ -808,9 +808,9 @@ In this task, you will create a new function triggered by Event Grid and outputs
 
 2. Enter **event grid** into the template search form, then select the **Azure Event Grid trigger** template.
 
-    a. If prompted, click **Install** and wait for the extension to install.
+    a. If prompted, select **Install** and wait for the extension to install.
 
-    b. Click **Continue**.
+    b. Select **Continue**.
 
     ![Event grid displays in the choose a template search field, and in the results, Event Grid trigger displays.](media/image44.png 'Event grid trigger')
 
@@ -874,7 +874,7 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
 
 1. Expand the QueuePlateForManualCheckup function in the menu, the select **Integrate**.
 
-2. Under Outputs, select **+ New Output** then select **Azure Cosmos DB** from the list of outputs, then select **Select**.
+2. Under Outputs, select **+ New Output** then select **Azure Cosmos DB** from the list of outputs, then choose **Select**.
 
     ![In the blade, in the pane under Function Apps, TollBoothEvents2\ Functions\QueuePlateForManualCheckup are expanded, and Integrate is selected. In the pane, + New Output is selected under Outputs. In the list of outputs, the Azure Cosmos DB tile is selected.](media/image54.png)
 
@@ -956,7 +956,7 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
     ![Fields in the Application Insights blade are set to the previously defined settings.](media/application-insights-form.png 'Application Insights blade')
 
-5. Select **Review + Create**, then click **Create**.
+5. Select **Review + Create**, then choose **Create**.
 
 ### Task 2: Enable Application Insights integration in your Function Apps
 
@@ -978,7 +978,7 @@ Both of the Function Apps need to be updated with the Application Insights instr
 
     ![In the TollBoothFunctionApp blade, the + Add new setting link is selected. In the list of application settings, APPINSIGHTS_INSTRUMENTATIONKEY is selected.](media/app-insights-key-app-setting.png "Application settings")
 
-6. Click **OK**.
+6. Select **OK**.
 
 7. Select **Save**.
 
@@ -1042,7 +1042,7 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
 1. Open your Computer Vision API service by opening the **ServerlessArchitecture** resource group, and then selecting the **Cognitive Services** service name.
 
-2. Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then select **Select**.
+2. Select **Pricing tier** under Resource Management in the menu. Select the **F0 Free** pricing tier, then choose **Select**.
 
     > **Note**: If you already have an **F0** free pricing tier instance, you will not be able to create another one.
 
@@ -1187,7 +1187,7 @@ In this exercise, you create a new Logic App for your data export workflow. This
 
     ![From the Actions list, Office 365 Outlook (Send an email) is selected.](media/logicapp-send-email.png 'Office 365 Outlook Actions list')
 
-16. Click **Sign in** and sign into your Office 365 Outlook account.
+16. Select **Sign in** and sign into your Office 365 Outlook account.
 
     ![In the Office 365 Outlook - Send an email prompt, the Sign in button is selected.](media/image93.png 'Office 365 Outlook Sign in prompt')
 
@@ -1249,15 +1249,15 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     ![The commit message is entered and the Commit Staged button is highlighted.](media/vs-commit-message.png "Changes")
 
-6. Click **Sync** under after committing.
+6. Select **Sync** under after committing.
 
     ![The Sync link is highlighted.](media/vs-commit-sync.png "Changes")
 
-7. Click the **Publish to GitHub** button, then sign in to your GitHub account when prompted.
+7. Choose the **Publish to GitHub** button, then sign in to your GitHub account when prompted.
 
     ![The Publish to GitHub button is highlighted.](media/vs-publish-to-github.png "Push")
 
-8. Type in a name for the new GitHub repository, then click **Publish**. This will create the new GitHub repository, add it as a remote to your local git repo, then publish your new commit.
+8. Type in a name for the new GitHub repository, then select **Publish**. This will create the new GitHub repository, add it as a remote to your local git repo, then publish your new commit.
 
     ![The new repository details are displayed.](media/vs-publish-to-new-github.png "Push")
 
@@ -1316,7 +1316,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
         .Where(l => l.exported == false)
         .ToList();
     // TODO 6: Remove the line below.
-    ```
+```
 
 6. Make sure that you deleted the following line under TODO 6: `licensePlates = new List<LicensePlateDataDocument>();`.
 
@@ -1423,6 +1423,6 @@ In this exercise, attendees will deprovision any Azure resources that were creat
 
 2. Navigate to your repo and select it.
 
-3. Click the **Settings** tab, scroll to the bottom, select **Delete this repository**.
+3. Select the **Settings** tab, scroll to the bottom, select **Delete this repository**.
 
 You should follow all steps provided _after_ attending the Hands-on lab.
