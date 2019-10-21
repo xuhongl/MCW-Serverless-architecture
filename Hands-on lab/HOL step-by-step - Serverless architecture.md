@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-September 2019
+November 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -172,9 +172,9 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 7. Paste the value into a text editor, such as Notepad, for later reference.
 
-8. Select **Blobs** under **Blob Service** in the menu. Then select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private (no anonymous access)** for the public access level, then select **OK** to save.
+8. Select **Containers** under **Blob Service** in the menu. Then select the **+ Container** button to add a new container. In the **Name** field, enter **images**, select **Private (no anonymous access)** for the public access level, then select **OK** to save.
 
-    ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access).](media/image16.png 'Storage and Containers blade')
+    ![In the Storage blade, under Settings, Containers is selected. In the Containers blade, the + (add icon) Container button is selected. Below, the Name field displays images, and the Public access level is set to Private (no anonymous access).](media/storage-new-container-images.png 'Storage and Containers blade')
 
 9. Repeat these steps to create a container named **export**.
 
@@ -190,55 +190,79 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
 3. Select the **Create** button on the **Function App overview** blade.
 
-4. On the **Create Function App** blade, specify the following configuration options:
+4. Within the **Create Function App** *Basics* blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothFunctionApp**.
+    a. **Subscription**: Select your Azure subscription for this lab.
 
-    b. Specify the Resource Group **ServerlessArchitecture**.
+    b. **Resource Group**: Select **ServerlessArchitecture**.
 
-    c. For **OS**, ensure **Windows** is selected.
+    c. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothFunctionApp**.
 
-    d. For hosting plan, select the **Consumption Plan**.
+    d. **Publish**: Select **Code**.
 
-    e. Select the same **location** as your Resource Group.
+    e. **Runtime stack**: Select **.NET Core**.
 
-    f. For Runtime stack, select **.NET Core**.
+    f. **Region**: Select the region you are using for this lab, or the closest available one.
 
-    g. Leave the **storage** option as **create new**.
+    ![Fields in the Function App Basics blade are set to the previously defined settings.](media/new-functionapp-net-basics.png 'Function App Basics blade')
 
-    h. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
+5. Select **Next: Hosting >**.
 
-    ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-net.png 'Function App blade')
+6. Within the **Hosting** blade, specify the following configuration options:
 
-5. Select **Create**.
+    a. **Storage account**: Leave this option as **create new**.
 
-    ![Screenshot of the Create button.](media/image13.png 'Create button')
+    b. **Operating system**: Select **Windows**.
 
-6. **Repeat steps 1-3** to create a second Function App.
+    c. **Plan type**: Select **Consumption**.
 
-7. On the **Create Function App** blade, specify the following configuration options:
+    ![Fields in the Function App Hosting blade are set to the previously defined settings.](media/new-functionapp-net-hosting.png "Function App Hosting blade")
 
-    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothEvents**.
+7. Select **Next: Monitoring >**.
 
-    b. Specify the Resource Group **ServerlessArchitecture**.
+    a. **Enable Application Insights**: Select **No** (we'll ad this later).
 
-    c. For **OS**, select the **Windows**.
+    ![Fields in the Function App Monitoring blade are set to the previously defined settings.](media/new-functionapp-net-monitoring.png "Function App Monitoring blade")
 
-    d. For hosting plan, select the **Consumption Plan**.
+8. Select **Review + create**, then select **Create** to provision the new Function App.
 
-    e. Select the same **location** as your Resource Group.
+9. **Repeat steps 1-3** to create a second Function App.
 
-    f. For Runtime stack, select **Node.js**.
+10. Within the **Create Function App** *Basics* blade, specify the following configuration options:
 
-    g. Leave the **storage** option as **create new**.
+    a. **Subscription**: Select your Azure subscription for this lab.
 
-    h. Ensure **Disabled** is selected for **Application Insights** (we'll add this later).
+    b. **Resource Group**: Select **ServerlessArchitecture**.
 
-    ![Fields in the Function App blade are set to the previously defined settings.](media/new-functionapp-nodejs.png 'Function App blade')
+    c. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothEvents**.
 
-8. Select **Create**.
+    d. **Publish**: Select **Code**.
 
-    ![Screenshot of the Create button.](media/image13.png 'Create button')
+    e. **Runtime stack**: Select **Node.js**.
+
+    f. **Region**: Select the region you are using for this lab, or the closest available one.
+
+    ![Fields in the Function App Basics blade are set to the previously defined settings.](media/new-functionapp-nodejs-basics.png 'Function App Basics blade')
+
+11. Select **Next: Hosting >**.
+
+12. Within the **Hosting** blade, specify the following configuration options:
+
+    a. **Storage account**: Leave this option as **create new**.
+
+    b. **Operating system**: Select **Windows**.
+
+    c. **Plan type**: Select **Consumption**.
+
+    ![Fields in the Function App Hosting blade are set to the previously defined settings.](media/new-functionapp-net-hosting.png "Function App Hosting blade")
+
+13. Select **Next: Monitoring >**.
+
+    a. **Enable Application Insights**: Select **No** (we'll ad this later).
+
+    ![Fields in the Function App Monitoring blade are set to the previously defined settings.](media/new-functionapp-net-monitoring.png "Function App Monitoring blade")
+
+14. Select **Review + create**, then select **Create** to provision the new Function App.
 
 ### Task 3: Provision the Event Grid topic
 
@@ -433,11 +457,8 @@ Azure Key Vault is used to securely store all secrets, such as database connecti
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
     | **Name**      |                                                                          **Value**                                                                          |
-    | computerVisionApiUrl     | Computer Vision API endpoint you copied earlier. Append **vision/v2.0/ocr** to the end. Example: `https://<YOUR-SERVICE-NAME>.cognitiveservices.azure.com/vision/v2.0/ocr` |
     | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
-    | eventGridTopicEndpoint   |                                                                  Event Grid Topic endpoint                                                                  |
     | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
-    | cosmosDBEndPointUrl      |                                                                        Cosmos DB URI                                                                        |
     | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
     | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
@@ -468,6 +489,15 @@ When you set the App Settings for the Function App in the next section below, yo
     For example, a complete reference would look like the following:
 
     `@Microsoft.KeyVault(SecretUri=https://tollboothvault.vault.azure.net/secrets/blobStorageConnection/d6ea0e39236348539dc33565e031afc3)`
+
+When you are done creating the values, you should have a list similar to the following:
+
+```text
+@Microsoft.KeyVault(SecretUri=https://tollboothvault.vault.azure.net/secrets/blobStorageConnection/771aa40adac64af0b2aefbd741bd46ef)
+@Microsoft.KeyVault(SecretUri=https://tollboothvault.vault.azure.net/secrets/computerVisionApiKey/ce228a43f40140dd8a9ffb9a25d042ee)
+@Microsoft.KeyVault(SecretUri=https://tollboothvault.vault.azure.net/secrets/cosmosDBAuthorizationKey/1f9a0d16ad22409b85970b3c794a218c)
+@Microsoft.KeyVault(SecretUri=https://tollboothvault.vault.azure.net/secrets/eventGridTopicKey/e310bcd71a72489f89b6112234fed815)
+```
 
 ## Exercise 2: Develop and publish the photo processing and data export functions
 
@@ -530,7 +560,7 @@ In order for your Function App to be able to access Key Vault to read the secret
 
     ![The Function App Identity value is set to On.](media/function-app-identity.png "Identity")
 
-### Task 3: Add Function Apps to Key Vault access policy
+### Task 3: Add Function App to Key Vault access policy
 
 Perform these steps to create an access policy that enables the "Get" secret permission:
 
@@ -554,7 +584,7 @@ Perform these steps to create an access policy that enables the "Get" secret per
 
     ![The Get checkbox is checked under the Secret permissions dropdown.](media/key-vault-get-secret-policy.png "Add access policy")
 
-7. Select **OK** to add the new access policy.
+7. Select **Add** to add the new access policy.
 
 8. When you are done, you should have an access policy for the Function App's managed identity. Select **Save** to finish the process.
 
@@ -566,7 +596,7 @@ There are a few components within the starter project that must be completed, ma
 
 > **Note:** Do **NOT** update the version of any NuGet package. This solution is built to function with the NuGet package versions currently defined within. Updating these packages to newer versions could cause unexpected results.
 
-1. Navigate to the **TollBooth** project (/hands-on-lab/starts/TollBooth/TollBooth.sln) using the Solution Explorer of Visual Studio.
+1. Navigate to the **TollBooth** project (`/hands-on-lab/starts/TollBooth/TollBooth.sln`) using the Solution Explorer of Visual Studio.
 
 2. From the Visual Studio **View** menu, select **Task List**.
 
@@ -636,7 +666,7 @@ In this task, you will publish the Function App from the starter project in Visu
 
     > **Note**: If prompted to update the functions version on Azure, select **Yes**.
 
-7. Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, `========== Publish: 1 succeeded, 0 failed, 0 skipped ==========`.
+7. Select **Publish** to start the process. Watch the Output window in Visual Studio as the Function App publishes. When it is finished, you should see a message that says, `========== Publish: 1 succeeded, 0 failed, 0 skipped ==========`.
 
 8. Using a new tab or instance of your browser navigate to the Azure portal, <http://portal.azure.com>.
 
@@ -694,7 +724,7 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
 3. In the blade menu, select **Functions**, the select **+ New Function**.
 
-    ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/image43.png 'TollBoothEvents2 blade')
+    ![In the TollBoothEvents2 blade, in the pane under Function Apps, TollBoothEvents2 is expanded, and Functions is selected. In the pane, the + New function button is selected.](media/function-app-events-overview.png 'TollBoothEvents2 blade')
 
 4. Select **In-portal** within the _Choose a development environment_ step, then select **Continue**.
 
@@ -758,9 +788,11 @@ In this task, you will add an Event Grid subscription to the SavePlateData funct
 
     e. For resource, select your recently created Event Grid.
 
-    f. For Event Types, leave empty as you will enter a custom event type later.
+    f. For Event Types, select **Add Event Type**.
 
-    g. Leave Web Hook as the Endpoint Type.
+    g. Enter `savePlateData` for the new event type value. This will ensure this function is only triggered by this Event Grid type.
+
+    h. Leave Web Hook as the Endpoint Type.
 
 3. Leave the remaining fields at their default values and select **Create**.
 
@@ -854,7 +886,7 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
     a. **Name**: Unique value for the App name similar to **queueplateformanualcheckupsub** (ensure the green check mark appears).
 
-    b. **Event Schema**: Select Event Grid Schema.
+    b. **Event Schema**: Select **Event Grid Schema**.
 
     c. For **Topic Type**, select **Event Grid Topics**.
 
@@ -862,7 +894,11 @@ In this task, you will add an Event Grid subscription to the QueuePlateForManual
 
     e. For resource, select your recently created Event Grid.
 
-    f. Leave Web Hook as the Endpoint Type.
+    f. For Event Types, select **Add Event Type**.
+
+    g. Enter `queuePlateForManualCheckup` for the new event type value. This will ensure this function is only triggered by this Event Grid type.
+
+    h. Leave Web Hook as the Endpoint Type.
 
 3. Leave the remaining fields at their default values and select **Create**.
 
@@ -889,38 +925,6 @@ In this task, you will add an Azure Cosmos DB output binding to the QueuePlateFo
     ![In the Azure Cosmos DB output form, the following field values display: Document parameter name, outputDocument; Collection name, NeedsManualReview; Database name, LicensePlates; Azure Cosmos DB account connection, tollbooths_DOCUMENTDB.](media/manualcheckup-cosmos-integration.png 'Azure Cosmos DB output form')
 
 4. Select **Save**.
-
-### Task 7: Configure custom event types for the new Event Grid subscriptions
-
-In this task, you will configure a custom event type for each new Event Grid subscription you created for your functions in the previous steps of this exercise. Currently the event types are set to All. We want to narrow this down to only the event types specified within the SendToEventGrid class in the TollBooth solution. This will ensure that all other event types are ignored by your functions.
-
-1. Using a new tab or instance of your browser navigate to the Azure portal, <http://portal.azure.com>.
-
-2. Open the **ServerlessArchitecture** resource group, then select your Event Grid Topic.
-
-3. At the bottom of the **Overview** blade, you will see both Event Grid subscriptions created from the functions. Select **saveplatedatasub**.
-
-    ![On the Event Grid Topic overview blade, select the saveplatedatasub Event Grid subscription.](media/image56.png)
-
-4. Select the **Filters** tab
-
-5. Select **Add Event Type**, then enter **savePlateData** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
-
-    ![The savePlateData event type has been added.](media/event-grid-saveplatedata.png 'Add event type')
-
-6. Select **Save**.
-
-7. Select the **queueplateformanualcheckupsub** Event Grid subscription at the bottom of the **Overview** blade.
-
-    ![On the Event Grid Topic overview blade, select the queueplateformanualcheckupsub Event Grid subscription.](media/image58.png)
-
-8. Select the **Filters** tab.
-
-9. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
-
-    ![The queuePlateForManualCheckup event type has been added.](media/manualcheckup-queue-filter.png "Add event type")
-
-10. Select **Save**.
 
 ## Exercise 4: Monitor your functions with Application Insights
 

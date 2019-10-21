@@ -1,10 +1,10 @@
 # Serverless architecture
 
-Contoso is rapidly expanding their toll booth management business to operate in a much larger area. As this is not their primary business, which is online payment services, they are struggling with scaling up to meet the upcoming demand to extract license plate information from a large number of new tollbooths, using photos of vehicles uploaded to cloud storage. Currently, they have a manual process where they send batches of photos to a 3rd-party who manually transcodes the license plates to CSV files that they send back to Contoso to upload to their online processing system. 
+Contoso is rapidly expanding their toll booth management business to operate in a much larger area. As this is not their primary business, which is online payment services, they are struggling with scaling up to meet the upcoming demand to extract license plate information from a large number of new tollbooths, using photos of vehicles uploaded to cloud storage. Currently, they have a manual process where they send batches of photos to a 3rd-party who manually transcodes the license plates to CSV files that they send back to Contoso to upload to their online processing system.
 
 They want to automate this process in a way that is cost effective and scalable. They believe serverless is the best route for them, but do not have the expertise to build the solution.
 
-June 2019
+November 2019
 
 ## Target Audience
 
@@ -47,17 +47,18 @@ Cloud-Native Apps
 
 - [Serverless Web Application Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app)
 - [Serverless event processing using Azure Functions Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing)
-- [MCW](https://github.com/Microsoft/MCW) 
+- [MCW](https://github.com/Microsoft/MCW)
 
 ## Help & Support
 
-We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
+We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.
 
-***Having trouble?***
+**_Having trouble?_**
+
 - First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
 - Next, submit an issue with a detailed description of the problem.
-- Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.   
+- Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.
 
-If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
+If you are planning to present a workshop, _review and test the materials early_! We recommend at least two weeks prior.
 
 ### Please allow 5 - 10 business days for review and resolution of issues.
