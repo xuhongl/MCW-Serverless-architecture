@@ -74,7 +74,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    ![In Azure Portal, in the search field, Visual Studio Community 2019 on Windows Server 2019 (x64) is typed. Under Results, Visual Studio Community 2019 on Windows Server 2016 (x64) is selected.](media/select-vs2019-image.png 'Azure Portal')
 
-   a. select **+ Create a resource**.
+   a. Select **+ Create a resource**.
 
    b. Type **Visual Studio 2019**.
 
@@ -118,7 +118,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    ![Local Server is selected from the Server Manager menu.](images/Setup/image5.png 'Server Manager menu')
 
-4. On the side of the pane, for **IE Enhanced Security Configuration**, if it displays **On** select it
+4. On the side of the pane, for **IE Enhanced Security Configuration**, if it displays **On** select it.
 
    ![Screenshot of IE Enhanced Security Configuration, which is set to On.](images/Setup/image6.png 'IE Enhanced Security Configuration')
 
@@ -164,7 +164,7 @@ If you do not have a machine with Visual Studio Community 2019 (or greater) and 
 
    - TollBooth
    - UploadImages
-
+   
    > **Note**: The UploadImages project is used for uploading a handful of car photos for testing scalability of the serverless architecture.
 
 7. Switch to windows explorer, navigate back to the **starter** subfolder and open the **license plates** subfolder. It contains sample license plate photos used for testing out the solution. One of the photos is guaranteed to fail OCR processing, which is meant to show how the workload is designed to handle such failures. The **copyfrom** folder is used by the UploadImages project as a basis for the 1,000 photo upload option for testing scalability.
