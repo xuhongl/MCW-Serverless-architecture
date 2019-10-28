@@ -32,7 +32,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
   - [Solution architecture](#solution-architecture)
   - [Requirements](#requirements)
   - [Exercise 1: Azure data, storage, and serverless environment setup](#exercise-1-azure-data-storage-and-serverless-environment-setup)
-    - [Help references](#help-references)
     - [Task 1: Provision the storage account](#task-1-provision-the-storage-account)
     - [Task 2: Provision the Function Apps](#task-2-provision-the-function-apps)
     - [Task 3: Provision the Event Grid topic](#task-3-provision-the-event-grid-topic)
@@ -41,14 +40,12 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 6: Provision Azure Key Vault](#task-6-provision-azure-key-vault)
     - [Task 7: Retrieve the URI for each secret](#task-7-retrieve-the-uri-for-each-secret)
   - [Exercise 2: Develop and publish the photo processing and data export functions](#exercise-2-develop-and-publish-the-photo-processing-and-data-export-functions)
-    - [Help references](#help-references-1)
     - [Task 1: Configure application settings](#task-1-configure-application-settings)
     - [Task 2: Create a system-assigned managed identity for your Function App to connect to Key Vault](#task-2-create-a-system-assigned-managed-identity-for-your-function-app-to-connect-to-key-vault)
     - [Task 3: Add Function Apps to Key Vault access policy](#task-3-add-function-apps-to-key-vault-access-policy)
     - [Task 4: Finish the ProcessImage function](#task-4-finish-the-processimage-function)
     - [Task 5: Publish the Function App from Visual Studio](#task-5-publish-the-function-app-from-visual-studio)
   - [Exercise 3: Create functions in the portal](#exercise-3-create-functions-in-the-portal)
-    - [Help references](#help-references-2)
     - [Task 1: Create function to save license plate data to Azure Cosmos DB](#task-1-create-function-to-save-license-plate-data-to-azure-cosmos-db)
     - [Task 2: Add an Event Grid subscription to the SavePlateData function](#task-2-add-an-event-grid-subscription-to-the-saveplatedata-function)
     - [Task 3: Add an Azure Cosmos DB output to the SavePlateData function](#task-3-add-an-azure-cosmos-db-output-to-the-saveplatedata-function)
@@ -57,22 +54,18 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellec
     - [Task 6: Add an Azure Cosmos DB output to the QueuePlateForManualCheckup function](#task-6-add-an-azure-cosmos-db-output-to-the-queueplateformanualcheckup-function)
     - [Task 7: Configure custom event types for the new Event Grid subscriptions](#task-7-configure-custom-event-types-for-the-new-event-grid-subscriptions)
   - [Exercise 4: Monitor your functions with Application Insights](#exercise-4-monitor-your-functions-with-application-insights)
-    - [Help references](#help-references-3)
     - [Task 1: Provision an Application Insights instance](#task-1-provision-an-application-insights-instance)
     - [Task 2: Enable Application Insights integration in your Function Apps](#task-2-enable-application-insights-integration-in-your-function-apps)
     - [Task 3: Use the Live Metrics Stream to monitor functions in real time](#task-3-use-the-live-metrics-stream-to-monitor-functions-in-real-time)
     - [Task 4: Observe your functions dynamically scaling when resource-constrained](#task-4-observe-your-functions-dynamically-scaling-when-resource-constrained)
   - [Exercise 5: Explore your data in Azure Cosmos DB](#exercise-5-explore-your-data-in-azure-cosmos-db)
-    - [Help references](#help-references-4)
     - [Task 1: Use the Azure Cosmos DB Data Explorer](#task-1-use-the-azure-cosmos-db-data-explorer)
   - [Exercise 6: Create the data export workflow](#exercise-6-create-the-data-export-workflow)
-    - [Help references](#help-references-5)
     - [Task 1: Create the Logic App](#task-1-create-the-logic-app)
   - [Exercise 7: Configure continuous deployment for your Function App](#exercise-7-configure-continuous-deployment-for-your-function-app)
-    - [Help references](#help-references-6)
     - [Task 1: Add git repository to your Visual Studio solution and deploy to GitHub](#task-1-add-git-repository-to-your-visual-studio-solution-and-deploy-to-github)
-    - [Task 3: Configure your Function App to use your GitHub repository for continuous deployment](#task-3-configure-your-function-app-to-use-your-github-repository-for-continuous-deployment)
-    - [Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment](#task-4-finish-your-exportlicenseplates-function-code-and-push-changes-to-github-to-trigger-deployment)
+    - [Task 2: Configure your Function App to use your GitHub repository for continuous deployment](#task-2-configure-your-function-app-to-use-your-github-repository-for-continuous-deployment)
+    - [Task 3: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment](#task-3-finish-your-exportlicenseplates-function-code-and-push-changes-to-github-to-trigger-deployment)
   - [Exercise 8: Rerun the workflow and verify data export](#exercise-8-rerun-the-workflow-and-verify-data-export)
     - [Task 1: Run the Logic App](#task-1-run-the-logic-app)
     - [Task 2: View the exported CSV file](#task-2-view-the-exported-csv-file)
@@ -1249,7 +1242,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     ![The Commit menu item is highlighted.](media/vs-commit.png "Visual Studio")
 
-5. Type a new commit message, like "Lab code updates", then click **Commit Staged**.
+5. Type a new commit message, like "Lab code updates", then select **Commit Staged**.
 
     ![The commit message is entered and the Commit Staged button is highlighted.](media/vs-commit-message.png "Changes")
 
@@ -1269,7 +1262,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     ![On the GitHub Repository page for serverless-architecture-lab, on the Code tab, project files display.](media/github-repo-page.png 'GitHub Repository page')
 
-### Task 3: Configure your Function App to use your GitHub repository for continuous deployment
+### Task 2: Configure your Function App to use your GitHub repository for continuous deployment
 
 1. Open the Azure Function App you created whose name ends with **FunctionApp**, or the name you specified for the Function App containing the ProcessImage function.
 
@@ -1299,7 +1292,7 @@ In this exercise, configure your Function App that contains the ProcessImage fun
 
     ![The Deployment Center is shown with a pending build.](media/functionapp-dc.png 'Function App Deployment Center')
 
-### Task 4: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment
+### Task 3: Finish your ExportLicensePlates function code and push changes to GitHub to trigger deployment
 
 1. Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio.
 
