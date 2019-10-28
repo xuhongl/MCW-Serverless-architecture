@@ -38,6 +38,7 @@ At the end of the hands-on-lab, you will have confidence in designing, developin
 - Application Insights
 - Azure Cosmos DB
 - Logic Apps
+- Virtual Studios 2019 
 
 ## Azure solution
 
