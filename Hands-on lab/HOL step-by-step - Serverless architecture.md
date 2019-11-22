@@ -139,7 +139,7 @@ In this exercise, you will provision a blob storage account using the Hot tier, 
 
     a. For **Resource group**, select the **Use existing** radio button, and specify the **ServerlessArchitecture** resource group.
 
-    b. **Name**: enter a unique value for the storage account such as **tollboothstorageINIT** (ensure the green check mark appears).
+    b. **Name**: enter a unique value for the storage account such as **tollboothstorage** (must be all lower case; ensure the green check mark appears).
 
     c. Ensure the **Location** is the same region as the resource group.
 
@@ -589,7 +589,7 @@ There are a few components within the starter project that must be completed, ma
 
 > **Note:** Do **NOT** update the version of any NuGet package. This solution is built to function with the NuGet package versions currently defined within. Updating these packages to newer versions could cause unexpected results.
 
-1. Navigate to the **TollBooth** project (`/hands-on-lab/starts/TollBooth/TollBooth.sln`) using the Solution Explorer of Visual Studio.
+1. Navigate to the **TollBooth** project (`C:\ServerlessMCW\MCW-Serverless-architecture-master\hands-on-lab\starter\TollBooth\TollBooth.sln`) using the Solution Explorer of Visual Studio.
 
 2. From the Visual Studio **View** menu, select **Task List**.
 
